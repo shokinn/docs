@@ -5,6 +5,8 @@ stages:
 build:
   image: nightwire/docker-mkdocs:latest
   stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
   script:
     - cd $CI_PROJECT_DIR
     - mkdocs build -c
