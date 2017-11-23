@@ -1,0 +1,31 @@
+stages:
+  - build
+  - deploy
+
+build:
+  image: nightwire/docker-mkdocs:latest
+  stage: build
+  script:
+    - cd $CI_PROJECT_DIR
+    - mkdocs build -c
+  artifacts:
+    paths:
+      - site
+
+deploy-prod:
+  image: nightwire/deploy:latest
+  stage: deploy
+  dependencies:
+    - build-prod
+  before_script:
+    # Run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+    - /add-ssh-key.sh
+    # Add SSH host keys (target server)
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts'
+  script:
+    - rsync -avuz --chown=$DEPLOYMENT_USER:$DEPLOYMENT_GROUP --chmod=Du=rwx,Dg=rwx,Do=rx,Fu=rw,Fg=rw,Fo=r $CI_PROJECT_DIR/site/ $DEPLOYMENT_USER@$DEPLOYMENT_HOST:$DEPLOYMENT_PATH
+  only:
+    - master
