@@ -16,7 +16,7 @@ deploy-prod:
   image: nightwire/deploy:latest
   stage: deploy
   dependencies:
-    - build-prod
+    - build
   before_script:
     # Run ssh-agent (inside the build environment)
     - eval $(ssh-agent -s)
