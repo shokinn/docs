@@ -1,17 +1,8 @@
-# Welcome to MkDocs
+# Welcome my Docs
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+These docs are written in Markdown and generated to a Wiki with [MkDocs](http://mkdocs.org). The used theme is [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
-## Commands
+Here you can find the docs to my Projects.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Sincerely Yours,  
+Philip

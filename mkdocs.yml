@@ -24,7 +24,7 @@ theme:
   static_templates:
     - 404.html
   feature:
-    tabs: true
+    tabs: false
 
 # Options
 extra:
@@ -70,5 +70,8 @@ markdown_extensions:
 # Navigation
 pages:
   - 'Home': 'index.md'
+  - 'Hardware':
+    - 'Dell XPS 15 9560':
+      - 'Arch Linux': 'hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux.md'
   - 'Imprint': 'imprint.md'
   - 'License': 'license.md'
