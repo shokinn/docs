@@ -73,5 +73,9 @@ pages:
   - 'Hardware':
     - 'Dell XPS 15 9560':
       - 'Arch Linux': 'hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux.md'
+  - 'Software':
+    - 'PlayOnLinux': 'software/playonlinux.md'
+  - 'Knowledge base':
+    - 'How to change to TTYn': 'kb/change_tty.md'
   - 'Imprint': 'imprint.md'
   - 'License': 'license.md'
