@@ -6,6 +6,18 @@ This Guide is not sponsored by QuickBox nor by Perfect Privacy.
 
 This Guide also requires that the server is already installed and access via SSH is working.
 
+## Mono
+
+We want to use the latest version of mono. So we add the official mono repositories.
+
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+sudo apt install apt-transport-https
+echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update && \
+sudo apt -y full-upgrade
+```
+
 ## QuickBox
 
 [QuickBox](https://quickbox.io/) is an easy to setup seedbox 'script', which also allows you to add several services (e.g. [Sonarr](https://sonarr.tv/) and [Radarr](https://radarr.video/)) just by clicking 'install' at the webinterface.
@@ -236,7 +248,8 @@ First we have to create the IPsets which want to use. In our case we need 2 of t
 
 ```shell
 ipset create perfect_privacy hash:ip family inet; \
-ipset create letsencrypt hash:ip family inet
+ipset create letsencrypt hash:ip family inet; \
+ipset create storagebox hash:ip family inet
 ```
 
 Afterwards we have to save our rules because they only configured in RAM. We will also write a little script which reloads the rules at startup.
@@ -296,6 +309,7 @@ cat > /etc/dnsmasq.d/02_ipsets.conf <<-EOF
 #ipset=/yahoo.com/google.com/vpn,search
 ipset=/perfect-privacy.com/perfect_privacy
 ipset=/letsencrypt.org/letsencrypt
+ipset=/your-storagebox.de/storagebox
 EOF
 ```
 
@@ -327,7 +341,7 @@ rm -f ./linux_udp.tar.gz && \
 chown root:root ./* && \
 chmod 400 password.txt && \
 for file in ./*.ovpn; do sed -i -e 's/^auth-user-pass.*$/auth-user-pass password.txt/g' $file; done && \
-sed -i -e '/echo -n \"\$R\" \| \/sbin\/resolvconf -a \"\${dev}\.openvpn\"/a \ \ \ \ \ \ \ \ \/etc\/openvpn\/patch_ports\.sh' /etc/openvpn/update-resolv-confsed
+sed -i -e '/echo -n \"\$R\" \| \/sbin\/resolvconf -a \"\${dev}\.openvpn\"/a \ \ \ \ \ \ \ \ \/etc\/openvpn\/patch_ports\.sh' /etc/openvpn/update-resolv-conf
 ```
 
 Afterwards link the config which you want to use to `.conf` (e.g. `Rotterdam.ovpn` to `Rotterdam.conf`) and modify the defaults file for OpenVPN to start the VPN connection automatically.  
@@ -348,6 +362,13 @@ systemctl daemon-reload
 
 Now we are adding a script to modify the torrent client ports.  
 `/etc/openvpn/patch_ports.sh`:
+
+```shell
+touch /etc/openvpn/patch_ports.sh && \
+chmod +x /etc/openvpn/patch_ports.sh; \
+vim /etc/openvpn/patch_ports.sh;
+```
+
 ```shell
 #!/bin/bash
 vpn_tun_dev="tun0"
@@ -355,6 +376,12 @@ user="dedibox"
 
 # Get VPN internal IP Address
 vpn_int_ip=$(ip -f inet a s $vpn_tun_dev | grep "inet\b" | awk '{print $2}' | cut -d'/' -f1)
+
+# Check if tunnel device is available
+if [[ -z $vpn_int_ip ]]; then
+        echo "Shit there is no $vpn_tun_dev interface"
+        exit 1
+fi
 
 # Generate ports
 blck3_ip=$(echo "$vpn_int_ip" | cut -f3 -d'.')
@@ -372,11 +399,11 @@ sed -i -E "s/^network\.port_range\.set = [0-9]{1,5}-[0-9]{1,5}$/network\.port_ra
 systemctl restart rtorrent@dedibox.service
 
 # Change Deluge incoming port
-systemctl start deluged@dedibox.service
+systemctl stop deluged@dedibox.service
 deluge_line=$(grep -n 'listen_ports' /home/$user/.config/deluge/core.conf | cut -d":" -f1)
 sed -i "$(($deluge_line+1))s/.*/    $vpn_port2,/" /home/$user/.config/deluge/core.conf
 sed -i "$(($deluge_line+2))s/.*/    $vpn_port2/" /home/$user/.config/deluge/core.conf
-systemctl stop deluged@dedibox.service
+systemctl start deluged@dedibox.service
 ```
 
 ## iptables
@@ -395,6 +422,10 @@ iptables is a userpace program to configure the firewall.
 	iptables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 	iptables -t filter -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED,RELATED -j ACCEPT
 
+	# DROP storage box traffic via tun0
+	iptables -t filter -A OUTPUT -o tun0 -m set --match-set storagebox dst -j DROP
+	iptables -t filter -A INPUT -i tun0 -m set --match-set storagebox src -j DROP
+
 	# Allow DNS outgoing
 	iptables -t filter -A INPUT -i eth0 -p udp --sport 53 -m state --state ESTABLISHED,RELATED -j ACCEPT
 	iptables -t filter -A OUTPUT -o eth0 -p udp --dport 53 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
@@ -405,13 +436,19 @@ iptables is a userpace program to configure the firewall.
 	iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 148,149,150,151,1148,1149,1150,1151 -m state --state ESTABLISHED,RELATED -j ACCEPT
 	iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 300,301,142,152,1142,1152 -m state --state ESTABLISHED,RELATED -j ACCEPT
 
+	# Allow web interface SeedBox incoming
+	iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443,10354 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+	iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --sports 80,443,10354 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+	# Allow StorageBox outgoing
+	iptables -t filter -A OUTPUT -o eth0 -p udp -m multiport --dports 137,138 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+	iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --dports 139,445 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+	iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 137,138 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT
+	iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 139,445 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT
+
 	# Allow traffic through OpenVPN
 	iptables -t filter -A OUTPUT -o tun0 -j ACCEPT
 	iptables -t filter -A INPUT -i tun0 -j ACCEPT
-
-	# Allow web interface SeedBox incoming
-	iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443,10637 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-	iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --sports 80,443,10637 -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 	# Policy DROP (everything else)
 	iptables -t filter -P OUTPUT DROP
@@ -430,10 +467,14 @@ iptables -t filter -A OUTPUT -o eth0 -p udp -m set --match-set perfect_privacy d
 iptables -t filter -A OUTPUT -o eth0 -p tcp -m set --match-set perfect_privacy dst -m multiport --dports 300,301,142,152,1142,1152 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 148,149,150,151,1148,1149,1150,1151 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
 iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 300,301,142,152,1142,1152 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443,10354 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --sports 80,443,10354 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p udp -m multiport --dports 137,138 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --dports 139,445 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 137,138 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 139,445 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT; \
 iptables -t filter -A OUTPUT -o tun0 -j ACCEPT; \
 iptables -t filter -A INPUT -i tun0 -j ACCEPT; \
-iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443,10637 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
-iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --sports 80,443,10637 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
 iptables -t filter -P OUTPUT DROP; \
 iptables -t filter -P INPUT DROP
 ```
@@ -454,10 +495,28 @@ echo "/sbin/iptables-restore < /etc/iptables.up.rules" >> /etc/network/if-pre-up
 Add the following at the end of the block for the `eth0` device.  
 Replace `1.2.3.4` with the public IP from your server:  
 ```shell
+vim /etc/network/interfaces
+```
+```shell
 post-up ip route add 172.31.1.1/32 dev eth0 proto kernel scope link src 1.2.3.4 table 1
 post-up ip route add default via 172.31.1.1 table 1
+post-up ip route add 195.201.107.35/32 via 172.31.1.1 dev eth0
 post-up ip rule add table 1 from 1.2.3.4
 post-up ip rule add fwmark 1 table 1
+```
+
+Afterwards apply the routes/rules:  
+```shell
+clear; \
+ip a; \
+read -p 'Local interface name (e.g. eth0): ' intname && \
+intip=$(ip -f inet a s $intname | grep "inet\b" | awk '{print $2}' | cut -d'/' -f1) && \
+ip route add 172.31.1.1/32 dev eth0 proto kernel scope link src $intip table 1 && \
+ip route add default via 172.31.1.1 table 1 && \
+storageboxip=$(dig +noall +answer +nocomments +short u177197.your-storagebox.de) && \
+ip route add $storageboxip/32 via 172.31.1.1 dev eth0 && \
+ip rule add table 1 from $intip && \
+ip rule add fwmark 1 table 1
 ```
 
 ## Mount storage box
@@ -475,7 +534,8 @@ chmod 444 /mnt/.nas
 
 Add a group for storage access and nice the group id:  
 ```shell
-addgroup storage
+addgroup storage && \
+usermod -aG storage dedibox
 ```
 
 Add mount to fstab:  
@@ -497,9 +557,15 @@ cat << EOF > /root/mount.sh && chmod 700 /root/mount.sh
 #!/bin/bash
 
 # Check if script runs as root
-if [ $UID == 0 ]; then
+if [ $UID != 0 ]; then
 	echo "You have to run this script as root."
 	exit 1
+fi
+
+# Add route to storage box
+storageboxip=$(dig +noall +answer +nocomments +short u177197.your-storagebox.de)
+if [[ -z $(ip route | grep "$storageboxip via 172.31.1.1 dev eth0") ]]; then
+	ip route add $storageboxip/32 via 172.31.1.1 dev eth0
 fi
 
 # Mount all unmounted mounts
@@ -507,6 +573,7 @@ mount -a
 
 # Mount Crypto
 read -sp 'rclone config password: ' RCLONE_CONFIG_PASS
+echo ""
 export RCLONE_CONFIG_PASS
 screen -dmS rclone rclone mount --ask-password=false --uid $muid --gid $mgid --umask 002 --allow-other storage_box_crypt: /mnt/nas
 unset RCLONE_CONFIG_PASS
