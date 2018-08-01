@@ -142,7 +142,7 @@ Back up the existing `/etc/pacman.d/mirrorlist`:
 # cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 ```
 
-Edit `/etc/pacman.d/mirrorlist.backup` and uncomment mirrors for testing with `rankmirrors`.  
+Edit `/etc/pacman.d/mirrorlist.bak` and uncomment mirrors for testing with `rankmirrors`.  
 Run the following `sed` line to uncomment every mirror:  
 ```shell
 # sed -i 's/^Server/#Server/' /etc/pacman.d/mirrorlist.bak
@@ -179,9 +179,9 @@ Add the following at the end of the `/mnt/etc/fstab` configuration.
 /esp/EFI			/boot/EFI	none	defaults,bind 	0	0
 ```
 
-#### Modify `/etc/crypttab`
+#### Modify `/mnt/etc/crypttab`
 
-Add these at the end to the `/etc/crypttab`.  
+Add these at the end to the `/mnt/etc/crypttab`.  
 ```
 swap	/dev/mapper/MyVol-swap	/dev/urandom		swap,cipher=aes-xts-plain64,size=256
 tmp		/dev/mapper/MyVol-tmp	/dev/urandom		tmp,cipher=aes-xts-plain64,size=256
