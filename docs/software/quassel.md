@@ -344,6 +344,70 @@ sudo systemctl restart quasselcore
 
 ### Setup automatic certificate renew
 
+Updated `quasselcore` service with PartOf `quasselcert` service:  
+```shell
+cat << EOF | sudo tee /etc/systemd/system/quasselcore.service
+[Unit]
+Description=distributed IRC client using a central core component
+Documentation=man:quasselcore(1)
+Wants=network-online.target postgresql.service
+After=network-online.target postgresql.service
+PartOf=quasselcert.service
+
+[Service]
+User=quasselcore
+Group=quassel
+WorkingDirectory=/var/lib/quassel
+Environment="DATADIR=/var/lib/quassel" "LOGFILE=/var/log/quassel/core.log" "LOGLEVEL=Info" "PORT=4242" "LISTEN=::,0.0.0.0"
+EnvironmentFile=-/etc/default/quasselcore
+ExecStart=/usr/bin/quasselcore --configdir=${DATADIR} --logfile=${LOGFILE} --loglevel=${LOGLEVEL} --port=${PORT} --listen=${LISTEN}
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+`quasselcert.path`:  
+```shell
+cat << EOF | sudo tee /etc/systemd/system/quasselcert.path
+[Unit]
+Description=Triggers the recreation of quassel certificate at certificate renewal 
+
+[Path]
+PathChanged=/etc/letsencrypt/live/quassel.mischaufen.de/privkey.pem
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=system-update.target
+EOF
+```
+
+`quasselcert.service`:  
+```shell
+cat << EOF | sudo tee /etc/systemd/system/quasselcert.service
+[Unit]
+Description=Recreation of quassel certificate at certificate renewal
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/rm -f /var/lib/quassel/quasselCert.pem
+ExecStart=/bin/bash -c 'cat /etc/letsencrypt/live/quassel.mischaufen.de/{fullchain,privkey}.pem > /var/lib/quassel/quasselCert.pem && chown quasselcore:quassel /var/lib/quassel/quasselCert.pem && chmod 600 /var/lib/quassel/quasselCert.pem'
+EOF
+```
+
+Reload all daemons:  
+```shell
+sudo systemctl daemon-reload
+```
+
+Add cronjob for renewing cetificates.
+
+`sudo crontab -e`:  
+```
+0 */12 * * * /usr/local/bin/certbot renew
+```
+
 https://troubles.noblogs.org/post/2018/04/24/quassel-and-lets-encrypt/
 
 systemd fore restart dependency after run (post)!
