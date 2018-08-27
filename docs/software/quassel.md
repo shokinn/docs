@@ -344,70 +344,279 @@ sudo systemctl restart quasselcore
 
 ### Setup automatic certificate renew
 
-Updated `quasselcore` service with PartOf `quasselcert` service:  
+Add a deploy hook script to `/srv/certbot`:  
 ```shell
-cat << EOF | sudo tee /etc/systemd/system/quasselcore.service
-[Unit]
-Description=distributed IRC client using a central core component
-Documentation=man:quasselcore(1)
-Wants=network-online.target postgresql.service
-After=network-online.target postgresql.service
-PartOf=quasselcert.service
+deamon='quasselcore.service'; \
+target_domain='quassel.mischaufen.de'; \
+sudo mkdir -p /srv/cerbot && \
+sudo chmod 655 /srv/cerbot && \
+cat << EOF | sed 's/\\t/\t/g' | sudo tee /srv/cerbot/deploy_hook.sh && \
+sudo chmod 744 /srv/cerbot/deploy_hook.sh
+#!/bin/bash
 
-[Service]
-User=quasselcore
-Group=quassel
-WorkingDirectory=/var/lib/quassel
-Environment="DATADIR=/var/lib/quassel" "LOGFILE=/var/log/quassel/core.log" "LOGLEVEL=Info" "PORT=4242" "LISTEN=::,0.0.0.0"
-EnvironmentFile=-/etc/default/quasselcore
-ExecStart=/usr/bin/quasselcore --configdir=${DATADIR} --logfile=${LOGFILE} --loglevel=${LOGLEVEL} --port=${PORT} --listen=${LISTEN}
-Restart=on-failure
+set -e
 
-[Install]
-WantedBy=multi-user.target
+for domain in \$RENEWED_DOMAINS; do
+\t\tcase \$domain in
+\t\t$target_domain)
+\t\t\tdaemon_cert_root='/var/lib/quassel'
+
+\t\t\t# Make sure the certificate and private key files are
+\t\t\t# never world readable, even just for an instant while
+\t\t\t# we're copying them into daemon_cert_root.
+\t\t\tumask 177
+
+\t\t\trm \$daemon_cert_root/quasselCert.pem
+\t\t\tcat \$RENEWED_LINEAGE/{fullchain,privkey}.pem >> "\$daemon_cert_root/quasselCert.pem"
+
+\t\t\t# Apply the proper file ownership and permissions for
+\t\t\t# the $deamon daemon to read its certificate and key.
+\t\t\tchown quasselcore:quassel "\$daemon_cert_root/quasselCert.pem"
+\t\t\tchmod 400 \$daemon_cert_root/quasselCert.pem
+
+\t\t\tsystemctl restart $deamon >/dev/null
+\t\t\t;;
+\t\tesac
+done
 EOF
-```
-
-`quasselcert.path`:  
-```shell
-cat << EOF | sudo tee /etc/systemd/system/quasselcert.path
-[Unit]
-Description=Triggers the recreation of quassel certificate at certificate renewal 
-
-[Path]
-PathChanged=/etc/letsencrypt/live/quassel.mischaufen.de/privkey.pem
-
-[Install]
-WantedBy=multi-user.target
-WantedBy=system-update.target
-EOF
-```
-
-`quasselcert.service`:  
-```shell
-cat << EOF | sudo tee /etc/systemd/system/quasselcert.service
-[Unit]
-Description=Recreation of quassel certificate at certificate renewal
-
-[Service]
-Type=oneshot
-ExecStartPre=/bin/rm -f /var/lib/quassel/quasselCert.pem
-ExecStart=/bin/bash -c 'cat /etc/letsencrypt/live/quassel.mischaufen.de/{fullchain,privkey}.pem > /var/lib/quassel/quasselCert.pem && chown quasselcore:quassel /var/lib/quassel/quasselCert.pem && chmod 600 /var/lib/quassel/quasselCert.pem'
-EOF
-```
-
-Reload all daemons:  
-```shell
-sudo systemctl daemon-reload
 ```
 
 Add cronjob for renewing cetificates.
 
 `sudo crontab -e`:  
 ```
-0 */12 * * * /usr/local/bin/certbot renew
+0 */12 * * * /usr/local/bin/certbot renew --deploy-hook /srv/cerbot/deploy_hook.sh
 ```
 
-https://troubles.noblogs.org/post/2018/04/24/quassel-and-lets-encrypt/
+### Add user management scripts
 
-systemd fore restart dependency after run (post)!
+#### Add user script
+
+`quassel_add.sh`:  
+```shell
+cat << EOF | sudo tee /usr/local/sbin/quassel_add && \
+sudo chmod 500 /usr/local/sbin/quassel_add
+#!/bin/sh
+
+sudo -u quasselcore quasselcore --configdir=/var/lib/quassel --add-user
+EOF
+```
+
+`quassel_change_pw.sh`:  
+```shell
+cat << EOF | sudo tee /usr/local/sbin/quassel_change_pw && \
+sudo chmod 500 /usr/local/sbin/quassel_change_pw
+#!/bin/sh
+
+die () {
+    echo >&2 "\$@"
+    exit 1
+}
+
+[ "\$#" -eq 1 ] || die "Username required!\n\nRun:\t'\$0 <username>'\ne.g.:\t'\$0 admin'"
+
+systemctl stop quasselcore.service
+sudo -u quasselcore quasselcore --configdir=/var/lib/quassel --change-userpass=\$1
+systemctl start quasselcore.service
+EOF
+```
+
+`quassel_del.sh`:  
+```shell
+if ! [ -x "$(command -v sqlite3)" ]; then sudo apt install -y sqlite3; fi && \
+cat << EOF | sudo tee /usr/local/sbin/quassel_del && \
+sudo chmod 500 /usr/local/sbin/quassel_del
+#!/bin/sh
+#
+# Delete Quasselcore users from your SQLite database
+#
+
+exeq()
+{
+    # Execute SQL Query
+    result=\$(sqlite3 "\${QUASSELDB}" "\${1}")
+    echo "\${result}"
+}
+
+usage()
+{
+    echo "Usage: \${SCRIPT} username [database]"
+}
+
+print_users()
+{
+    sqlite3 "\${QUASSELDB}" "SELECT quasseluser.userid, quasseluser.username FROM quasseluser ORDER BY quasseluser.userid;"
+}
+
+# Main body
+
+SCRIPT="\${0}"
+QUASSELDB=""
+USER=""
+
+if [ -z "\${2}" ] ; then
+    # No file supplied.
+    QUASSELDB="/var/lib/quassel/quassel-storage.sqlite"
+else
+    QUASSELDB="\${2}"
+fi
+
+if [ -z "\${1}" ] ; then
+    echo "No user supplied."
+    echo "Pick one: "
+    print_users
+    usage
+    exit 1
+else
+    USER="${1}"
+fi
+
+if [ -e "\${QUASSELDB}" ] ; then
+    echo "SELECTED DB: \${QUASSELDB}"
+else
+    echo "SELECTED DB '\${QUASSELDB}' does not exist."
+    usage
+    exit 2
+fi
+
+if [ -z \$(exeq "SELECT quasseluser.username FROM quasseluser WHERE username = '\${USER}';") ] ; then
+    echo "SELECTED USER '\${USER}' does not exist."
+    print_users
+    usage
+    exit 3
+else
+    echo "SELECTED USER: \${USER}"
+fi
+
+# Sadly SQLITE does not allow DELETE statements that JOIN tables.
+# All queries are written with a subquery.
+# Contact me if you know a better way.
+
+backlogq="DELETE
+FROM backlog
+WHERE backlog.bufferid in (
+    SELECT bufferid
+    FROM buffer, quasseluser
+    WHERE buffer.userid = quasseluser.userid
+    AND quasseluser.username = '\${USER}'
+);"
+
+bufferq="DELETE
+FROM buffer
+WHERE buffer.userid in (
+    SELECT userid
+    FROM quasseluser
+    WHERE quasseluser.username = '\${USER}'
+);"
+
+ircserverq="DELETE
+FROM ircserver
+WHERE ircserver.userid in (
+    SELECT userid
+    FROM quasseluser
+    WHERE quasseluser.username = '\${USER}'
+);"
+
+identity_nickq="DELETE
+FROM identity_nick
+WHERE identity_nick.identityid in (
+    SELECT identityid
+    FROM quasseluser, identity
+    WHERE quasseluser.userid = identity.userid
+    AND quasseluser.username = '\${USER}'
+);"
+
+identityq="DELETE
+FROM identity
+WHERE identity.userid in (
+    SELECT userid
+    FROM quasseluser
+    WHERE quasseluser.username = '\${USER}'
+);"
+
+networkq="DELETE
+FROM network
+WHERE network.userid in (
+    SELECT userid
+    FROM quasseluser
+    WHERE quasseluser.username = '\${USER}'
+);"
+
+usersettingq="DELETE
+FROM user_setting
+WHERE user_setting.userid in (
+    SELECT userid
+    FROM quasseluser
+    WHERE quasseluser.username = '\${USER}'
+);"
+
+quasseluserq="DELETE
+FROM quasseluser
+WHERE quasseluser.username = '\${USER}'
+;"
+
+
+exeq "\${backlogq}"
+exeq "\${bufferq}"
+exeq "\${ircserverq}"
+exeq "\${identity_nickq}"
+exeq "\${identityq}"
+exeq "\${networkq}"
+exeq "\${usersettingq}"
+exeq "\${quasseluserq}"
+EOF
+```
+
+## Security
+
+### iptables
+
+??? Tip "Explanation iptables rules"
+    ```shell
+    # Allow loopback
+    iptables -A OUTPUT -o lo -j ACCEPT
+    iptables -A INPUT -i lo -j ACCEPT
+
+    # Allow SSH incoming
+    iptables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+    # Allow quassel incoming
+    iptables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+    # Allow ESTABLISHED and RELATED connection (important for outgoing connections!)
+    iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+    # Policy DROP INPUT on
+    iptables -P INPUT DROP;
+
+    # Policy ACCEPT OUTPUT
+    iptables -P OUTPUT ACCEPT
+    ```
+
+Set up needed iptables rules:  
+```shell
+sudo iptables -A OUTPUT -o lo -j ACCEPT; \
+sudo iptables -A INPUT -i lo -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -P INPUT DROP; \
+sudo iptables -P OUTPUT ACCEPT
+```
+Set up needed ip6tables rules:  
+```shell
+sudo ip6tables -A OUTPUT -o lo -j ACCEPT; \
+sudo ip6tables -A INPUT -i lo -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -P INPUT DROP; \
+sudo ip6tables -P OUTPUT ACCEPT
+```
+
+Persist iptables rules:  
+```shell
+sudo apt install -y iptables-persistent && \
+sudo netfilter-persistent save && \
+sudo netfilter-persistent reload
+```
