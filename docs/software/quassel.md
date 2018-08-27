@@ -600,6 +600,7 @@ sudo iptables -A INPUT -i lo -j ACCEPT; \
 sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i eth0 -p icmp -j ACCEPT; \
 sudo iptables -P INPUT DROP; \
 sudo iptables -P OUTPUT ACCEPT
 ```
@@ -610,6 +611,7 @@ sudo ip6tables -A INPUT -i lo -j ACCEPT; \
 sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo ip6tables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i eth0 -p ipv6-icmp -j ACCEPT; \
 sudo ip6tables -P INPUT DROP; \
 sudo ip6tables -P OUTPUT ACCEPT
 ```
