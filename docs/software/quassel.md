@@ -357,26 +357,26 @@ sudo chmod 744 /srv/cerbot/deploy_hook.sh
 set -e
 
 for domain in \$RENEWED_DOMAINS; do
-\t\tcase \$domain in
-\t\t$target_domain)
-\t\t\tdaemon_cert_root='/var/lib/quassel'
+\tcase \$domain in
+\t$target_domain)
+\t\tdaemon_cert_root='/var/lib/quassel'
 
-\t\t\t# Make sure the certificate and private key files are
-\t\t\t# never world readable, even just for an instant while
-\t\t\t# we're copying them into daemon_cert_root.
-\t\t\tumask 177
+\t\t# Make sure the certificate and private key files are
+\t\t# never world readable, even just for an instant while
+\t\t# we're copying them into daemon_cert_root.
+\t\tumask 177
 
-\t\t\trm \$daemon_cert_root/quasselCert.pem
-\t\t\tcat \$RENEWED_LINEAGE/{fullchain,privkey}.pem >> "\$daemon_cert_root/quasselCert.pem"
+\t\trm \$daemon_cert_root/quasselCert.pem
+\t\tcat \$RENEWED_LINEAGE/{fullchain,privkey}.pem >> "\$daemon_cert_root/quasselCert.pem"
 
-\t\t\t# Apply the proper file ownership and permissions for
-\t\t\t# the $deamon daemon to read its certificate and key.
-\t\t\tchown quasselcore:quassel "\$daemon_cert_root/quasselCert.pem"
-\t\t\tchmod 400 \$daemon_cert_root/quasselCert.pem
+\t\t# Apply the proper file ownership and permissions for
+\t\t# the $deamon daemon to read its certificate and key.
+\t\tchown quasselcore:quassel "\$daemon_cert_root/quasselCert.pem"
+\t\tchmod 400 \$daemon_cert_root/quasselCert.pem
 
-\t\t\tsystemctl restart $deamon >/dev/null
-\t\t\t;;
-\t\tesac
+\t\tsystemctl restart $deamon >/dev/null
+\t\t;;
+\tesac
 done
 EOF
 ```
