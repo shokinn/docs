@@ -307,7 +307,6 @@ tmux \
 htop
 ```
 
-
 ## quassel core
 
 ### Pre requirements
@@ -383,7 +382,11 @@ EOF
 
 Add cronjob for renewing cetificates.
 
-`sudo crontab -e`:  
+```shell
+sudo crontab -e
+```
+
+Add at the end of the file:  
 ```
 0 */12 * * * /usr/local/bin/certbot renew --deploy-hook /srv/cerbot/deploy_hook.sh
 ```
@@ -565,6 +568,326 @@ exeq "\${networkq}"
 exeq "\${usersettingq}"
 exeq "\${quasseluserq}"
 EOF
+```
+
+## Backup
+
+### Pre requirements
+
+Install rclone:  
+```shell
+curl https://rclone.org/install.sh | sudo bash
+```
+
+Configure rclone:  
+```shell
+sudo -H rclone config
+```
+
+Config log:  
+```
+2018/08/28 14:23:13 NOTICE: Config file "/root/.config/rclone/rclone.conf" not found - using defaults
+No remotes found - make a new one
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q> n
+name> gteamdrive_quassel
+Type of storage to configure.
+Choose a number from below, or type in your own value
+ 1 / Alias for a existing remote
+   \ "alias"
+ 2 / Amazon Drive
+   \ "amazon cloud drive"
+ 3 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ "s3"
+ 4 / Backblaze B2
+   \ "b2"
+ 5 / Box
+   \ "box"
+ 6 / Cache a remote
+   \ "cache"
+ 7 / Dropbox
+   \ "dropbox"
+ 8 / Encrypt/Decrypt a remote
+   \ "crypt"
+ 9 / FTP Connection
+   \ "ftp"
+10 / Google Cloud Storage (this is not Google Drive)
+   \ "google cloud storage"
+11 / Google Drive
+   \ "drive"
+12 / Hubic
+   \ "hubic"
+13 / Local Disk
+   \ "local"
+14 / Mega
+   \ "mega"
+15 / Microsoft Azure Blob Storage
+   \ "azureblob"
+16 / Microsoft OneDrive
+   \ "onedrive"
+17 / OpenDrive
+   \ "opendrive"
+18 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ "swift"
+19 / Pcloud
+   \ "pcloud"
+20 / QingCloud Object Storage
+   \ "qingstor"
+21 / SSH/SFTP Connection
+   \ "sftp"
+22 / Webdav
+   \ "webdav"
+23 / Yandex Disk
+   \ "yandex"
+24 / http Connection
+   \ "http"
+Storage> 11
+Google Application Client Id - leave blank normally.
+client_id> ***
+Google Application Client Secret - leave blank normally.
+client_secret> ***
+Scope that rclone should use when requesting access from drive.
+Choose a number from below, or type in your own value
+ 1 / Full access all files, excluding Application Data Folder.
+   \ "drive"
+ 2 / Read-only access to file metadata and file contents.
+   \ "drive.readonly"
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ "drive.file"
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ "drive.appfolder"
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ "drive.metadata.readonly"
+scope> 1
+ID of the root folder - leave blank normally.  Fill in to access "Computers" folders. (see docs).
+root_folder_id>
+Service Account Credentials JSON file path  - leave blank normally.
+Needed only if you want use SA instead of interactive login.
+service_account_file>
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine or Y didn't work
+y) Yes
+n) No
+y/n> n
+If your browser doesn't open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=***
+Log in and authorize rclone for access
+Enter verification code> ***
+Configure this as a team drive?
+y) Yes
+n) No
+y/n> y
+Fetching team drive list...
+Choose a number from below, or type in your own value
+ 1 / ***
+   \ "***"
+ 2 / ***
+   \ "***"
+ 3 / quassel
+   \ "***"
+Enter a Team Drive ID> 3
+--------------------
+[gteamdrive_quassel]
+type = drive
+client_id = ***
+client_secret = ***
+scope = drive
+root_folder_id =
+service_account_file =
+token = ***
+team_drive = <drive id from quassel>
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d> y
+Current remotes:
+
+Name                 Type
+====                 ====
+gteamdrive_quassel   drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q> n
+name> quassel_crypt
+Type of storage to configure.
+Choose a number from below, or type in your own value
+ 1 / Alias for a existing remote
+   \ "alias"
+ 2 / Amazon Drive
+   \ "amazon cloud drive"
+ 3 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ "s3"
+ 4 / Backblaze B2
+   \ "b2"
+ 5 / Box
+   \ "box"
+ 6 / Cache a remote
+   \ "cache"
+ 7 / Dropbox
+   \ "dropbox"
+ 8 / Encrypt/Decrypt a remote
+   \ "crypt"
+ 9 / FTP Connection
+   \ "ftp"
+10 / Google Cloud Storage (this is not Google Drive)
+   \ "google cloud storage"
+11 / Google Drive
+   \ "drive"
+12 / Hubic
+   \ "hubic"
+13 / Local Disk
+   \ "local"
+14 / Mega
+   \ "mega"
+15 / Microsoft Azure Blob Storage
+   \ "azureblob"
+16 / Microsoft OneDrive
+   \ "onedrive"
+17 / OpenDrive
+   \ "opendrive"
+18 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ "swift"
+19 / Pcloud
+   \ "pcloud"
+20 / QingCloud Object Storage
+   \ "qingstor"
+21 / SSH/SFTP Connection
+   \ "sftp"
+22 / Webdav
+   \ "webdav"
+23 / Yandex Disk
+   \ "yandex"
+24 / http Connection
+   \ "http"
+Storage> 8
+Remote to encrypt/decrypt.
+Normally should contain a ':' and a path, eg "myremote:path/to/dir",
+"myremote:bucket" or maybe "myremote:" (not recommended).
+remote> gteamdrive_quassel:/
+How to encrypt the filenames.
+Choose a number from below, or type in your own value
+ 1 / Don't encrypt the file names.  Adds a ".bin" extension only.
+   \ "off"
+ 2 / Encrypt the filenames see the docs for the details.
+   \ "standard"
+ 3 / Very simple filename obfuscation.
+   \ "obfuscate"
+filename_encryption> 2
+Option to either encrypt directory names or leave them intact.
+Choose a number from below, or type in your own value
+ 1 / Encrypt directory names.
+   \ "true"
+ 2 / Don't encrypt directory names, leave them intact.
+   \ "false"
+directory_name_encryption> 1
+Password or pass phrase for encryption.
+y) Yes type in my own password
+g) Generate random password
+y/g> g
+Password strength in bits.
+64 is just about memorable
+128 is secure
+1024 is the maximum
+Bits> 1024
+Your password is: ***
+Use this password?
+y) Yes
+n) No
+y/n> y
+Password or pass phrase for salt. Optional but recommended.
+Should be different to the previous password.
+y) Yes type in my own password
+g) Generate random password
+n) No leave this optional password blank
+y/g/n> g
+Password strength in bits.
+64 is just about memorable
+128 is secure
+1024 is the maximum
+Bits> 1024
+Your password is: ***
+Use this password?
+y) Yes
+n) No
+y/n> y
+Remote config
+--------------------
+[quassel_crypt]
+type = crypt
+remote = gteamdrive_quassel:/
+filename_encryption = standard
+directory_name_encryption = true
+password = *** ENCRYPTED ***
+password2 = *** ENCRYPTED ***
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d> y
+Current remotes:
+
+Name                 Type
+====                 ====
+gteamdrive_quassel   drive
+quassel_crypt        crypt
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q> q
+```
+
+### Backup script
+
+```shell
+cat << EOF | sudo tee /usr/local/sbin/quassel_backup && \
+sudo chmod 500 /usr/local/sbin/quassel_backup
+#!/bin/bash
+
+user='quasselcore'
+database='/var/lib/quassel/quassel-storage.sqlite'
+backup_target='/tmp'
+backup_name='quassel'
+date=\$(date +"%Y-%m-%d")
+
+# Backup database
+sudo -u \${user} sqlite3 \${database} ".backup \${backup_target}/\${backup_name}_\${date}.sqlite"
+
+# Upload database to google
+rclone copy \${backup_target}/\${backup_name}_\${date}.sqlite quassel_crypt:
+
+# remove local backup file
+rm \${backup_target}/\${backup_name}_\${date}.sqlite
+EOF
+```
+
+### Cronjob
+
+```shell
+sudo crontab -e
+```
+
+Add at the end of the file:  
+```
+0 5 * * * /usr/local/sbin/quassel_backup
 ```
 
 ## Security
