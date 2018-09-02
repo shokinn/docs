@@ -866,7 +866,7 @@ user='quasselcore'
 database='/var/lib/quassel/quassel-storage.sqlite'
 backup_target='/tmp'
 backup_name='quassel'
-date=\$(date +"%Y-%m-%d")
+date=\$(date +"%Y-%m-%d_%H:%m")
 
 # Backup database
 sudo -u \${user} sqlite3 \${database} ".backup \${backup_target}/\${backup_name}_\${date}.sqlite"
@@ -887,7 +887,7 @@ sudo crontab -e
 
 Add at the end of the file:  
 ```
-0 5 * * * /usr/local/sbin/quassel_backup
+@hourly /usr/local/sbin/quassel_backup
 ```
 
 ## Security
