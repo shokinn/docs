@@ -2,6 +2,8 @@
 
 OS: Ubuntu 18.04 LTS
 
+Preinstalled with lvm and LUKS encryption.
+
 ## Initial Server setup
 
 ### Update System
@@ -623,7 +625,7 @@ AssertPathIsDirectory=/mnt/cifs
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rclone mount --config /var/www/.conf/rclone/rclone.conf --uid $(id -u www-data) --gid $(id -g www-data) --umask 002 --allow-other cifs_crypt: /mnt/cifs
+ExecStart=/usr/bin/rclone mount --config /var/www/.conf/rclone/rclone.conf --uid $(id -u www-data) --gid $(id -g www-data) --umask 007 --allow-other cifs_crypt: /mnt/cifs
 ExecStop=/bin/fusermount -uz /mnt/cifs
 Restart=on-abort
 RestartSec=5
@@ -648,27 +650,47 @@ sudo systemctl start rclone.service
 
 ## Install Nextcloud
 
-### Pre requirements
+### Nginx/certnpt
 
 Install nginx:  
 ```shell
 sudo apt update && \
-sudo apt install nginx -y
+sudo apt install -y \
+nginx \
+python3 \
+python3-pip && \
+sudo -H pip3 install \
+certbot \
+certbot-nginx
 ```
 
-Install php7.1:  
+### PHP 7.2
+
+Install php7.2:  
 ```shell
 sudo apt install software-properties-common -y && \
 sudo add-apt-repository ppa:ondrej/php -y && \
-sudo apt install php7.1-fpm php7.1-mcrypt php7.1-curl php7.1-cli php7.1-mysql php7.1-gd php7.1-iconv php7.1-xsl php7.1-json php7.1-intl php-pear php-imagick php7.1-dev php7.1-common php7.1-mbstring php7.1-zip php7.1-soap -y
+sudo apt install php7.2-fpm php7.2-curl php7.2-cli php7.2-mysql php7.2-gd php7.2-iconv php7.2-xsl php7.2-json php7.2-intl php-pear php-imagick php7.2-dev php7.2-common php7.2-mbstring php7.2-zip php7.2-soap php-apcu -y
+```
+
+Restart php-fpm and nginx:  
+```shell
+sudo systemctl restart php7.2-fpm.service nginx.service
 ```
 
 Modify php.ini's:  
 ```shell
-sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.1/fpm/php.ini && \
-sudo sed -i -e 's/^*cgi.fix_pathinfo=*$/cgi.fix_pathinfo=0/' /etc/php/7.1/fpm/php.ini && \
-sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.1/cli/php.ini && \
-sudo sed -i -e 's/^*cgi.fix_pathinfo=*$/cgi.fix_pathinfo=0/' /etc/php/7.1/cli/php.ini 
+sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.enable=.*$/opcache.enable=1/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.enable_cli=.*$/opcache.enable_cli=1/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.interned_strings_buffer=.*$/opcache.interned_strings_buffer=8/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.max_accelerated_files=.*$/opcache.max_accelerated_files=10000/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.memory_consumption=.*$/opcache.memory_consumption=128/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.save_comments=.*$/opcache.save_comments=1/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.revalidate_freq=.*$/opcache.revalidate_freq=1/' /etc/php/7.2/fpm/php.ini && \
+sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.2/cli/php.ini && \
+sudo sed -i -e 's/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/' /etc/php/7.2/cli/php.ini 
 ```
 
 Uncomment those lines below:  
@@ -683,8 +705,410 @@ env[TEMP] = /tmp
 
 Restart php-fpm:  
 ```shell
-sudo systemctl restart php7.1-fpm && \
-sudo systemctl enable php7.1-fpm
+sudo systemctl restart php7.2-fpm && \
+sudo systemctl enable php7.2-fpm
 ```
 
-https://www.howtoforge.com/tutorial/ubuntu-nginx-nextcloud/
+### MariaDB
+
+Install MariaDB:  
+```shell
+sudo apt install mariadb-server mariadb-client -y
+```
+
+Secure MariaDB installtion:  
+```shell
+sudo mysql_secure_installation
+```
+
+Log:  
+```
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] y
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+```
+
+Login to MariaDB as `root`:  
+```shell
+sudo mysql -u root -p
+```
+
+!!! Warning
+	CHANGE THE DEAFAULT PASSWORD!
+
+Create a Nextcloud DB:  
+```mysql
+create database nextcloud;
+create user nextcloud@localhost identified by 'PASSWORD';
+grant all privileges on nextcloud.* to nextcloud@localhost identified by 'PASSWORD';
+flush privileges;
+```
+
+Exit MariaDB client with `CTRL+D`.
+
+### Nginx config
+
+Remove alll current servers:  
+```shell
+sudo rm /etc/nginx/sites-enabled/*
+```
+
+All general HTTP to HTTPS redirector:  
+```shell
+read -r -d '' read_tmp<<"EOF"
+server {
+\tlisten 80 default_server;
+\tlisten [::]:80 default_server;
+\tserver_name _;
+\treturn 301 https://$host$request_uri;
+}
+EOF
+echo -e "$read_tmp" | sudo tee /etc/nginx/sites-available/99-https-rewrite.conf && \
+sudo ln -s ../sites-available/99-https-rewrite.conf /etc/nginx/sites-enabled/99-https-rewrite.conf
+```
+
+Add `ssl_params` file:  
+```shell
+cat << EOF | sudo tee /etc/nginx/ssl_params
+# Session settings
+ssl_session_timeout 1d;
+ssl_session_cache shared:SSL:50m;
+ssl_session_tickets off;
+
+# modern configuration. tweak to your needs.
+ssl_protocols TLSv1.2;
+ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256';
+ssl_prefer_server_ciphers on;
+
+# HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
+add_header Strict-Transport-Security max-age=15768000;
+
+# OCSP Stapling ---
+# fetch OCSP records from URL in ssl_certificate and cache them
+ssl_stapling on;
+ssl_stapling_verify on;
+EOF
+```
+
+Add nextcloud server:  
+```shell
+cat << EOF | sed 's/\\t/\t/g' | sudo tee /etc/nginx/sites-available/10-cloud.pphg.tech.conf && \
+sudo ln -s ../sites-available/10-cloud.pphg.tech.conf /etc/nginx/sites-enabled/10-cloud.pphg.tech.conf
+upstream php-handler {
+\t#server 127.0.0.1:9000;
+\tserver unix:/run/php/php7.2-fpm.sock;
+}
+
+server {
+\tlisten\t\t443 ssl http2;
+\tlisten\t\t[::]:443 ssl http2;
+\tserver_name\tcloud.pphg.tech;
+
+\taccess_log\t/var/log/nginx/cloud.pphg.tech_access.log combined gzip=9;
+\terror_log\t/var/log/nginx/cloud.pphg.tech_error.log warn;
+
+\t# Add headers to serve security related headers
+\t# Before enabling Strict-Transport-Security headers please read into this
+\t# topic first.
+\t# add_header Strict-Transport-Security "max-age=15552000;
+\t# includeSubDomains; preload;";
+\t#
+\t# WARNING: Only add the preload option once you read about
+\t# the consequences in https://hstspreload.org/. This option
+\t# will add the domain to a hardcoded list that is shipped
+\t# in all major browsers and getting removed from this list
+\t# could take several months.
+\tadd_header X-Content-Type-Options nosniff;
+\tadd_header X-XSS-Protection "1; mode=block";
+\tadd_header X-Robots-Tag none;
+\tadd_header X-Download-Options noopen;
+\tadd_header X-Permitted-Cross-Domain-Policies none;
+\tadd_header 'Referrer-Policy' 'strict-origin';
+
+
+\t# Path to the root of your installation
+\troot /var/www/nextcloud/;
+
+\tlocation = /data/htaccesstest.txt {
+\t\tallow all;
+\t\tlog_not_found off;
+\t\taccess_log off;
+\t}
+
+\tlocation = /robots.txt {
+\t\tallow all;
+\t\tlog_not_found off;
+\t\taccess_log off;
+\t}
+
+\tlocation = /.well-known/carddav {
+\t\treturn 301 \$scheme://\$host/remote.php/dav;
+\t}
+\tlocation = /.well-known/caldav {
+\t\treturn 301 \$scheme://\$host/remote.php/dav;
+\t}
+
+\t# set max upload size
+\tclient_max_body_size 512M;
+\tfastcgi_buffers 64 4K;
+
+\t# Enable gzip but do not remove ETag headers
+\tgzip on;
+\tgzip_vary on;
+\tgzip_comp_level 4;
+\tgzip_min_length 256;
+\tgzip_proxied expired no-cache no-store private no_last_modified no_etag auth;
+\tgzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
+
+\tlocation / {
+\t\trewrite ^ /index.php\$request_uri;
+\t}
+
+\tlocation ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
+\t\tdeny all;
+\t}
+\tlocation ~ ^/(?:\.|autotest|occ|issue|indie|db_|console) {
+\t\tdeny all;
+\t}
+
+\tlocation ~ ^/(?:index|remote|public|cron|core/ajax/update|status|ocs/v[12]|updater/.+|ocs-provider/.+)\.php(?:\$|/) {
+\t\tfastcgi_split_path_info ^(.+?\.php)(/.*)\$;
+\t\tinclude fastcgi_params;
+\t\tfastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+\t\tfastcgi_param PATH_INFO \$fastcgi_path_info;
+\t\tfastcgi_param HTTPS on;
+\t\t#Avoid sending the security headers twice
+\t\tfastcgi_param modHeadersAvailable true;
+\t\tfastcgi_param front_controller_active true;
+\t\tfastcgi_pass php-handler;
+\t\tfastcgi_intercept_errors on;
+\t\tfastcgi_request_buffering off;
+\t}
+
+\tlocation ~ ^/(?:updater|ocs-provider)(?:\$|/) {
+\t\ttry_files \$uri/ =404;
+\t\tindex index.php;
+\t}
+
+\t# Adding the cache control header for js and css files
+\t# Make sure it is BELOW the PHP block
+\tlocation ~ \.(?:css|js|woff|svg|gif)\$ {
+\t\ttry_files \$uri /index.php\$request_uri;
+\t\tadd_header Cache-Control "public, max-age=15778463";
+\t\t# Add headers to serve security related headers (It is intended to
+\t\t# have those duplicated to the ones above)
+\t\t# Before enabling Strict-Transport-Security headers please read into
+\t\t# this topic first.
+\t\t# add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
+\t\t#
+\t\t# WARNING: Only add the preload option once you read about
+\t\t# the consequences in https://hstspreload.org/. This option
+\t\t# will add the domain to a hardcoded list that is shipped
+\t\t# in all major browsers and getting removed from this list
+\t\t# could take several months.
+\t\tadd_header X-Content-Type-Options nosniff;
+\t\tadd_header X-XSS-Protection "1; mode=block";
+\t\tadd_header X-Robots-Tag none;
+\t\tadd_header X-Download-Options noopen;
+\t\tadd_header X-Permitted-Cross-Domain-Policies none;
+\t\t# Optional: Don't log access to assets
+\t\taccess_log off;
+\t}
+
+\tlocation ~ \.(?:png|html|ttf|ico|jpg|jpeg)\$ {
+\t\ttry_files \$uri /index.php\$request_uri;
+\t\t# Optional: Don't log access to other assets
+\t\taccess_log off;
+\t}
+
+\tinclude\t\t/etc/nginx/ssl_params;
+
+}
+EOF
+```
+
+Check if the nginx configuration is correct:  
+```shell
+sudo nginx -t
+```
+
+Install a Let's encrypt SSL Certificate:
+
+!!! Tip
+	Don't add a redirect to HTTPS.
+
+```shell
+sudo certbot --nginx -d cloud.pphg.tech && \
+sudo sed -i '/ssl_certificate_key/a \ \ \ \ ssl_trusted_certificate /etc/letsencrypt/live/cloud.pphg.tech/chain.pem;' /etc/nginx/sites-available/10-cloud.pphg.tech.conf && \
+sudo systemctl reload nginx.service
+```
+
+Add cronjob for renewing cetificates:  
+`sudo crontab -e`:  
+```
+0 */12 * * * /usr/local/bin/certbot renew
+```
+
+### Download Nextcloud
+
+Install required packages:  
+```shell
+sudo apt install wget unzip zip -y
+```
+
+Download newstest Nextcloud stable release into `/var/www/`:  
+```shell
+cd /var/www/ && \
+sudo wget https://download.nextcloud.com/server/releases/latest.zip && \
+sudo unzip latest.zip && \
+sudo rm latest.zip && \
+sudo chown -R www-data:www-data /var/www/nextcloud/
+```
+
+Create a Nextcloud Data directory:  
+```shell
+sudo -u www-data mkdir /mnt/cifs/ncdata
+```
+
+Add the following to the `/var/www/nextcloud/config/config.php` file:  
+```php
+'memcache.local' => '\OC\Memcache\APCu',
+```
+
+### Install NextCloud
+
+Go to <https://cloud.pphg.tech> and use the following varaibles:  
+* User: `root`
+* PW: `***`
+* Data folder: `/mnt/cifs/ncdata/`
+* Database user: `nextcloud`
+* Database pw: `***`
+* Database name: `nextcloud`
+
+* Enable the Audit / Logging App!
+
+Afterwards go to `Settings > Basic settings` and setup the email server:  
+* Background jobs
+	* Cron
+* Email server
+	* to your needs
+
+
+
+## Security
+
+### iptables
+
+??? Tip "Explanation iptables rules"
+    ```shell
+    # Allow loopback
+    iptables -A OUTPUT -o lo -j ACCEPT
+    iptables -A INPUT -i lo -j ACCEPT
+
+    # Allow SSH incoming
+    iptables -t filter -A INPUT -i ens3 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+    # Allow quassel incoming
+    iptables -t filter -A INPUT -i ens3 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+    # Allow ESTABLISHED and RELATED connection (important for outgoing connections!)
+    iptables -t filter -A INPUT -i ens3 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+    # Policy DROP INPUT on
+    iptables -P INPUT DROP
+
+    # Policy ACCEPT OUTPUT
+    iptables -P OUTPUT ACCEPT
+    ```
+
+Set up needed iptables rules:  
+```shell
+sudo iptables -A OUTPUT -o lo -j ACCEPT; \
+sudo iptables -A INPUT -i lo -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i ens3 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i ens3 -p tcp -m multiport --dports 80,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i ens3 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i ens3 -p icmp -j ACCEPT; \
+sudo iptables -P INPUT DROP; \
+sudo iptables -P OUTPUT ACCEPT
+```
+Set up needed ip6tables rules:  
+```shell
+sudo ip6tables -A OUTPUT -o lo -j ACCEPT; \
+sudo ip6tables -A INPUT -i lo -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i ens3 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i ens3 -p tcp -m multiport --dports 80,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i ens3 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i ens3 -p ipv6-icmp -j ACCEPT; \
+sudo ip6tables -P INPUT DROP; \
+sudo ip6tables -P OUTPUT ACCEPT
+```
+
+Persist iptables rules:  
+```shell
+sudo apt install -y iptables-persistent && \
+sudo netfilter-persistent save && \
+sudo netfilter-persistent reload
+```
+
+### fail2Ban (SSH/Nextcloud)
+
+
+
+### Backup Nextcloud
