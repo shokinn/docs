@@ -887,7 +887,7 @@ sudo crontab -e
 
 Add at the end of the file:  
 ```
-0 5 * * * /usr/local/sbin/quassel_backup
+@hourly /usr/local/sbin/quassel_backup
 ```
 
 ## Security
