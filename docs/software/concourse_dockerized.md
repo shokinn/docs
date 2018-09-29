@@ -391,14 +391,40 @@ echo -e "Password:\t$PSQL_CONCOURSE_PW"
 
 ### Backup
 
+#TODO
+
 ## Concourse
+
+### Pre-requirements
+
+Create a GitHub OAuth app for authentication:
+
+Follow this Guide:  
+<https://concourse-ci.org/install.html#github-auth-config>
 
 ### Install Web interface
 
 ```shell
+echo "" && \
+read -p "Enter your GitHub client ID: " GITHUB_CLIENT_ID && \
+while true; do \
+set GITHUB_CLIENT_SECRET=""; \
+set GITHUB_CLIENT_SECRET_confirm=""; \
+read -s -p "Enter your GitHub client secret: " GITHUB_CLIENT_SECRET; echo ""; \
+read -s -p "Reenter your GitHub client secret: " GITHUB_CLIENT_SECRET_confirm; echo ""; \
+if [[ "$GITHUB_CLIENT_SECRET" == "$GITHUB_CLIENT_SECRET_confirm" ]]; then \
+break; \
+else \
+clear; \
+echo "Your secrets don't match! Please try again."; \
+echo ""; \
+fi; \
+done; \
 CONCOURSE_ADMIN_USER=admin && \
 CONCOURSE_ADMIN_PW=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) && \
 CONCOUSE_WEB_IP='172.23.1.11' && \
+ORG_NAME="mischaufen" && \
+TEAM_NAME="main" && \
 sudo docker volume create concourse-keys && \
 sudo ssh-keygen -t rsa -q -N '' -f  /var/lib/docker/volumes/concourse-keys/_data/tsa_host_key && \
 sudo chmod 600 /var/lib/docker/volumes/concourse-keys/_data/tsa_host_key && \
@@ -424,6 +450,9 @@ sudo docker run \
   --tsa-session-signing-key='/concourse-keys/session_signing_key' \
   --add-local-user=$CONCOURSE_ADMIN_USER:$CONCOURSE_ADMIN_PW \
   --main-team-local-user=$CONCOURSE_ADMIN_USER \
+  --github-client-id=$GITHUB_CLIENT_ID \
+  --github-client-secret=$GITHUB_CLIENT_SECRET \
+  --main-team-github-team=$ORG_NAME:$TEAM_NAME \
   --postgres-user=$PSQL_CONCOURSE_USER \
   --postgres-password=$PSQL_CONCOURSE_PW \
   --postgres-host=$(sudo docker inspect -f "{{ .NetworkSettings.Networks.concourse_net.IPAddress }}" concourse-db) \
@@ -433,8 +462,6 @@ sudo docker run \
 echo -e "User:\t\t$CONCOURSE_ADMIN_USER"; \
 echo -e "Password:\t$CONCOURSE_ADMIN_PW"
 ```
-
-  --external-url='http://$CONCOUSE_WEB_IP:8080' && \
 
 
 ### Install worker
@@ -475,15 +502,12 @@ We have to log in using the administrative username and password that we configu
 fly -t local login -c http://$(sudo docker inspect -f "{{ .NetworkSettings.Networks.concourse_net.IPAddress }}" concourse-web):8080
 ```
 
-You will be prompted for the username and password for the `main` team, which we set in the `web_environments` file. After entering your credentials, "target saved" should be displayed:  
-```
-logging in to team 'main'
+You will be prompted for going to `http://172.23.1.11:8080/sky/login?redirect_uri=http://127.0.0.1:33277/auth/callback`. Do the following instead:
 
-username: admin
-password: 
+Add a port forwarding (on your local PC) from `8080` to `172.23.1.11:8080` and go to:  
+<http://127.0.0.1:8080/sky/login?redirect_uri=http://127.0.0.1:8080/sky/token>
 
-target saved
-```
+Now copy/paste the token to your promt.
 
 This indicates that we were able to log in successfully. While we are here, let's verify that the worker process was able to successfully register to the TSA component by typing:  
 ```shell
