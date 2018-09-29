@@ -708,6 +708,13 @@ sudo sed -i '/ssl_certificate_key/a \ \ \ \ ssl_trusted_certificate /etc/letsenc
 sudo systemctl reload nginx.service
 ```
 
+### Add cronjob for renewing cetificates
+
+`sudo crontab -e`:  
+```
+0 */12 * * * /usr/local/bin/certbot renew
+```
+
 ## Security
 
 ### iptables
