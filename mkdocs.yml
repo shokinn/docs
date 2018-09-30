@@ -1,0 +1,83 @@
+# Project information
+site_name: "Philip's docs"
+site_description: 'Everything which I have to write down to remember it'
+site_author: 'Philip Henning'
+
+# Repository
+repo_name: 'shokinn/docs'
+repo_url: 'https://gitlab.com/shokinn/docs'
+
+# Documentation and theme
+theme:
+  # name: readthedocs
+  name: null
+  custom_dir: 'mkdocs-material/material'
+  palette:
+    primary: 'blue grey'
+    accent: 'teal'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo:
+    icon: 'school'
+  language: 'en'
+  static_templates:
+    - 404.html
+  feature:
+    tabs: false
+
+# Options
+extra:
+  search:
+    languages: 'en, de'
+  repo_icon: gitlab
+  social:
+  - type: globe
+    link: http://pphg.tech
+  - type: key
+    link: https://keybase.io/philip_henning
+  - type: twitter
+    link: https://twitter.com/__phg
+  - type: github-alt
+    link: https://github.com/shokinn
+  - type: gitlab
+    link: https://gitlab.com/shokinn
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - markdown_include.include:
+      base_path: docs
+  - meta
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+
+
+# Navigation
+pages:
+  - 'Home': 'index.md'
+  - 'Hardware':
+    - 'Dell XPS 15 9560':
+      - 'Arch Linux': 'hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux.md'
+  - 'Software':
+    - 'PlayOnLinux': 'software/playonlinux.md'
+    - 'SeedBox': 'software/seedbox.md'
+  - 'Knowledge base':
+    - 'How to change to TTYn': 'kb/change_tty.md'
+  - 'Impressum': 'imprint.md'
+  - 'Datenschutzerklärung': 'datenschutzerklaerung.md'
+  - 'License': 'license.md'
