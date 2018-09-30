@@ -5,13 +5,13 @@ site_author: 'Philip Henning'
 
 # Repository
 repo_name: 'shokinn/docs'
-repo_url: 'https://gitlab.com/shokinn/docs'
+repo_url: 'https://github.com/shokinn/docs'
 
 # Documentation and theme
 theme:
   # name: readthedocs
-  name: null
-  custom_dir: 'mkdocs-material/material'
+  name: material
+  custom_dir: 'theme'
   palette:
     primary: 'blue grey'
     accent: 'teal'
@@ -30,7 +30,7 @@ theme:
 extra:
   search:
     languages: 'en, de'
-  repo_icon: gitlab
+  repo_icon: github
   social:
   - type: globe
     link: http://pphg.tech
@@ -47,6 +47,7 @@ extra:
 markdown_extensions:
   - admonition
   - codehilite:
+      linenums: true
       guess_lang: false
   - footnotes
   - markdown_include.include:
@@ -68,16 +69,20 @@ markdown_extensions:
 
 
 # Navigation
-pages:
+nav:
   - 'Home': 'index.md'
   - 'Hardware':
     - 'Dell XPS 15 9560':
       - 'Arch Linux': 'hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux.md'
   - 'Software':
-    - 'PlayOnLinux': 'software/playonlinux.md'
-    - 'SeedBox': 'software/seedbox.md'
+    - 'Desktop':
+      - 'PlayOnLinux': 'software/desktop/playonlinux.md'
+    - 'Server':
+      - 'Concourse Dockerized': 'software/server/concourse_dockerized.md'
+      - 'Quassel': 'software/server/quassel.md'
   - 'Knowledge base':
     - 'How to change to TTYn': 'kb/change_tty.md'
+    - 'MkDocs testing environment': 'kb/mkdocs.md'
   - 'Impressum': 'imprint.md'
   - 'Datenschutzerklärung': 'datenschutzerklaerung.md'
   - 'License': 'license.md'
