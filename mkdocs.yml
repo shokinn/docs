@@ -78,5 +78,6 @@ pages:
     - 'SeedBox': 'software/seedbox.md'
   - 'Knowledge base':
     - 'How to change to TTYn': 'kb/change_tty.md'
-  - 'Imprint': 'imprint.md'
+  - 'Impressum': 'imprint.md'
+  - 'Datenschutzerklärung': 'datenschutzerklaerung.md'
   - 'License': 'license.md'

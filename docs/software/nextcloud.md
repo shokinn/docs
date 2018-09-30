@@ -9,7 +9,7 @@ Preinstalled with lvm and LUKS encryption.
 ### Update System
 
 ```shell
-apt update && apt full-upgrade -y
+sudo apt update && sudo apt full-upgrade -y
 ```
 
 ### Fix locale
@@ -441,7 +441,7 @@ sudo chmod 400 /mnt/cifs
 
 Open rclone configuration:  
 ```shell
-if [[ ! -d /mnt/.cifs ]]; then sudo mkdir -p /var/www/.conf/rclone/; fi && \
+if [[ ! -d /var/www/.conf/rclone/ ]]; then sudo mkdir -p /var/www/.conf/rclone/; fi && \
 sudo chmod 700 /var/www/.conf/rclone/ && \
 sudo chown www-data:www-data /var/www/.conf/rclone/ && \
 sudo -u www-data rclone config --config /var/www/.conf/rclone/rclone.conf && \
@@ -664,37 +664,37 @@ certbot \
 certbot-nginx
 ```
 
-### PHP 7.2
+### PHP 7.1
 
-Install php7.2:  
+Install php7.1:  
 ```shell
 sudo apt install software-properties-common -y && \
 sudo add-apt-repository ppa:ondrej/php -y && \
-sudo apt install php7.2-fpm php7.2-curl php7.2-cli php7.2-mysql php7.2-gd php7.2-iconv php7.2-xsl php7.2-json php7.2-intl php-pear php-imagick php7.2-dev php7.2-common php7.2-mbstring php7.2-zip php7.2-soap php-apcu -y
+sudo apt install php7.1-fpm php7.1-curl php7.1-cli php7.1-mysql php7.1-gd php7.1-iconv php7.1-xsl php7.1-json php7.1-intl php-pear php-imagick php7.1-dev php7.1-common php7.1-mbstring php7.1-zip php7.1-soap php-apcu -y
 ```
 
 Restart php-fpm and nginx:  
 ```shell
-sudo systemctl restart php7.2-fpm.service nginx.service
+sudo systemctl restart php7.1-fpm.service nginx.service
 ```
 
 Modify php.ini's:  
 ```shell
-sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*opcache\.enable=.*$/opcache.enable=1/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*opcache\.enable_cli=.*$/opcache.enable_cli=1/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*opcache\.interned_strings_buffer=.*$/opcache.interned_strings_buffer=8/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*opcache\.max_accelerated_files=.*$/opcache.max_accelerated_files=10000/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*opcache\.memory_consumption=.*$/opcache.memory_consumption=128/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*opcache\.save_comments=.*$/opcache.save_comments=1/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^.*opcache\.revalidate_freq=.*$/opcache.revalidate_freq=1/' /etc/php/7.2/fpm/php.ini && \
-sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.2/cli/php.ini && \
-sudo sed -i -e 's/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/' /etc/php/7.2/cli/php.ini 
+sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.enable=.*$/opcache.enable=1/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.enable_cli=.*$/opcache.enable_cli=1/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.interned_strings_buffer=.*$/opcache.interned_strings_buffer=8/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.max_accelerated_files=.*$/opcache.max_accelerated_files=10000/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.memory_consumption=.*$/opcache.memory_consumption=128/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.save_comments=.*$/opcache.save_comments=1/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^.*opcache\.revalidate_freq=.*$/opcache.revalidate_freq=1/' /etc/php/7.1/fpm/php.ini && \
+sudo sed -i -e 's/^;date.timezone =*$/date.timezone = Europe\/Berlin/' /etc/php/7.1/cli/php.ini && \
+sudo sed -i -e 's/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/' /etc/php/7.1/cli/php.ini 
 ```
 
 Uncomment those lines below:  
-`vim /etc/php/7.1/fpm/pool.d/www.conf`:  
+`sudo vim /etc/php/7.1/fpm/pool.d/www.conf`:  
 ```
 env[HOSTNAME] = $HOSTNAME
 env[PATH] = /usr/local/bin:/usr/bin:/bin
@@ -705,8 +705,8 @@ env[TEMP] = /tmp
 
 Restart php-fpm:  
 ```shell
-sudo systemctl restart php7.2-fpm && \
-sudo systemctl enable php7.2-fpm
+sudo systemctl restart php7.1-fpm && \
+sudo systemctl enable php7.1-fpm
 ```
 
 ### MariaDB
@@ -852,7 +852,7 @@ cat << EOF | sed 's/\\t/\t/g' | sudo tee /etc/nginx/sites-available/10-cloud.pph
 sudo ln -s ../sites-available/10-cloud.pphg.tech.conf /etc/nginx/sites-enabled/10-cloud.pphg.tech.conf
 upstream php-handler {
 \t#server 127.0.0.1:9000;
-\tserver unix:/run/php/php7.2-fpm.sock;
+\tserver unix:/run/php/php7.1-fpm.sock;
 }
 
 server {
@@ -1026,11 +1026,6 @@ Create a Nextcloud Data directory:
 sudo -u www-data mkdir /mnt/cifs/ncdata
 ```
 
-Add the following to the `/var/www/nextcloud/config/config.php` file:  
-```php
-'memcache.local' => '\OC\Memcache\APCu',
-```
-
 ### Install NextCloud
 
 Go to <https://cloud.pphg.tech> and use the following varaibles:  
@@ -1049,7 +1044,10 @@ Afterwards go to `Settings > Basic settings` and setup the email server:
 * Email server
 	* to your needs
 
-
+Add the following to the `/var/www/nextcloud/config/config.php` file:  
+```php
+'memcache.local' => '\OC\Memcache\APCu',
+```
 
 ## Security
 
