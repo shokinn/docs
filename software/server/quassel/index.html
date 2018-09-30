@@ -1,0 +1,2730 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Everything which I have to write down to remember it">
+      
+      
+      
+        <meta name="author" content="Philip Henning">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>Quassel - Philip's docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../../#quassel-irc" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Philip's docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Philip's docs
+              </span>
+              <span class="md-header-nav__topic">
+                Quassel
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Philip's docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    Philip's docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Hardware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Dell XPS 15 9560
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Dell XPS 15 9560
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux/" title="Arch Linux" class="md-nav__link">
+      Arch Linux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Software
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Desktop
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Desktop
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../desktop/playonlinux/" title="PlayOnLinux" class="md-nav__link">
+      PlayOnLinux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../concourse_dockerized/" title="Concourse Dockerized" class="md-nav__link">
+      Concourse Dockerized
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Quassel
+      </label>
+    
+    <a href="./" title="Quassel" class="md-nav__link md-nav__link--active">
+      Quassel
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-server-setup" title="Initial Server setup" class="md-nav__link">
+    Initial Server setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-system" title="Update System" class="md-nav__link">
+    Update System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-locale" title="Fix locale" class="md-nav__link">
+    Fix locale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-bashrc" title="Edit .bashrc" class="md-nav__link">
+    Edit .bashrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-vim-colored-with-dark-background-settinfs" title="Make vim colored with dark background settinfs" class="md-nav__link">
+    Make vim colored with dark background settinfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-user-user" title="Create a new user user" class="md-nav__link">
+    Create a new user user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-ssh-deamon-to-allow-only-ssh-keys" title="Change the SSH deamon to allow only SSH-keys" class="md-nav__link">
+    Change the SSH deamon to allow only SSH-keys
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-roots-authorized_keys-file" title="Delete root's authorized_keys file" class="md-nav__link">
+    Delete root's authorized_keys file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-base-packages" title="Install base packages" class="md-nav__link">
+    Install base packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quassel-core" title="quassel core" class="md-nav__link">
+    quassel core
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requirements" title="Pre requirements" class="md-nav__link">
+    Pre requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-quassel-core" title="Install quassel core" class="md-nav__link">
+    Install quassel core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-lets-encrypt-ssl" title="Setup Let's encrypt SSL" class="md-nav__link">
+    Setup Let's encrypt SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-automatic-certificate-renew" title="Setup automatic certificate renew" class="md-nav__link">
+    Setup automatic certificate renew
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-user-management-scripts" title="Add user management scripts" class="md-nav__link">
+    Add user management scripts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-user-script" title="Add user script" class="md-nav__link">
+    Add user script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" title="Backup" class="md-nav__link">
+    Backup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requirements_1" title="Pre requirements" class="md-nav__link">
+    Pre requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-script" title="Backup script" class="md-nav__link">
+    Backup script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cronjob" title="Cronjob" class="md-nav__link">
+    Cronjob
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" title="Security" class="md-nav__link">
+    Security
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iptables" title="iptables" class="md-nav__link">
+    iptables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Knowledge base
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Knowledge base
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../kb/change_tty/" title="How to change to TTYn" class="md-nav__link">
+      How to change to TTYn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../kb/mkdocs/" title="MkDocs testing environment" class="md-nav__link">
+      MkDocs testing environment
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../imprint/" title="Impressum" class="md-nav__link">
+      Impressum
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../datenschutzerklaerung/" title="Datenschutzerklärung" class="md-nav__link">
+      Datenschutzerklärung
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-server-setup" title="Initial Server setup" class="md-nav__link">
+    Initial Server setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-system" title="Update System" class="md-nav__link">
+    Update System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-locale" title="Fix locale" class="md-nav__link">
+    Fix locale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-bashrc" title="Edit .bashrc" class="md-nav__link">
+    Edit .bashrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-vim-colored-with-dark-background-settinfs" title="Make vim colored with dark background settinfs" class="md-nav__link">
+    Make vim colored with dark background settinfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-user-user" title="Create a new user user" class="md-nav__link">
+    Create a new user user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-ssh-deamon-to-allow-only-ssh-keys" title="Change the SSH deamon to allow only SSH-keys" class="md-nav__link">
+    Change the SSH deamon to allow only SSH-keys
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-roots-authorized_keys-file" title="Delete root's authorized_keys file" class="md-nav__link">
+    Delete root's authorized_keys file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-base-packages" title="Install base packages" class="md-nav__link">
+    Install base packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quassel-core" title="quassel core" class="md-nav__link">
+    quassel core
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requirements" title="Pre requirements" class="md-nav__link">
+    Pre requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-quassel-core" title="Install quassel core" class="md-nav__link">
+    Install quassel core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-lets-encrypt-ssl" title="Setup Let's encrypt SSL" class="md-nav__link">
+    Setup Let's encrypt SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-automatic-certificate-renew" title="Setup automatic certificate renew" class="md-nav__link">
+    Setup automatic certificate renew
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-user-management-scripts" title="Add user management scripts" class="md-nav__link">
+    Add user management scripts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-user-script" title="Add user script" class="md-nav__link">
+    Add user script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" title="Backup" class="md-nav__link">
+    Backup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requirements_1" title="Pre requirements" class="md-nav__link">
+    Pre requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-script" title="Backup script" class="md-nav__link">
+    Backup script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cronjob" title="Cronjob" class="md-nav__link">
+    Cronjob
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" title="Security" class="md-nav__link">
+    Security
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iptables" title="iptables" class="md-nav__link">
+    iptables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/shokinn/docs/edit/master/docs/software/server/quassel.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="quassel-irc">Quassel-IRC<a class="headerlink" href="#quassel-irc" title="Permanent link">&para;</a></h1>
+<p>OS: Ubuntu 18.04 LTS</p>
+<h2 id="initial-server-setup">Initial Server setup<a class="headerlink" href="#initial-server-setup" title="Permanent link">&para;</a></h2>
+<h3 id="update-system">Update System<a class="headerlink" href="#update-system" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>apt update <span class="o">&amp;&amp;</span> apt full-upgrade -y
+</pre></div>
+</td></tr></table>
+
+<h3 id="fix-locale">Fix locale<a class="headerlink" href="#fix-locale" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee -a /etc/environment</span>
+
+<span class="s"># Fix locale</span>
+<span class="s">LC_ALL=en_US.UTF-8</span>
+<span class="s">LANGUAGE=en_US:en</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="edit-bashrc">Edit .bashrc<a class="headerlink" href="#edit-bashrc" title="Permanent link">&para;</a></h3>
+<p><code>/root/.bashrc</code> / <code>/etc/skel/.bashrc</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don&#39;t do anything
+[ -z &quot;$PS1&quot; ] &amp;&amp; return
+
+# don&#39;t put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don&#39;t overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=999999
+HISTFILESIZE=999999
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] &amp;&amp; eval &quot;$(SHELL=/bin/sh lesspipe)&quot;
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z &quot;$debian_chroot&quot; ] &amp;&amp; [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we &quot;want&quot; color)
+case &quot;$TERM&quot; in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n &quot;$force_color_prompt&quot; ]; then
+    if [ -x /usr/bin/tput ] &amp;&amp; tput setaf 1 &gt;&amp;/dev/null; then
+    # We have color support; assume it&#39;s compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+    else
+    color_prompt=
+    fi
+fi
+
+if [ &quot;$color_prompt&quot; = yes ]; then
+    # PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ &#39;
+    if [ $UID == 0 ]; then
+        PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]&#39;
+    else
+        PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]&#39;
+    fi
+else
+    PS1=&#39;${debian_chroot:+($debian_chroot)}\u@\h:\w\$ &#39;
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case &quot;$TERM&quot; in
+xterm*|rxvt*)
+    PS1=&quot;\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1&quot;
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors &amp;&amp; eval &quot;$(dircolors -b ~/.dircolors)&quot; || eval &quot;$(dircolors -b)&quot;
+    alias ls=&#39;ls --color=auto&#39;
+    #alias dir=&#39;dir --color=auto&#39;
+    #alias vdir=&#39;vdir --color=auto&#39;
+
+    alias grep=&#39;grep --color=auto&#39;
+    alias fgrep=&#39;fgrep --color=auto&#39;
+    alias egrep=&#39;egrep --color=auto&#39;
+fi
+
+# some more ls aliases
+alias ll=&#39;ls -alF&#39;
+alias la=&#39;ls -A&#39;
+alias l=&#39;ls -CF&#39;
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don&#39;t need to enable
+# this, if it&#39;s already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] &amp;&amp; ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+</pre></div>
+</td></tr></table></p>
+<h3 id="make-vim-colored-with-dark-background-settinfs">Make vim colored with dark background settinfs<a class="headerlink" href="#make-vim-colored-with-dark-background-settinfs" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/vim/vimrc</span>
+
+<span class="s">&quot; Set background to dark for better readability in SSH connections</span>
+<span class="s">set background=dark</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="create-a-new-user-user">Create a new user <code>user</code><a class="headerlink" href="#create-a-new-user-user" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adduser user <span class="o">&amp;&amp;</span> <span class="se">\</span>
+usermod -aG sudo user <span class="o">&amp;&amp;</span> <span class="se">\</span>
+mkdir /home/user/.ssh <span class="o">&amp;&amp;</span> <span class="se">\</span>
+chmod <span class="m">700</span> /home/user/.ssh <span class="o">&amp;&amp;</span> <span class="se">\</span>
+cp /root/.ssh/authorized_keys /home/user/.ssh/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+chmod <span class="m">400</span> /home/user/.ssh/authorized_keys <span class="o">&amp;&amp;</span> <span class="se">\</span>
+chown -R user:user /home/user/.ssh/
+</pre></div>
+</td></tr></table>
+
+<h3 id="change-the-ssh-deamon-to-allow-only-ssh-keys">Change the SSH deamon to allow only SSH-keys<a class="headerlink" href="#change-the-ssh-deamon-to-allow-only-ssh-keys" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt; /etc/ssh/sshd_config &amp;&amp; systemctl restart sshd.service</span>
+<span class="s"># $OpenBSD: sshd_config,v 1.101 2017/03/14 07:19:07 djm Exp $</span>
+
+<span class="s"># This is the sshd server system-wide configuration file.  See</span>
+<span class="s"># sshd_config(5) for more information.</span>
+
+<span class="s"># This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin</span>
+
+<span class="s"># The strategy used for options in the default sshd_config shipped with</span>
+<span class="s"># OpenSSH is to specify options with their default value where</span>
+<span class="s"># possible, but leave them commented.  Uncommented options override the</span>
+<span class="s"># default value.</span>
+
+<span class="s">Port 22</span>
+<span class="s">AddressFamily any</span>
+<span class="s">ListenAddress 0.0.0.0</span>
+<span class="s">ListenAddress ::</span>
+
+<span class="s">HostKey /etc/ssh/ssh_host_rsa_key</span>
+<span class="s">HostKey /etc/ssh/ssh_host_ecdsa_key</span>
+<span class="s">HostKey /etc/ssh/ssh_host_ed25519_key</span>
+
+<span class="s"># Ciphers and keying</span>
+<span class="s">#RekeyLimit default none</span>
+
+<span class="s"># Logging</span>
+<span class="s">#SyslogFacility AUTH</span>
+<span class="s">#LogLevel INFO</span>
+
+<span class="s"># Authentication:</span>
+
+<span class="s">#LoginGraceTime 2m</span>
+<span class="s">PermitRootLogin without-password</span>
+<span class="s">#StrictModes yes</span>
+<span class="s">#MaxAuthTries 6</span>
+<span class="s">#MaxSessions 10</span>
+
+<span class="s">PubkeyAuthentication yes</span>
+
+<span class="s"># Expect .ssh/authorized_keys2 to be disregarded by default in future.</span>
+<span class="s">AuthorizedKeysFile .ssh/authorized_keys .ssh/authorized_keys2</span>
+
+<span class="s">#AuthorizedPrincipalsFile none</span>
+
+<span class="s">#AuthorizedKeysCommand none</span>
+<span class="s">#AuthorizedKeysCommandUser nobody</span>
+
+<span class="s"># For this to work you will also need host keys in /etc/ssh/ssh_known_hosts</span>
+<span class="s">#HostbasedAuthentication no</span>
+<span class="s"># Change to yes if you don&#39;t trust ~/.ssh/known_hosts for</span>
+<span class="s"># HostbasedAuthentication</span>
+<span class="s">#IgnoreUserKnownHosts no</span>
+<span class="s"># Don&#39;t read the user&#39;s ~/.rhosts and ~/.shosts files</span>
+<span class="s">#IgnoreRhosts yes</span>
+
+<span class="s"># To disable tunneled clear text passwords, change to no here!</span>
+<span class="s">PasswordAuthentication no</span>
+<span class="s">PermitEmptyPasswords no</span>
+
+<span class="s"># Change to yes to enable challenge-response passwords (beware issues with</span>
+<span class="s"># some PAM modules and threads)</span>
+<span class="s">ChallengeResponseAuthentication no</span>
+
+<span class="s"># Kerberos options</span>
+<span class="s">#KerberosAuthentication no</span>
+<span class="s">#KerberosOrLocalPasswd yes</span>
+<span class="s">#KerberosTicketCleanup yes</span>
+<span class="s">#KerberosGetAFSToken no</span>
+
+<span class="s"># GSSAPI options</span>
+<span class="s">#GSSAPIAuthentication no</span>
+<span class="s">#GSSAPICleanupCredentials yes</span>
+<span class="s">#GSSAPIStrictAcceptorCheck yes</span>
+<span class="s">#GSSAPIKeyExchange no</span>
+
+<span class="s"># Set this to &#39;yes&#39; to enable PAM authentication, account processing,</span>
+<span class="s"># and session processing. If this is enabled, PAM authentication will</span>
+<span class="s"># be allowed through the ChallengeResponseAuthentication and</span>
+<span class="s"># PasswordAuthentication.  Depending on your PAM configuration,</span>
+<span class="s"># PAM authentication via ChallengeResponseAuthentication may bypass</span>
+<span class="s"># the setting of &quot;PermitRootLogin without-password&quot;.</span>
+<span class="s"># If you just want the PAM account and session checks to run without</span>
+<span class="s"># PAM authentication, then enable this but set PasswordAuthentication</span>
+<span class="s"># and ChallengeResponseAuthentication to &#39;no&#39;.</span>
+<span class="s">UsePAM yes</span>
+
+<span class="s">#AllowAgentForwarding yes</span>
+<span class="s">#AllowTcpForwarding yes</span>
+<span class="s">#GatewayPorts no</span>
+<span class="s">X11Forwarding yes</span>
+<span class="s">#X11DisplayOffset 10</span>
+<span class="s">#X11UseLocalhost yes</span>
+<span class="s">#PermitTTY yes</span>
+<span class="s">PrintMotd no</span>
+<span class="s">#PrintLastLog yes</span>
+<span class="s">#TCPKeepAlive yes</span>
+<span class="s">#UseLogin no</span>
+<span class="s">#PermitUserEnvironment no</span>
+<span class="s">#Compression delayed</span>
+<span class="s">#ClientAliveInterval 0</span>
+<span class="s">#ClientAliveCountMax 3</span>
+<span class="s">#UseDNS no</span>
+<span class="s">#PidFile /var/run/sshd.pid</span>
+<span class="s">#MaxStartups 10:30:100</span>
+<span class="s">#PermitTunnel no</span>
+<span class="s">#ChrootDirectory none</span>
+<span class="s">#VersionAddendum none</span>
+
+<span class="s"># no default banner path</span>
+<span class="s">#Banner none</span>
+
+<span class="s"># Allow client to pass locale environment variables</span>
+<span class="s">AcceptEnv LANG LC_*</span>
+
+<span class="s"># override default of no subsystems</span>
+<span class="s">Subsystem sftp /usr/lib/openssh/sftp-server</span>
+
+<span class="s"># Example of overriding settings on a per-user basis</span>
+<span class="s">#Match User anoncvs</span>
+<span class="s"># X11Forwarding no</span>
+<span class="s"># AllowTcpForwarding no</span>
+<span class="s"># PermitTTY no</span>
+<span class="s"># ForceCommand cvs server</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="delete-roots-authorized_keys-file">Delete root's <code>authorized_keys</code> file<a class="headerlink" href="#delete-roots-authorized_keys-file" title="Permanent link">&para;</a></h4>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Please check before if you can login to the user <code>user</code> with your ssh-key!</p>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>rm ~/.ssh/authorized_keys
+</pre></div>
+</td></tr></table>
+
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Log out and re login as <code>user</code>!</p>
+</div>
+<h3 id="install-base-packages">Install base packages<a class="headerlink" href="#install-base-packages" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install -y <span class="se">\</span>
+p7zip-full <span class="se">\</span>
+p7zip-rar <span class="se">\</span>
+unzip <span class="se">\</span>
+unrar <span class="se">\</span>
+screen <span class="se">\</span>
+tmux <span class="se">\</span>
+htop
+</pre></div>
+</td></tr></table>
+
+<h2 id="quassel-core">quassel core<a class="headerlink" href="#quassel-core" title="Permanent link">&para;</a></h2>
+<h3 id="pre-requirements">Pre requirements<a class="headerlink" href="#pre-requirements" title="Permanent link">&para;</a></h3>
+<p>Add the PPA for quassel to get the latest stable version:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo add-apt-repository ppa:mamarley/quassel <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo apt update
+</pre></div>
+</td></tr></table></p>
+<p>Install cerbot (needed for ssl):  </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install -y certbot
+</pre></div>
+</td></tr></table>
+
+<h3 id="install-quassel-core">Install quassel core<a class="headerlink" href="#install-quassel-core" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install -y quassel-core <span class="o">&amp;&amp;</span> <span class="se">\</span>
+systemctl status quasselcore.service
+</pre></div>
+</td></tr></table>
+
+<h3 id="setup-lets-encrypt-ssl">Setup Let's encrypt SSL<a class="headerlink" href="#setup-lets-encrypt-ssl" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo certbot certonly --standalone -d quassel.mischaufen.de <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo mv /var/lib/quassel/quasselCert.pem /var/lib/quassel/quasselCert.pem.old <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo cat /etc/letsencrypt/live/quassel.mischaufen.de/<span class="o">{</span>fullchain,privkey<span class="o">}</span>.pem <span class="p">|</span> sudo tee -a /var/lib/quassel/quasselCert.pem <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chown quasselcore:quassel /var/lib/quassel/quasselCert.pem <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chmod <span class="m">600</span> /var/lib/quassel/quasselCert.pem <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo systemctl restart quasselcore
+</pre></div>
+</td></tr></table>
+
+<h3 id="setup-automatic-certificate-renew">Setup automatic certificate renew<a class="headerlink" href="#setup-automatic-certificate-renew" title="Permanent link">&para;</a></h3>
+<p>Add a deploy hook script to <code>/srv/certbot</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">deamon</span><span class="o">=</span><span class="s1">&#39;quasselcore.service&#39;</span><span class="p">;</span> <span class="se">\</span>
+<span class="nv">target_domain</span><span class="o">=</span><span class="s1">&#39;quassel.mischaufen.de&#39;</span><span class="p">;</span> <span class="se">\</span>
+sudo mkdir -p /srv/cerbot <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chmod <span class="m">655</span> /srv/cerbot <span class="o">&amp;&amp;</span> <span class="se">\</span>
+cat <span class="s">&lt;&lt; EOF | sed &#39;s/\\t/\t/g&#39; | sudo tee /srv/cerbot/deploy_hook.sh &amp;&amp; \</span>
+<span class="s">sudo chmod 744 /srv/cerbot/deploy_hook.sh</span>
+<span class="s">#!/bin/bash</span>
+
+<span class="s">set -e</span>
+
+<span class="s">for domain in \$RENEWED_DOMAINS; do</span>
+<span class="s">\tcase \$domain in</span>
+<span class="s">\t$target_domain)</span>
+<span class="s">\t\tdaemon_cert_root=&#39;/var/lib/quassel&#39;</span>
+
+<span class="s">\t\t# Make sure the certificate and private key files are</span>
+<span class="s">\t\t# never world readable, even just for an instant while</span>
+<span class="s">\t\t# we&#39;re copying them into daemon_cert_root.</span>
+<span class="s">\t\tumask 177</span>
+
+<span class="s">\t\trm \$daemon_cert_root/quasselCert.pem</span>
+<span class="s">\t\tcat \$RENEWED_LINEAGE/{fullchain,privkey}.pem &gt;&gt; &quot;\$daemon_cert_root/quasselCert.pem&quot;</span>
+
+<span class="s">\t\t# Apply the proper file ownership and permissions for</span>
+<span class="s">\t\t# the $deamon daemon to read its certificate and key.</span>
+<span class="s">\t\tchown quasselcore:quassel &quot;\$daemon_cert_root/quasselCert.pem&quot;</span>
+<span class="s">\t\tchmod 400 \$daemon_cert_root/quasselCert.pem</span>
+
+<span class="s">\t\tsystemctl restart $deamon &gt;/dev/null</span>
+<span class="s">\t\t;;</span>
+<span class="s">\tesac</span>
+<span class="s">done</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<p>Add cronjob for renewing cetificates.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo crontab -e
+</pre></div>
+</td></tr></table>
+
+<p>Add at the end of the file:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0 */12 * * * /usr/local/bin/certbot renew --deploy-hook /srv/cerbot/deploy_hook.sh
+</pre></div>
+</td></tr></table></p>
+<h3 id="add-user-management-scripts">Add user management scripts<a class="headerlink" href="#add-user-management-scripts" title="Permanent link">&para;</a></h3>
+<h4 id="add-user-script">Add user script<a class="headerlink" href="#add-user-script" title="Permanent link">&para;</a></h4>
+<p><code>quassel_add.sh</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee /usr/local/sbin/quassel_add &amp;&amp; \</span>
+<span class="s">sudo chmod 500 /usr/local/sbin/quassel_add</span>
+<span class="s">#!/bin/sh</span>
+
+<span class="s">sudo -u quasselcore quasselcore --configdir=/var/lib/quassel --add-user</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<p><code>quassel_change_pw.sh</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee /usr/local/sbin/quassel_change_pw &amp;&amp; \</span>
+<span class="s">sudo chmod 500 /usr/local/sbin/quassel_change_pw</span>
+<span class="s">#!/bin/sh</span>
+
+<span class="s">die () {</span>
+<span class="s">    echo &gt;&amp;2 &quot;\$@&quot;</span>
+<span class="s">    exit 1</span>
+<span class="s">}</span>
+
+<span class="s">[ &quot;\$#&quot; -eq 1 ] || die &quot;Username required!\n\nRun:\t&#39;\$0 &lt;username&gt;&#39;\ne.g.:\t&#39;\$0 admin&#39;&quot;</span>
+
+<span class="s">systemctl stop quasselcore.service</span>
+<span class="s">sudo -u quasselcore quasselcore --configdir=/var/lib/quassel --change-userpass=\$1</span>
+<span class="s">systemctl start quasselcore.service</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<p><code>quassel_del.sh</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> ! <span class="o">[</span> -x <span class="s2">&quot;</span><span class="k">$(</span><span class="nb">command</span> -v sqlite3<span class="k">)</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> sudo apt install -y sqlite3<span class="p">;</span> <span class="k">fi</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+cat <span class="s">&lt;&lt; EOF | sudo tee /usr/local/sbin/quassel_del &amp;&amp; \</span>
+<span class="s">sudo chmod 500 /usr/local/sbin/quassel_del</span>
+<span class="s">#!/bin/sh</span>
+<span class="s">#</span>
+<span class="s"># Delete Quasselcore users from your SQLite database</span>
+<span class="s">#</span>
+
+<span class="s">exeq()</span>
+<span class="s">{</span>
+<span class="s">    # Execute SQL Query</span>
+<span class="s">    result=\$(sqlite3 &quot;\${QUASSELDB}&quot; &quot;\${1}&quot;)</span>
+<span class="s">    echo &quot;\${result}&quot;</span>
+<span class="s">}</span>
+
+<span class="s">usage()</span>
+<span class="s">{</span>
+<span class="s">    echo &quot;Usage: \${SCRIPT} username [database]&quot;</span>
+<span class="s">}</span>
+
+<span class="s">print_users()</span>
+<span class="s">{</span>
+<span class="s">    sqlite3 &quot;\${QUASSELDB}&quot; &quot;SELECT quasseluser.userid, quasseluser.username FROM quasseluser ORDER BY quasseluser.userid;&quot;</span>
+<span class="s">}</span>
+
+<span class="s"># Main body</span>
+
+<span class="s">SCRIPT=&quot;\${0}&quot;</span>
+<span class="s">QUASSELDB=&quot;&quot;</span>
+<span class="s">USER=&quot;&quot;</span>
+
+<span class="s">if [ -z &quot;\${2}&quot; ] ; then</span>
+<span class="s">    # No file supplied.</span>
+<span class="s">    QUASSELDB=&quot;/var/lib/quassel/quassel-storage.sqlite&quot;</span>
+<span class="s">else</span>
+<span class="s">    QUASSELDB=&quot;\${2}&quot;</span>
+<span class="s">fi</span>
+
+<span class="s">if [ -z &quot;\${1}&quot; ] ; then</span>
+<span class="s">    echo &quot;No user supplied.&quot;</span>
+<span class="s">    echo &quot;Pick one: &quot;</span>
+<span class="s">    print_users</span>
+<span class="s">    usage</span>
+<span class="s">    exit 1</span>
+<span class="s">else</span>
+<span class="s">    USER=&quot;${1}&quot;</span>
+<span class="s">fi</span>
+
+<span class="s">if [ -e &quot;\${QUASSELDB}&quot; ] ; then</span>
+<span class="s">    echo &quot;SELECTED DB: \${QUASSELDB}&quot;</span>
+<span class="s">else</span>
+<span class="s">    echo &quot;SELECTED DB &#39;\${QUASSELDB}&#39; does not exist.&quot;</span>
+<span class="s">    usage</span>
+<span class="s">    exit 2</span>
+<span class="s">fi</span>
+
+<span class="s">if [ -z \$(exeq &quot;SELECT quasseluser.username FROM quasseluser WHERE username = &#39;\${USER}&#39;;&quot;) ] ; then</span>
+<span class="s">    echo &quot;SELECTED USER &#39;\${USER}&#39; does not exist.&quot;</span>
+<span class="s">    print_users</span>
+<span class="s">    usage</span>
+<span class="s">    exit 3</span>
+<span class="s">else</span>
+<span class="s">    echo &quot;SELECTED USER: \${USER}&quot;</span>
+<span class="s">fi</span>
+
+<span class="s"># Sadly SQLITE does not allow DELETE statements that JOIN tables.</span>
+<span class="s"># All queries are written with a subquery.</span>
+<span class="s"># Contact me if you know a better way.</span>
+
+<span class="s">backlogq=&quot;DELETE</span>
+<span class="s">FROM backlog</span>
+<span class="s">WHERE backlog.bufferid in (</span>
+<span class="s">    SELECT bufferid</span>
+<span class="s">    FROM buffer, quasseluser</span>
+<span class="s">    WHERE buffer.userid = quasseluser.userid</span>
+<span class="s">    AND quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">);&quot;</span>
+
+<span class="s">bufferq=&quot;DELETE</span>
+<span class="s">FROM buffer</span>
+<span class="s">WHERE buffer.userid in (</span>
+<span class="s">    SELECT userid</span>
+<span class="s">    FROM quasseluser</span>
+<span class="s">    WHERE quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">);&quot;</span>
+
+<span class="s">ircserverq=&quot;DELETE</span>
+<span class="s">FROM ircserver</span>
+<span class="s">WHERE ircserver.userid in (</span>
+<span class="s">    SELECT userid</span>
+<span class="s">    FROM quasseluser</span>
+<span class="s">    WHERE quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">);&quot;</span>
+
+<span class="s">identity_nickq=&quot;DELETE</span>
+<span class="s">FROM identity_nick</span>
+<span class="s">WHERE identity_nick.identityid in (</span>
+<span class="s">    SELECT identityid</span>
+<span class="s">    FROM quasseluser, identity</span>
+<span class="s">    WHERE quasseluser.userid = identity.userid</span>
+<span class="s">    AND quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">);&quot;</span>
+
+<span class="s">identityq=&quot;DELETE</span>
+<span class="s">FROM identity</span>
+<span class="s">WHERE identity.userid in (</span>
+<span class="s">    SELECT userid</span>
+<span class="s">    FROM quasseluser</span>
+<span class="s">    WHERE quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">);&quot;</span>
+
+<span class="s">networkq=&quot;DELETE</span>
+<span class="s">FROM network</span>
+<span class="s">WHERE network.userid in (</span>
+<span class="s">    SELECT userid</span>
+<span class="s">    FROM quasseluser</span>
+<span class="s">    WHERE quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">);&quot;</span>
+
+<span class="s">usersettingq=&quot;DELETE</span>
+<span class="s">FROM user_setting</span>
+<span class="s">WHERE user_setting.userid in (</span>
+<span class="s">    SELECT userid</span>
+<span class="s">    FROM quasseluser</span>
+<span class="s">    WHERE quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">);&quot;</span>
+
+<span class="s">quasseluserq=&quot;DELETE</span>
+<span class="s">FROM quasseluser</span>
+<span class="s">WHERE quasseluser.username = &#39;\${USER}&#39;</span>
+<span class="s">;&quot;</span>
+
+
+<span class="s">exeq &quot;\${backlogq}&quot;</span>
+<span class="s">exeq &quot;\${bufferq}&quot;</span>
+<span class="s">exeq &quot;\${ircserverq}&quot;</span>
+<span class="s">exeq &quot;\${identity_nickq}&quot;</span>
+<span class="s">exeq &quot;\${identityq}&quot;</span>
+<span class="s">exeq &quot;\${networkq}&quot;</span>
+<span class="s">exeq &quot;\${usersettingq}&quot;</span>
+<span class="s">exeq &quot;\${quasseluserq}&quot;</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<h2 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h2>
+<h3 id="pre-requirements_1">Pre requirements<a class="headerlink" href="#pre-requirements_1" title="Permanent link">&para;</a></h3>
+<p>Install rclone:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>curl https://rclone.org/install.sh <span class="p">|</span> sudo bash
+</pre></div>
+</td></tr></table></p>
+<p>Configure rclone:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo -H rclone config
+</pre></div>
+</td></tr></table></p>
+<p>Config log:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>2018/08/28 14:23:13 NOTICE: Config file &quot;/root/.config/rclone/rclone.conf&quot; not found - using defaults
+No remotes found - make a new one
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q&gt; n
+name&gt; gteamdrive_quassel
+Type of storage to configure.
+Choose a number from below, or type in your own value
+ 1 / Alias for a existing remote
+   \ &quot;alias&quot;
+ 2 / Amazon Drive
+   \ &quot;amazon cloud drive&quot;
+ 3 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ &quot;s3&quot;
+ 4 / Backblaze B2
+   \ &quot;b2&quot;
+ 5 / Box
+   \ &quot;box&quot;
+ 6 / Cache a remote
+   \ &quot;cache&quot;
+ 7 / Dropbox
+   \ &quot;dropbox&quot;
+ 8 / Encrypt/Decrypt a remote
+   \ &quot;crypt&quot;
+ 9 / FTP Connection
+   \ &quot;ftp&quot;
+10 / Google Cloud Storage (this is not Google Drive)
+   \ &quot;google cloud storage&quot;
+11 / Google Drive
+   \ &quot;drive&quot;
+12 / Hubic
+   \ &quot;hubic&quot;
+13 / Local Disk
+   \ &quot;local&quot;
+14 / Mega
+   \ &quot;mega&quot;
+15 / Microsoft Azure Blob Storage
+   \ &quot;azureblob&quot;
+16 / Microsoft OneDrive
+   \ &quot;onedrive&quot;
+17 / OpenDrive
+   \ &quot;opendrive&quot;
+18 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &quot;swift&quot;
+19 / Pcloud
+   \ &quot;pcloud&quot;
+20 / QingCloud Object Storage
+   \ &quot;qingstor&quot;
+21 / SSH/SFTP Connection
+   \ &quot;sftp&quot;
+22 / Webdav
+   \ &quot;webdav&quot;
+23 / Yandex Disk
+   \ &quot;yandex&quot;
+24 / http Connection
+   \ &quot;http&quot;
+Storage&gt; 11
+Google Application Client Id - leave blank normally.
+client_id&gt; ***
+Google Application Client Secret - leave blank normally.
+client_secret&gt; ***
+Scope that rclone should use when requesting access from drive.
+Choose a number from below, or type in your own value
+ 1 / Full access all files, excluding Application Data Folder.
+   \ &quot;drive&quot;
+ 2 / Read-only access to file metadata and file contents.
+   \ &quot;drive.readonly&quot;
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ &quot;drive.file&quot;
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ &quot;drive.appfolder&quot;
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ &quot;drive.metadata.readonly&quot;
+scope&gt; 1
+ID of the root folder - leave blank normally.  Fill in to access &quot;Computers&quot; folders. (see docs).
+root_folder_id&gt;
+Service Account Credentials JSON file path  - leave blank normally.
+Needed only if you want use SA instead of interactive login.
+service_account_file&gt;
+Remote config
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine or Y didn&#39;t work
+y) Yes
+n) No
+y/n&gt; n
+If your browser doesn&#39;t open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=***
+Log in and authorize rclone for access
+Enter verification code&gt; ***
+Configure this as a team drive?
+y) Yes
+n) No
+y/n&gt; y
+Fetching team drive list...
+Choose a number from below, or type in your own value
+ 1 / ***
+   \ &quot;***&quot;
+ 2 / ***
+   \ &quot;***&quot;
+ 3 / quassel
+   \ &quot;***&quot;
+Enter a Team Drive ID&gt; 3
+--------------------
+[gteamdrive_quassel]
+type = drive
+client_id = ***
+client_secret = ***
+scope = drive
+root_folder_id =
+service_account_file =
+token = ***
+team_drive = &lt;drive id from quassel&gt;
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&gt; y
+Current remotes:
+
+Name                 Type
+====                 ====
+gteamdrive_quassel   drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt; n
+name&gt; quassel_crypt
+Type of storage to configure.
+Choose a number from below, or type in your own value
+ 1 / Alias for a existing remote
+   \ &quot;alias&quot;
+ 2 / Amazon Drive
+   \ &quot;amazon cloud drive&quot;
+ 3 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ &quot;s3&quot;
+ 4 / Backblaze B2
+   \ &quot;b2&quot;
+ 5 / Box
+   \ &quot;box&quot;
+ 6 / Cache a remote
+   \ &quot;cache&quot;
+ 7 / Dropbox
+   \ &quot;dropbox&quot;
+ 8 / Encrypt/Decrypt a remote
+   \ &quot;crypt&quot;
+ 9 / FTP Connection
+   \ &quot;ftp&quot;
+10 / Google Cloud Storage (this is not Google Drive)
+   \ &quot;google cloud storage&quot;
+11 / Google Drive
+   \ &quot;drive&quot;
+12 / Hubic
+   \ &quot;hubic&quot;
+13 / Local Disk
+   \ &quot;local&quot;
+14 / Mega
+   \ &quot;mega&quot;
+15 / Microsoft Azure Blob Storage
+   \ &quot;azureblob&quot;
+16 / Microsoft OneDrive
+   \ &quot;onedrive&quot;
+17 / OpenDrive
+   \ &quot;opendrive&quot;
+18 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &quot;swift&quot;
+19 / Pcloud
+   \ &quot;pcloud&quot;
+20 / QingCloud Object Storage
+   \ &quot;qingstor&quot;
+21 / SSH/SFTP Connection
+   \ &quot;sftp&quot;
+22 / Webdav
+   \ &quot;webdav&quot;
+23 / Yandex Disk
+   \ &quot;yandex&quot;
+24 / http Connection
+   \ &quot;http&quot;
+Storage&gt; 8
+Remote to encrypt/decrypt.
+Normally should contain a &#39;:&#39; and a path, eg &quot;myremote:path/to/dir&quot;,
+&quot;myremote:bucket&quot; or maybe &quot;myremote:&quot; (not recommended).
+remote&gt; gteamdrive_quassel:/
+How to encrypt the filenames.
+Choose a number from below, or type in your own value
+ 1 / Don&#39;t encrypt the file names.  Adds a &quot;.bin&quot; extension only.
+   \ &quot;off&quot;
+ 2 / Encrypt the filenames see the docs for the details.
+   \ &quot;standard&quot;
+ 3 / Very simple filename obfuscation.
+   \ &quot;obfuscate&quot;
+filename_encryption&gt; 2
+Option to either encrypt directory names or leave them intact.
+Choose a number from below, or type in your own value
+ 1 / Encrypt directory names.
+   \ &quot;true&quot;
+ 2 / Don&#39;t encrypt directory names, leave them intact.
+   \ &quot;false&quot;
+directory_name_encryption&gt; 1
+Password or pass phrase for encryption.
+y) Yes type in my own password
+g) Generate random password
+y/g&gt; g
+Password strength in bits.
+64 is just about memorable
+128 is secure
+1024 is the maximum
+Bits&gt; 1024
+Your password is: ***
+Use this password?
+y) Yes
+n) No
+y/n&gt; y
+Password or pass phrase for salt. Optional but recommended.
+Should be different to the previous password.
+y) Yes type in my own password
+g) Generate random password
+n) No leave this optional password blank
+y/g/n&gt; g
+Password strength in bits.
+64 is just about memorable
+128 is secure
+1024 is the maximum
+Bits&gt; 1024
+Your password is: ***
+Use this password?
+y) Yes
+n) No
+y/n&gt; y
+Remote config
+--------------------
+[quassel_crypt]
+type = crypt
+remote = gteamdrive_quassel:/
+filename_encryption = standard
+directory_name_encryption = true
+password = *** ENCRYPTED ***
+password2 = *** ENCRYPTED ***
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&gt; y
+Current remotes:
+
+Name                 Type
+====                 ====
+gteamdrive_quassel   drive
+quassel_crypt        crypt
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt; q
+</pre></div>
+</td></tr></table></p>
+<h3 id="backup-script">Backup script<a class="headerlink" href="#backup-script" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee /usr/local/sbin/quassel_backup &amp;&amp; \</span>
+<span class="s">sudo chmod 500 /usr/local/sbin/quassel_backup</span>
+<span class="s">#!/bin/bash</span>
+
+<span class="s">user=&#39;quasselcore&#39;</span>
+<span class="s">database=&#39;/var/lib/quassel/quassel-storage.sqlite&#39;</span>
+<span class="s">backup_target=&#39;/tmp&#39;</span>
+<span class="s">backup_name=&#39;quassel&#39;</span>
+<span class="s">date=\$(date +&quot;%Y-%m-%d_%H:%m&quot;)</span>
+
+<span class="s"># Backup database</span>
+<span class="s">sudo -u \${user} sqlite3 \${database} &quot;.backup \${backup_target}/\${backup_name}_\${date}.sqlite&quot;</span>
+
+<span class="s"># Upload database to google</span>
+<span class="s">rclone copy \${backup_target}/\${backup_name}_\${date}.sqlite quassel_crypt:</span>
+
+<span class="s"># remove local backup file</span>
+<span class="s">rm \${backup_target}/\${backup_name}_\${date}.sqlite</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="cronjob">Cronjob<a class="headerlink" href="#cronjob" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo crontab -e
+</pre></div>
+</td></tr></table>
+
+<p>Add at the end of the file:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>@hourly /usr/local/sbin/quassel_backup
+</pre></div>
+</td></tr></table></p>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<h3 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h3>
+<details class="tip"><summary>Explanation iptables rules</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># Allow loopback</span>
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
+
+<span class="c1"># Allow SSH incoming</span>
+iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+<span class="c1"># Allow quassel incoming</span>
+iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">4242</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+<span class="c1"># Allow ESTABLISHED and RELATED connection (important for outgoing connections!)</span>
+iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+<span class="c1"># Policy DROP INPUT on</span>
+iptables -P INPUT DROP<span class="p">;</span>
+
+<span class="c1"># Policy ACCEPT OUTPUT</span>
+iptables -P OUTPUT ACCEPT
+</pre></div>
+</td></tr></table>
+
+</details>
+<p>Set up needed iptables rules:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo iptables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -A INPUT -i lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">4242</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i eth0 -p icmp -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -P INPUT DROP<span class="p">;</span> <span class="se">\</span>
+sudo iptables -P OUTPUT ACCEPT
+</pre></div>
+</td></tr></table>
+Set up needed ip6tables rules:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo ip6tables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -A INPUT -i lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">4242</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i eth0 -p ipv6-icmp -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -P INPUT DROP<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -P OUTPUT ACCEPT
+</pre></div>
+</td></tr></table></p>
+<p>Persist iptables rules:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install -y iptables-persistent <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo netfilter-persistent save <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo netfilter-persistent reload
+</pre></div>
+</td></tr></table></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../concourse_dockerized/" title="Concourse Dockerized" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Concourse Dockerized
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../kb/change_tty/" title="How to change to TTYn" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                How to change to TTYn
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="http://pphg.tech" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://keybase.io/philip_henning" class="md-footer-social__link fa fa-key"></a>
+    
+      <a href="https://twitter.com/__phg" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://github.com/shokinn" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://gitlab.com/shokinn" class="md-footer-social__link fa fa-gitlab"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

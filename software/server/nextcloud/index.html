@@ -1,0 +1,2621 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Everything which I have to write down to remember it">
+      
+      
+      
+        <meta name="author" content="Philip Henning">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>NextCloud - Philip's docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../../#nextcloud" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Philip's docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Philip's docs
+              </span>
+              <span class="md-header-nav__topic">
+                NextCloud
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Philip's docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    Philip's docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Hardware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Dell XPS 15 9560
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Dell XPS 15 9560
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux/" title="Arch Linux" class="md-nav__link">
+      Arch Linux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Software
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Desktop
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Desktop
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../desktop/playonlinux/" title="PlayOnLinux" class="md-nav__link">
+      PlayOnLinux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../concourse_dockerized/" title="Concourse Dockerized" class="md-nav__link">
+      Concourse Dockerized
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../quassel/" title="Quassel" class="md-nav__link">
+      Quassel
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Knowledge base
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Knowledge base
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../kb/change_tty/" title="How to change to TTYn" class="md-nav__link">
+      How to change to TTYn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../kb/mkdocs/" title="MkDocs testing environment" class="md-nav__link">
+      MkDocs testing environment
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../imprint/" title="Impressum" class="md-nav__link">
+      Impressum
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../datenschutzerklaerung/" title="Datenschutzerklärung" class="md-nav__link">
+      Datenschutzerklärung
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-server-setup" title="Initial Server setup" class="md-nav__link">
+    Initial Server setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-system" title="Update System" class="md-nav__link">
+    Update System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-locale" title="Fix locale" class="md-nav__link">
+    Fix locale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-bashrc" title="Edit .bashrc" class="md-nav__link">
+    Edit .bashrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-vim-colored-with-dark-background-settinfs" title="Make vim colored with dark background settinfs" class="md-nav__link">
+    Make vim colored with dark background settinfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-ssh-deamon-to-allow-only-ssh-keys" title="Change the SSH deamon to allow only SSH-keys" class="md-nav__link">
+    Change the SSH deamon to allow only SSH-keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-base-packages" title="Install base packages" class="md-nav__link">
+    Install base packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-and-configure-busyboxdropbear" title="Install and configure busybox/dropbear" class="md-nav__link">
+    Install and configure busybox/dropbear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-external-storage" title="Mount external storage" class="md-nav__link">
+    Mount external storage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requirements" title="pre requirements" class="md-nav__link">
+    pre requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-mounts" title="Mount mounts" class="md-nav__link">
+    Mount mounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-rclone" title="Install rclone" class="md-nav__link">
+    Install rclone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure" title="configure" class="md-nav__link">
+    configure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-nextcloud" title="Install Nextcloud" class="md-nav__link">
+    Install Nextcloud
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nginxcertnpt" title="Nginx/certnpt" class="md-nav__link">
+    Nginx/certnpt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-71" title="PHP 7.1" class="md-nav__link">
+    PHP 7.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mariadb" title="MariaDB" class="md-nav__link">
+    MariaDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx-config" title="Nginx config" class="md-nav__link">
+    Nginx config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-nextcloud" title="Download Nextcloud" class="md-nav__link">
+    Download Nextcloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nextcloud_1" title="Install NextCloud" class="md-nav__link">
+    Install NextCloud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" title="Security" class="md-nav__link">
+    Security
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iptables" title="iptables" class="md-nav__link">
+    iptables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail2ban-sshnextcloud" title="fail2Ban (SSH/Nextcloud)" class="md-nav__link">
+    fail2Ban (SSH/Nextcloud)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-nextcloud" title="Backup Nextcloud" class="md-nav__link">
+    Backup Nextcloud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/shokinn/docs/edit/master/docs/software/server/nextcloud.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="nextcloud">NextCloud<a class="headerlink" href="#nextcloud" title="Permanent link">&para;</a></h1>
+<p>OS: Ubuntu 18.04 LTS</p>
+<p>Preinstalled with lvm and LUKS encryption.</p>
+<h2 id="initial-server-setup">Initial Server setup<a class="headerlink" href="#initial-server-setup" title="Permanent link">&para;</a></h2>
+<h3 id="update-system">Update System<a class="headerlink" href="#update-system" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt full-upgrade -y
+</pre></div>
+</td></tr></table>
+
+<h3 id="fix-locale">Fix locale<a class="headerlink" href="#fix-locale" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee -a /etc/environment</span>
+
+<span class="s"># Fix locale</span>
+<span class="s">LC_ALL=en_US.UTF-8</span>
+<span class="s">LANGUAGE=en_US:en</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="edit-bashrc">Edit .bashrc<a class="headerlink" href="#edit-bashrc" title="Permanent link">&para;</a></h3>
+<p><code>/root/.bashrc</code> / <code>/etc/skel/.bashrc</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don&#39;t do anything
+[ -z &quot;$PS1&quot; ] &amp;&amp; return
+
+# don&#39;t put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don&#39;t overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=999999
+HISTFILESIZE=999999
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] &amp;&amp; eval &quot;$(SHELL=/bin/sh lesspipe)&quot;
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z &quot;$debian_chroot&quot; ] &amp;&amp; [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we &quot;want&quot; color)
+case &quot;$TERM&quot; in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n &quot;$force_color_prompt&quot; ]; then
+    if [ -x /usr/bin/tput ] &amp;&amp; tput setaf 1 &gt;&amp;/dev/null; then
+    # We have color support; assume it&#39;s compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+    else
+    color_prompt=
+    fi
+fi
+
+if [ &quot;$color_prompt&quot; = yes ]; then
+    # PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ &#39;
+    if [ $UID == 0 ]; then
+        PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]&#39;
+    else
+        PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]&#39;
+    fi
+else
+    PS1=&#39;${debian_chroot:+($debian_chroot)}\u@\h:\w\$ &#39;
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case &quot;$TERM&quot; in
+xterm*|rxvt*)
+    PS1=&quot;\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1&quot;
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors &amp;&amp; eval &quot;$(dircolors -b ~/.dircolors)&quot; || eval &quot;$(dircolors -b)&quot;
+    alias ls=&#39;ls --color=auto&#39;
+    #alias dir=&#39;dir --color=auto&#39;
+    #alias vdir=&#39;vdir --color=auto&#39;
+
+    alias grep=&#39;grep --color=auto&#39;
+    alias fgrep=&#39;fgrep --color=auto&#39;
+    alias egrep=&#39;egrep --color=auto&#39;
+fi
+
+# some more ls aliases
+alias ll=&#39;ls -alF&#39;
+alias la=&#39;ls -A&#39;
+alias l=&#39;ls -CF&#39;
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don&#39;t need to enable
+# this, if it&#39;s already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] &amp;&amp; ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+</pre></div>
+</td></tr></table></p>
+<h3 id="make-vim-colored-with-dark-background-settinfs">Make vim colored with dark background settinfs<a class="headerlink" href="#make-vim-colored-with-dark-background-settinfs" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee -a /etc/vim/vimrc</span>
+
+<span class="s">&quot; Set background to dark for better readability in SSH connections</span>
+<span class="s">set background=dark</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="change-the-ssh-deamon-to-allow-only-ssh-keys">Change the SSH deamon to allow only SSH-keys<a class="headerlink" href="#change-the-ssh-deamon-to-allow-only-ssh-keys" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee /etc/ssh/sshd_config &amp;&amp; sudo systemctl restart sshd.service</span>
+<span class="s"># $OpenBSD: sshd_config,v 1.101 2017/03/14 07:19:07 djm Exp $</span>
+
+<span class="s"># This is the sshd server system-wide configuration file.  See</span>
+<span class="s"># sshd_config(5) for more information.</span>
+
+<span class="s"># This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin</span>
+
+<span class="s"># The strategy used for options in the default sshd_config shipped with</span>
+<span class="s"># OpenSSH is to specify options with their default value where</span>
+<span class="s"># possible, but leave them commented.  Uncommented options override the</span>
+<span class="s"># default value.</span>
+
+<span class="s">Port 22</span>
+<span class="s">AddressFamily any</span>
+<span class="s">ListenAddress 0.0.0.0</span>
+<span class="s">ListenAddress ::</span>
+
+<span class="s">HostKey /etc/ssh/ssh_host_rsa_key</span>
+<span class="s">HostKey /etc/ssh/ssh_host_ecdsa_key</span>
+<span class="s">HostKey /etc/ssh/ssh_host_ed25519_key</span>
+
+<span class="s"># Ciphers and keying</span>
+<span class="s">#RekeyLimit default none</span>
+
+<span class="s"># Logging</span>
+<span class="s">#SyslogFacility AUTH</span>
+<span class="s">#LogLevel INFO</span>
+
+<span class="s"># Authentication:</span>
+
+<span class="s">#LoginGraceTime 2m</span>
+<span class="s">PermitRootLogin without-password</span>
+<span class="s">#StrictModes yes</span>
+<span class="s">#MaxAuthTries 6</span>
+<span class="s">#MaxSessions 10</span>
+
+<span class="s">PubkeyAuthentication yes</span>
+
+<span class="s"># Expect .ssh/authorized_keys2 to be disregarded by default in future.</span>
+<span class="s">AuthorizedKeysFile .ssh/authorized_keys .ssh/authorized_keys2</span>
+
+<span class="s">#AuthorizedPrincipalsFile none</span>
+
+<span class="s">#AuthorizedKeysCommand none</span>
+<span class="s">#AuthorizedKeysCommandUser nobody</span>
+
+<span class="s"># For this to work you will also need host keys in /etc/ssh/ssh_known_hosts</span>
+<span class="s">#HostbasedAuthentication no</span>
+<span class="s"># Change to yes if you don&#39;t trust ~/.ssh/known_hosts for</span>
+<span class="s"># HostbasedAuthentication</span>
+<span class="s">#IgnoreUserKnownHosts no</span>
+<span class="s"># Don&#39;t read the user&#39;s ~/.rhosts and ~/.shosts files</span>
+<span class="s">#IgnoreRhosts yes</span>
+
+<span class="s"># To disable tunneled clear text passwords, change to no here!</span>
+<span class="s">PasswordAuthentication no</span>
+<span class="s">PermitEmptyPasswords no</span>
+
+<span class="s"># Change to yes to enable challenge-response passwords (beware issues with</span>
+<span class="s"># some PAM modules and threads)</span>
+<span class="s">ChallengeResponseAuthentication no</span>
+
+<span class="s"># Kerberos options</span>
+<span class="s">#KerberosAuthentication no</span>
+<span class="s">#KerberosOrLocalPasswd yes</span>
+<span class="s">#KerberosTicketCleanup yes</span>
+<span class="s">#KerberosGetAFSToken no</span>
+
+<span class="s"># GSSAPI options</span>
+<span class="s">#GSSAPIAuthentication no</span>
+<span class="s">#GSSAPICleanupCredentials yes</span>
+<span class="s">#GSSAPIStrictAcceptorCheck yes</span>
+<span class="s">#GSSAPIKeyExchange no</span>
+
+<span class="s"># Set this to &#39;yes&#39; to enable PAM authentication, account processing,</span>
+<span class="s"># and session processing. If this is enabled, PAM authentication will</span>
+<span class="s"># be allowed through the ChallengeResponseAuthentication and</span>
+<span class="s"># PasswordAuthentication.  Depending on your PAM configuration,</span>
+<span class="s"># PAM authentication via ChallengeResponseAuthentication may bypass</span>
+<span class="s"># the setting of &quot;PermitRootLogin without-password&quot;.</span>
+<span class="s"># If you just want the PAM account and session checks to run without</span>
+<span class="s"># PAM authentication, then enable this but set PasswordAuthentication</span>
+<span class="s"># and ChallengeResponseAuthentication to &#39;no&#39;.</span>
+<span class="s">UsePAM yes</span>
+
+<span class="s">#AllowAgentForwarding yes</span>
+<span class="s">#AllowTcpForwarding yes</span>
+<span class="s">#GatewayPorts no</span>
+<span class="s">X11Forwarding yes</span>
+<span class="s">#X11DisplayOffset 10</span>
+<span class="s">#X11UseLocalhost yes</span>
+<span class="s">#PermitTTY yes</span>
+<span class="s">PrintMotd no</span>
+<span class="s">#PrintLastLog yes</span>
+<span class="s">#TCPKeepAlive yes</span>
+<span class="s">#UseLogin no</span>
+<span class="s">#PermitUserEnvironment no</span>
+<span class="s">#Compression delayed</span>
+<span class="s">#ClientAliveInterval 0</span>
+<span class="s">#ClientAliveCountMax 3</span>
+<span class="s">#UseDNS no</span>
+<span class="s">#PidFile /var/run/sshd.pid</span>
+<span class="s">#MaxStartups 10:30:100</span>
+<span class="s">#PermitTunnel no</span>
+<span class="s">#ChrootDirectory none</span>
+<span class="s">#VersionAddendum none</span>
+
+<span class="s"># no default banner path</span>
+<span class="s">#Banner none</span>
+
+<span class="s"># Allow client to pass locale environment variables</span>
+<span class="s">AcceptEnv LANG LC_*</span>
+
+<span class="s"># override default of no subsystems</span>
+<span class="s">Subsystem sftp /usr/lib/openssh/sftp-server</span>
+
+<span class="s"># Example of overriding settings on a per-user basis</span>
+<span class="s">#Match User anoncvs</span>
+<span class="s"># X11Forwarding no</span>
+<span class="s"># AllowTcpForwarding no</span>
+<span class="s"># PermitTTY no</span>
+<span class="s"># ForceCommand cvs server</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="install-base-packages">Install base packages<a class="headerlink" href="#install-base-packages" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install -y <span class="se">\</span>
+p7zip-full <span class="se">\</span>
+p7zip-rar <span class="se">\</span>
+unzip <span class="se">\</span>
+unrar <span class="se">\</span>
+screen <span class="se">\</span>
+tmux <span class="se">\</span>
+htop
+</pre></div>
+</td></tr></table>
+
+<h3 id="install-and-configure-busyboxdropbear">Install and configure busybox/dropbear<a class="headerlink" href="#install-and-configure-busyboxdropbear" title="Permanent link">&para;</a></h3>
+<p>Install busybox and dropbear:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt full-upgrade -y <span class="o">&amp;&amp;</span> sudo apt install -y busybox dropbear
+</pre></div>
+</td></tr></table></p>
+<p>Edit your <code>/etc/initramfs-tools/initramfs.conf</code> and set <code>BUSYBOX=y</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo sed -i -e <span class="s1">&#39;s/^BUSYBOX=.*$/BUSYBOX=y/&#39;</span> /etc/initramfs-tools/initramfs.conf <span class="o">&amp;&amp;</span> <span class="se">\</span>
+cat <span class="s">&lt;&lt; EOF | sudo tee -a /etc/initramfs-tools/initramfs.conf</span>
+<span class="s">#</span>
+<span class="s"># DROPBEAR</span>
+<span class="s">#</span>
+
+<span class="s">DROPBEAR=y</span>
+
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<p>Set dropbear to start:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo sed -i <span class="s1">&#39;s/^NO_START.*$/NO_START=0/&#39;</span> /etc/default/dropbear
+</pre></div>
+</td></tr></table></p>
+<p>Change dropear port to <code>2222</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo sed -i <span class="s1">&#39;s/^#DROPBEAR_OPTIONS.*$/DROPBEAR_OPTIONS=&quot;-p 2222&quot;/&#39;</span> /etc/dropbear-initramfs/config
+</pre></div>
+</td></tr></table></p>
+<details class="info"><summary>crypt_unlock.sh</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>#!/bin/sh
+
+PREREQ=&quot;dropbear&quot;
+
+prereqs() {
+  echo &quot;$PREREQ&quot;
+}
+
+case &quot;$1&quot; in
+  prereqs)
+    prereqs
+    exit 0
+  ;;
+esac
+
+. &quot;${CONFDIR}/initramfs.conf&quot;
+. /usr/share/initramfs-tools/hook-functions
+
+if [ &quot;${DROPBEAR}&quot; != &quot;n&quot; ] &amp;&amp; [ -r &quot;/etc/crypttab&quot; ] ; then
+cat &gt; &quot;${DESTDIR}/bin/unlock&quot; &lt;&lt; EOF
+#!/bin/sh
+if PATH=/lib/unlock:/bin:/sbin /scripts/local-top/cryptroot; then
+kill \`ps | grep cryptroot | grep -v &quot;grep&quot; | awk &#39;{print \$1}&#39;\`
+# following line kill the remote shell right after the passphrase has
+# been entered.
+kill -9 \`ps | grep &quot;\-sh&quot; | grep -v &quot;grep&quot; | awk &#39;{print \$1}&#39;\`
+exit 0
+fi
+exit 1
+EOF
+
+  chmod 755 &quot;${DESTDIR}/bin/unlock&quot;
+
+  mkdir -p &quot;${DESTDIR}/lib/unlock&quot;
+cat &gt; &quot;${DESTDIR}/lib/unlock/plymouth&quot; &lt;&lt; EOF
+#!/bin/sh
+[ &quot;\$1&quot; == &quot;--ping&quot; ] &amp;&amp; exit 1
+/bin/plymouth &quot;\$@&quot;
+EOF
+
+  chmod 755 &quot;${DESTDIR}/lib/unlock/plymouth&quot;
+
+  echo To unlock root-partition run &quot;unlock&quot; &gt;&gt; ${DESTDIR}/etc/motd
+
+fi
+</pre></div>
+</td></tr></table>
+
+</details>
+<p>Get the unlock script:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo wget -O /etc/initramfs-tools/hooks/crypt_unlock.sh https://gist.githubusercontent.com/gusennan/712d6e81f5cf9489bd9f/raw/fda73649d904ee0437fe3842227ad8ac8ca487d1/crypt_unlock.sh <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chmod +x /etc/initramfs-tools/hooks/crypt_unlock.sh <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo update-initramfs -u <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo systemctl disable dropbear
+</pre></div>
+</td></tr></table></p>
+<p>Add your ssh keys to the busybox authorized keys:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee /etc/dropbear-initramfs/authorized_keys</span>
+<span class="s">ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAwVT82+FIbeVNjJ3Waa3Z0ysmG+DNhX6qUN5C2o3lT158WCcWgDU5qs/DgJDQFVK+m33cvozdaoV2sreSHmKLlM77k5zU+OTDswrEaJ53CRSu7tgT6ZRI2ggxzhvrw6xq1bmTlSuaojSmaJNDZllgFtrlG1XXGSgkgyDtyJuUk16MwKU4zLAWOluwrZBMIvlafNnJS4K385rI2NNIMUvWHjfxYTxAFAtqBZFacz/kQ9jm4UYT+v7YOXu48Cgul6S51eNbK0rUe7DU7+1xzusdhyqHq7FnFugvW6OYy3ft3y/ri/7qvKAhtwQSo6A8cgLVlPnMKdDWq/QAC6dLGcUEHJPJDYumMpM6ijrfd1DCpB+ELr/dFHgR5l6++OJM2/kl4f3ue1gp5b//6osnfMhWrQXbmk8WLF31IXmaZnwlcKKEvgNQL5O9U39HRuZBvXh5aib/vFtQ5ge6l1wG+eFLrMHjeLPDYCYuNliPisjmLNUb+0KyfDR2KnrqwZVXMOiKdh+S4OaXW7T+woykZ3u7FODfZwcRdnEgZFxYLSHRh8U/7fFzbAD4jJH29D9nHz46hx0OdEtiDJoeujf+GLXw4c7P2G+IYlPVg6sPJ5W+oky5gboQh13IOnFXFXd5kYuWnzOU/4ITy4vHw2WowbCYMFY5GNrRzRMpmcIj55OXrwM= 71:72:8d:23:dd:13:ea:90:17:35:4e:0a:2b:c7:d5:91 Philip Henning (mail@philip-henning.com)</span>
+<span class="s">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZntAPXzfGddkOxodxRCv2zBgbqHo9aAqtvoiZD0NuuBkYj3tSMKELMi0corvtXHy3iTa6EAKVc/AQqsNrggOeIYHwCSXZZ67sa0YxItDD3+YBm/v65EK/sspvq+xPD8IyZyYWDy6CmK1HiBlv6TFnGlN5PuFKfPJFBYEkx0Dzjl3i1r+xSpPKOcVgtPDs3MIYvBB1Y8Sig+JZehBELiioBQaWjKDPBJYsLQzqjGPLcBb/h1H729P6B4oW7A1LYsStJd5UDfknOgdx4pPoSCFBE5aEDO/0efqPcN7jQWlrrsc+OEWRW7k7EA45+9x6vjjUCO8IgKQFAIiOJadDPEaNAJnza4IpCspePeITZ3iyXo2/w9/BrzyNnW+arJ1QWjZ79W9mPXg4CTvUsnMQ55BRw2meLBxQqgkr9H8Cf/IxCEB2bPYPecCcVZj4djjgVbzlY/2/vFPDmB3Idx+AagACJZoDoWqaqlloC+fPyovG9iCjA+7iMEg4OR7kD/GCKGRmNzPmKNgkBwp62eyP4L9197bhIywMkaVEofqzHNOFly1f7KTEK/Dgo6GHCCsFLnvnPyZDvJ8o7bG7svan4e1KmY5JLSKZrtkPMJzvNmEUGsGlwFMWtNEhiGG01YiTIBcG3Z7N8lpi8Bcoti2Lq5chzApAwhHkykasHq218QPnpQ== a0:ce:a9:b4:c1:e8:c7:0e:ed:02:15:a0:58:56:34:64 matze</span>
+<span class="s">ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAyhhxTowK157f2bZiV5W9Vy0wemmo07EuH2un6boKjzQ8oNDB3AKUeLgef76spBZZQ668kkwL+qDcCssPuRUdrxuclTw7bgf+RtYV1dkxRxCXfMqT4Gxsz2VOAClImWY9cmWSkigzZfS0/R2JTTO+H2ohOqRGqLH0dNjswRYW33mMMCy6ksZgv4Bin9B5j6u9fsj4AcwtEMiNVKXMX9z6FELo9/ayWwvnEmzL9Bs8qR9+7jLbhaJJeJNZEh/teZu3w5/ahHtj0rWHZ0F/XNmAKFCS9M/buExXw3RF0PAByAJN+J4uMzcqx64guKoe5J1Sz5OZy+Tn/IICLv0oKggnfT1BPXwUAHm+8jGW/q1NFKXc2IanhS6wkBlJUWawEupJHj2TIdTI55mscsUH9g9a0WI7dSiZkkER8HoJYg5vZZ9y7OoklK8zPuGWPeOcIStCROXkTT/o0W/S7SVPKXeXrj3FNzV2Ibw8V3YSMJpA9f52kMkVp1Jzr8/L0i7vSuLIU628rVj1QBvmE1funKMEa9uWdqSgOZyVYVBzXzlahA8D/lBK8cX2Qplq9Wt/pUGPS+OczPwDW2IcRIdkVt/crCgxiYOaZxh853zMR1BHL9bZcwnL6voSgCi0uRzfBA4wEGCiZN7qoIVAs1axraet3G95rASzLI4qzlc5vtiUq98= 54:7e:57:18:15:f4:59:0f:d1:81:69:d9:dc:53:6e:0a robin@beismann.biz</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<p>Regenerate the initramfs:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo update-initramfs -u <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo update-grub <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo grub-install /dev/vda
+</pre></div>
+</td></tr></table></p>
+<h3 id="mount-external-storage">Mount external storage<a class="headerlink" href="#mount-external-storage" title="Permanent link">&para;</a></h3>
+<h4 id="pre-requirements">pre requirements<a class="headerlink" href="#pre-requirements" title="Permanent link">&para;</a></h4>
+<p>Install cifs-utils:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install -y cifs-utils
+</pre></div>
+</td></tr></table></p>
+<h4 id="mount-mounts">Mount mounts<a class="headerlink" href="#mount-mounts" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+<span class="nb">unset</span> pw<span class="p">;</span> <span class="se">\</span>
+<span class="nb">unset</span> pw_confirm<span class="p">;</span> <span class="se">\</span>
+<span class="nb">read</span> -p <span class="s2">&quot;cifs user: &quot;</span> cifs_user <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">read</span> -s -p <span class="s2">&quot;cifs password: &quot;</span> pw<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">read</span> -s -p <span class="s2">&quot;Confirm admin user password: &quot;</span> pw_confirm<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$pw</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="nv">$pw_confirm</span><span class="s2">&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="se">\</span>
+break<span class="p">;</span> <span class="se">\</span>
+<span class="k">else</span> <span class="se">\</span>
+<span class="nb">echo</span> <span class="s2">&quot;Your passwords don&#39;t match. Try again!&quot;</span><span class="p">;</span> <span class="se">\</span>
+<span class="nb">echo</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="se">\</span>
+<span class="k">fi</span><span class="p">;</span> <span class="se">\</span>
+<span class="k">done</span><span class="p">;</span> <span class="se">\</span>
+<span class="k">if</span> <span class="o">[[</span> ! -d /mnt/.cifs <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> sudo mkdir /mnt/.cifs<span class="p">;</span> <span class="k">fi</span><span class="p">;</span> <span class="se">\</span>
+sudo chmod <span class="m">400</span> /mnt/.cifs<span class="p">;</span> <span class="se">\</span>
+cat <span class="s">&lt;&lt; EOF | sudo tee -a /etc/fstab &amp;&amp; \</span>
+<span class="s">sudo mount -a</span>
+
+
+<span class="s"># Cifs shared storage</span>
+<span class="s">//io.servercow.de/home /mnt/.cifs cifs username=$cifs_user,password=$pw,uid=www-data,gid=www-data,file_mode=0660,dir_mode=0770 0 0</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="install-rclone">Install rclone<a class="headerlink" href="#install-rclone" title="Permanent link">&para;</a></h4>
+<p>Install rclone:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>curl https://rclone.org/install.sh <span class="p">|</span> sudo bash
+</pre></div>
+</td></tr></table></p>
+<p>create mountpoint:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo mkdir /mnt/cifs <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chmod <span class="m">400</span> /mnt/cifs
+</pre></div>
+</td></tr></table></p>
+<h4 id="configure">configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h4>
+<p>Open rclone configuration:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">[[</span> ! -d /var/www/.conf/rclone/ <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> sudo mkdir -p /var/www/.conf/rclone/<span class="p">;</span> <span class="k">fi</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chmod <span class="m">700</span> /var/www/.conf/rclone/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chown www-data:www-data /var/www/.conf/rclone/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo -u www-data rclone config --config /var/www/.conf/rclone/rclone.conf <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chmod <span class="m">600</span> /var/www/.conf/rclone/rclone.conf
+</pre></div>
+</td></tr></table></p>
+<p>Configuration log:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>2018/09/09 21:09:35 NOTICE: Config file &quot;/var/www/.conf/rclone/rclone.conf&quot; not found - using defaults
+No remotes found - make a new one
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q&gt; n
+name&gt; cifs_crypt
+Type of storage to configure.
+Enter a string value. Press Enter for the default (&quot;&quot;).
+Choose a number from below, or type in your own value
+ 1 / Alias for a existing remote
+   \ &quot;alias&quot;
+ 2 / Amazon Drive
+   \ &quot;amazon cloud drive&quot;
+ 3 / Amazon S3 Compliant Storage Providers (AWS, Ceph, Dreamhost, IBM COS, Minio)
+   \ &quot;s3&quot;
+ 4 / Backblaze B2
+   \ &quot;b2&quot;
+ 5 / Box
+   \ &quot;box&quot;
+ 6 / Cache a remote
+   \ &quot;cache&quot;
+ 7 / Dropbox
+   \ &quot;dropbox&quot;
+ 8 / Encrypt/Decrypt a remote
+   \ &quot;crypt&quot;
+ 9 / FTP Connection
+   \ &quot;ftp&quot;
+10 / Google Cloud Storage (this is not Google Drive)
+   \ &quot;google cloud storage&quot;
+11 / Google Drive
+   \ &quot;drive&quot;
+12 / Hubic
+   \ &quot;hubic&quot;
+13 / JottaCloud
+   \ &quot;jottacloud&quot;
+14 / Local Disk
+   \ &quot;local&quot;
+15 / Mega
+   \ &quot;mega&quot;
+16 / Microsoft Azure Blob Storage
+   \ &quot;azureblob&quot;
+17 / Microsoft OneDrive
+   \ &quot;onedrive&quot;
+18 / OpenDrive
+   \ &quot;opendrive&quot;
+19 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ &quot;swift&quot;
+20 / Pcloud
+   \ &quot;pcloud&quot;
+21 / QingCloud Object Storage
+   \ &quot;qingstor&quot;
+22 / SSH/SFTP Connection
+   \ &quot;sftp&quot;
+23 / Webdav
+   \ &quot;webdav&quot;
+24 / Yandex Disk
+   \ &quot;yandex&quot;
+25 / http Connection
+   \ &quot;http&quot;
+Storage&gt; 8
+Remote to encrypt/decrypt.
+Normally should contain a &#39;:&#39; and a path, eg &quot;myremote:path/to/dir&quot;,
+&quot;myremote:bucket&quot; or maybe &quot;myremote:&quot; (not recommended).
+Enter a string value. Press Enter for the default (&quot;&quot;).
+remote&gt; /mnt/.cifs
+How to encrypt the filenames.
+Enter a string value. Press Enter for the default (&quot;standard&quot;).
+Choose a number from below, or type in your own value
+ 1 / Don&#39;t encrypt the file names.  Adds a &quot;.bin&quot; extension only.
+   \ &quot;off&quot;
+ 2 / Encrypt the filenames see the docs for the details.
+   \ &quot;standard&quot;
+ 3 / Very simple filename obfuscation.
+   \ &quot;obfuscate&quot;
+filename_encryption&gt; 2
+Option to either encrypt directory names or leave them intact.
+Enter a boolean value (true or false). Press Enter for the default (&quot;true&quot;).
+Choose a number from below, or type in your own value
+ 1 / Encrypt directory names.
+   \ &quot;true&quot;
+ 2 / Don&#39;t encrypt directory names, leave them intact.
+   \ &quot;false&quot;
+directory_name_encryption&gt; 1
+Password or pass phrase for encryption.
+y) Yes type in my own password
+g) Generate random password
+n) No leave this optional password blank
+y/g/n&gt; g
+Password strength in bits.
+64 is just about memorable
+128 is secure
+1024 is the maximum
+Bits&gt; 1024
+Your password is: ***
+Use this password? Please note that an obscured version of this
+password (and not the password itself) will be stored under your
+configuration file, so keep this generated password in a safe place.
+y) Yes
+n) No
+y/n&gt; y
+Password or pass phrase for salt. Optional but recommended.
+Should be different to the previous password.
+y) Yes type in my own password
+g) Generate random password
+n) No leave this optional password blank
+y/g/n&gt; g
+Password strength in bits.
+64 is just about memorable
+128 is secure
+1024 is the maximum
+Bits&gt; 1024
+Your password is: ***
+Use this password? Please note that an obscured version of this
+password (and not the password itself) will be stored under your
+configuration file, so keep this generated password in a safe place.
+y) Yes
+n) No
+y/n&gt; y
+Edit advanced config? (y/n)
+y) Yes
+n) No
+y/n&gt; y
+For all files listed show how the names encrypt.
+Enter a boolean value (true or false). Press Enter for the default (&quot;false&quot;).
+show_mapping&gt;
+Remote config
+--------------------
+[cifs_crypt]
+type = crypt
+remote = /mnt/.cifs
+filename_encryption = standard
+directory_name_encryption = true
+password = *** ENCRYPTED ***
+password2 = *** ENCRYPTED ***
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d&gt; y
+Current remotes:
+
+Name                 Type
+====                 ====
+cifs_crypt           crypt
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt; q
+</pre></div>
+</td></tr></table></p>
+<p>Test if Rclone can mount:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>screen -S <span class="s1">&#39;rclone&#39;</span> sudo rclone mount --config /var/www/.conf/rclone/rclone.conf --uid <span class="k">$(</span>id -u www-data<span class="k">)</span> --gid <span class="k">$(</span>id -g www-data<span class="k">)</span> --umask <span class="m">002</span> --allow-other cifs_crypt: /mnt/cifs
+</pre></div>
+</td></tr></table></p>
+<p>Unmount it:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo fusermount -uz /mnt/cifs
+</pre></div>
+</td></tr></table></p>
+<p>Create systemd startup script <code>/etc/systemd/system/rclone.service</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat &lt;&lt; EOF | sudo tee /etc/systemd/system/rclone.service
+[Unit]
+Description=rclone encryption mount
+AssertPathIsDirectory=/mnt/cifs
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount --config /var/www/.conf/rclone/rclone.conf --uid $(id -u www-data) --gid $(id -g www-data) --umask 007 --allow-other cifs_crypt: /mnt/cifs
+ExecStop=/bin/fusermount -uz /mnt/cifs
+Restart=on-abort
+RestartSec=5
+StartLimitInterval=60s
+StartLimitBurst=3
+
+[Install]
+WantedBy=default.target
+EOF
+</pre></div>
+</td></tr></table></p>
+<p>Refresh your daemons:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl daemon-reload
+</pre></div>
+</td></tr></table></p>
+<p>Activate the auto startup option and start the service:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl <span class="nb">enable</span> rclone.service <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo systemctl start rclone.service
+</pre></div>
+</td></tr></table></p>
+<h2 id="install-nextcloud">Install Nextcloud<a class="headerlink" href="#install-nextcloud" title="Permanent link">&para;</a></h2>
+<h3 id="nginxcertnpt">Nginx/certnpt<a class="headerlink" href="#nginxcertnpt" title="Permanent link">&para;</a></h3>
+<p>Install nginx:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo apt install -y <span class="se">\</span>
+nginx <span class="se">\</span>
+python3 <span class="se">\</span>
+python3-pip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo -H pip3 install <span class="se">\</span>
+certbot <span class="se">\</span>
+certbot-nginx
+</pre></div>
+</td></tr></table></p>
+<h3 id="php-71">PHP 7.1<a class="headerlink" href="#php-71" title="Permanent link">&para;</a></h3>
+<p>Install php7.1:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install software-properties-common -y <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo add-apt-repository ppa:ondrej/php -y <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo apt install php7.1-fpm php7.1-curl php7.1-cli php7.1-mysql php7.1-gd php7.1-iconv php7.1-xsl php7.1-json php7.1-intl php-pear php-imagick php7.1-dev php7.1-common php7.1-mbstring php7.1-zip php7.1-soap php-apcu -y
+</pre></div>
+</td></tr></table></p>
+<p>Restart php-fpm and nginx:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl restart php7.1-fpm.service nginx.service
+</pre></div>
+</td></tr></table></p>
+<p>Modify php.ini's:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo sed -i -e <span class="s1">&#39;s/^;date.timezone =*$/date.timezone = Europe\/Berlin/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*opcache\.enable=.*$/opcache.enable=1/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*opcache\.enable_cli=.*$/opcache.enable_cli=1/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*opcache\.interned_strings_buffer=.*$/opcache.interned_strings_buffer=8/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*opcache\.max_accelerated_files=.*$/opcache.max_accelerated_files=10000/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*opcache\.memory_consumption=.*$/opcache.memory_consumption=128/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*opcache\.save_comments=.*$/opcache.save_comments=1/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*opcache\.revalidate_freq=.*$/opcache.revalidate_freq=1/&#39;</span> /etc/php/7.1/fpm/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^;date.timezone =*$/date.timezone = Europe\/Berlin/&#39;</span> /etc/php/7.1/cli/php.ini <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i -e <span class="s1">&#39;s/^.*cgi\.fix_pathinfo=.*$/cgi.fix_pathinfo=0/&#39;</span> /etc/php/7.1/cli/php.ini 
+</pre></div>
+</td></tr></table></p>
+<p>Uncomment those lines below:<br />
+<code>sudo vim /etc/php/7.1/fpm/pool.d/www.conf</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>env[HOSTNAME] = $HOSTNAME
+env[PATH] = /usr/local/bin:/usr/bin:/bin
+env[TMP] = /tmp
+env[TMPDIR] = /tmp
+env[TEMP] = /tmp
+</pre></div>
+</td></tr></table></p>
+<p>Restart php-fpm:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl restart php7.1-fpm <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo systemctl <span class="nb">enable</span> php7.1-fpm
+</pre></div>
+</td></tr></table></p>
+<h3 id="mariadb">MariaDB<a class="headerlink" href="#mariadb" title="Permanent link">&para;</a></h3>
+<p>Install MariaDB:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install mariadb-server mariadb-client -y
+</pre></div>
+</td></tr></table></p>
+<p>Secure MariaDB installtion:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo mysql_secure_installation
+</pre></div>
+</td></tr></table></p>
+<p>Log:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we&#39;ll need the current
+password for the root user.  If you&#39;ve just installed MariaDB, and
+you haven&#39;t set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from &#39;localhost&#39;.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] y
+ ... Success!
+
+By default, MariaDB comes with a database named &#39;test&#39; that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you&#39;ve completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+</pre></div>
+</td></tr></table></p>
+<p>Login to MariaDB as <code>root</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo mysql -u root -p
+</pre></div>
+</td></tr></table></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>CHANGE THE DEAFAULT PASSWORD!</p>
+</div>
+<p>Create a Nextcloud DB:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">database</span> <span class="n">nextcloud</span><span class="p">;</span>
+<span class="k">create</span> <span class="n">user</span> <span class="n">nextcloud</span><span class="o">@</span><span class="n">localhost</span> <span class="n">identified</span> <span class="k">by</span> <span class="s1">&#39;PASSWORD&#39;</span><span class="p">;</span>
+<span class="k">grant</span> <span class="k">all</span> <span class="n">privileges</span> <span class="k">on</span> <span class="n">nextcloud</span><span class="p">.</span><span class="o">*</span> <span class="k">to</span> <span class="n">nextcloud</span><span class="o">@</span><span class="n">localhost</span> <span class="n">identified</span> <span class="k">by</span> <span class="s1">&#39;PASSWORD&#39;</span><span class="p">;</span>
+<span class="k">flush</span> <span class="n">privileges</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></p>
+<p>Exit MariaDB client with <code>CTRL+D</code>.</p>
+<h3 id="nginx-config">Nginx config<a class="headerlink" href="#nginx-config" title="Permanent link">&para;</a></h3>
+<p>Remove alll current servers:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo rm /etc/nginx/sites-enabled/*
+</pre></div>
+</td></tr></table></p>
+<p>All general HTTP to HTTPS redirector:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">read</span> -r -d <span class="s1">&#39;&#39;</span> read_tmp&lt;&lt;<span class="s2">&quot;EOF&quot;</span>
+server <span class="o">{</span>
+<span class="se">\t</span>listen <span class="m">80</span> default_server<span class="p">;</span>
+<span class="se">\t</span>listen <span class="o">[</span>::<span class="o">]</span>:80 default_server<span class="p">;</span>
+<span class="se">\t</span>server_name _<span class="p">;</span>
+<span class="se">\t</span>return <span class="m">301</span> https://<span class="nv">$host$request_uri</span><span class="p">;</span>
+<span class="o">}</span>
+EOF
+<span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="nv">$read_tmp</span><span class="s2">&quot;</span> <span class="p">|</span> sudo tee /etc/nginx/sites-available/99-https-rewrite.conf <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo ln -s ../sites-available/99-https-rewrite.conf /etc/nginx/sites-enabled/99-https-rewrite.conf
+</pre></div>
+</td></tr></table></p>
+<p>Add <code>ssl_params</code> file:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sudo tee /etc/nginx/ssl_params</span>
+<span class="s"># Session settings</span>
+<span class="s">ssl_session_timeout 1d;</span>
+<span class="s">ssl_session_cache shared:SSL:50m;</span>
+<span class="s">ssl_session_tickets off;</span>
+
+<span class="s"># modern configuration. tweak to your needs.</span>
+<span class="s">ssl_protocols TLSv1.2;</span>
+<span class="s">ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256&#39;;</span>
+<span class="s">ssl_prefer_server_ciphers on;</span>
+
+<span class="s"># HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)</span>
+<span class="s">add_header Strict-Transport-Security max-age=15768000;</span>
+
+<span class="s"># OCSP Stapling ---</span>
+<span class="s"># fetch OCSP records from URL in ssl_certificate and cache them</span>
+<span class="s">ssl_stapling on;</span>
+<span class="s">ssl_stapling_verify on;</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<p>Add nextcloud server:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF | sed &#39;s/\\t/\t/g&#39; | sudo tee /etc/nginx/sites-available/10-cloud.pphg.tech.conf &amp;&amp; \</span>
+<span class="s">sudo ln -s ../sites-available/10-cloud.pphg.tech.conf /etc/nginx/sites-enabled/10-cloud.pphg.tech.conf</span>
+<span class="s">upstream php-handler {</span>
+<span class="s">\t#server 127.0.0.1:9000;</span>
+<span class="s">\tserver unix:/run/php/php7.1-fpm.sock;</span>
+<span class="s">}</span>
+
+<span class="s">server {</span>
+<span class="s">\tlisten\t\t443 ssl http2;</span>
+<span class="s">\tlisten\t\t[::]:443 ssl http2;</span>
+<span class="s">\tserver_name\tcloud.pphg.tech;</span>
+
+<span class="s">\taccess_log\t/var/log/nginx/cloud.pphg.tech_access.log combined gzip=9;</span>
+<span class="s">\terror_log\t/var/log/nginx/cloud.pphg.tech_error.log warn;</span>
+
+<span class="s">\t# Add headers to serve security related headers</span>
+<span class="s">\t# Before enabling Strict-Transport-Security headers please read into this</span>
+<span class="s">\t# topic first.</span>
+<span class="s">\t# add_header Strict-Transport-Security &quot;max-age=15552000;</span>
+<span class="s">\t# includeSubDomains; preload;&quot;;</span>
+<span class="s">\t#</span>
+<span class="s">\t# WARNING: Only add the preload option once you read about</span>
+<span class="s">\t# the consequences in https://hstspreload.org/. This option</span>
+<span class="s">\t# will add the domain to a hardcoded list that is shipped</span>
+<span class="s">\t# in all major browsers and getting removed from this list</span>
+<span class="s">\t# could take several months.</span>
+<span class="s">\tadd_header X-Content-Type-Options nosniff;</span>
+<span class="s">\tadd_header X-XSS-Protection &quot;1; mode=block&quot;;</span>
+<span class="s">\tadd_header X-Robots-Tag none;</span>
+<span class="s">\tadd_header X-Download-Options noopen;</span>
+<span class="s">\tadd_header X-Permitted-Cross-Domain-Policies none;</span>
+<span class="s">\tadd_header &#39;Referrer-Policy&#39; &#39;strict-origin&#39;;</span>
+
+
+<span class="s">\t# Path to the root of your installation</span>
+<span class="s">\troot /var/www/nextcloud/;</span>
+
+<span class="s">\tlocation = /data/htaccesstest.txt {</span>
+<span class="s">\t\tallow all;</span>
+<span class="s">\t\tlog_not_found off;</span>
+<span class="s">\t\taccess_log off;</span>
+<span class="s">\t}</span>
+
+<span class="s">\tlocation = /robots.txt {</span>
+<span class="s">\t\tallow all;</span>
+<span class="s">\t\tlog_not_found off;</span>
+<span class="s">\t\taccess_log off;</span>
+<span class="s">\t}</span>
+
+<span class="s">\tlocation = /.well-known/carddav {</span>
+<span class="s">\t\treturn 301 \$scheme://\$host/remote.php/dav;</span>
+<span class="s">\t}</span>
+<span class="s">\tlocation = /.well-known/caldav {</span>
+<span class="s">\t\treturn 301 \$scheme://\$host/remote.php/dav;</span>
+<span class="s">\t}</span>
+
+<span class="s">\t# set max upload size</span>
+<span class="s">\tclient_max_body_size 512M;</span>
+<span class="s">\tfastcgi_buffers 64 4K;</span>
+
+<span class="s">\t# Enable gzip but do not remove ETag headers</span>
+<span class="s">\tgzip on;</span>
+<span class="s">\tgzip_vary on;</span>
+<span class="s">\tgzip_comp_level 4;</span>
+<span class="s">\tgzip_min_length 256;</span>
+<span class="s">\tgzip_proxied expired no-cache no-store private no_last_modified no_etag auth;</span>
+<span class="s">\tgzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;</span>
+
+<span class="s">\tlocation / {</span>
+<span class="s">\t\trewrite ^ /index.php\$request_uri;</span>
+<span class="s">\t}</span>
+
+<span class="s">\tlocation ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {</span>
+<span class="s">\t\tdeny all;</span>
+<span class="s">\t}</span>
+<span class="s">\tlocation ~ ^/(?:\.|autotest|occ|issue|indie|db_|console) {</span>
+<span class="s">\t\tdeny all;</span>
+<span class="s">\t}</span>
+
+<span class="s">\tlocation ~ ^/(?:index|remote|public|cron|core/ajax/update|status|ocs/v[12]|updater/.+|ocs-provider/.+)\.php(?:\$|/) {</span>
+<span class="s">\t\tfastcgi_split_path_info ^(.+?\.php)(/.*)\$;</span>
+<span class="s">\t\tinclude fastcgi_params;</span>
+<span class="s">\t\tfastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;</span>
+<span class="s">\t\tfastcgi_param PATH_INFO \$fastcgi_path_info;</span>
+<span class="s">\t\tfastcgi_param HTTPS on;</span>
+<span class="s">\t\t#Avoid sending the security headers twice</span>
+<span class="s">\t\tfastcgi_param modHeadersAvailable true;</span>
+<span class="s">\t\tfastcgi_param front_controller_active true;</span>
+<span class="s">\t\tfastcgi_pass php-handler;</span>
+<span class="s">\t\tfastcgi_intercept_errors on;</span>
+<span class="s">\t\tfastcgi_request_buffering off;</span>
+<span class="s">\t}</span>
+
+<span class="s">\tlocation ~ ^/(?:updater|ocs-provider)(?:\$|/) {</span>
+<span class="s">\t\ttry_files \$uri/ =404;</span>
+<span class="s">\t\tindex index.php;</span>
+<span class="s">\t}</span>
+
+<span class="s">\t# Adding the cache control header for js and css files</span>
+<span class="s">\t# Make sure it is BELOW the PHP block</span>
+<span class="s">\tlocation ~ \.(?:css|js|woff|svg|gif)\$ {</span>
+<span class="s">\t\ttry_files \$uri /index.php\$request_uri;</span>
+<span class="s">\t\tadd_header Cache-Control &quot;public, max-age=15778463&quot;;</span>
+<span class="s">\t\t# Add headers to serve security related headers (It is intended to</span>
+<span class="s">\t\t# have those duplicated to the ones above)</span>
+<span class="s">\t\t# Before enabling Strict-Transport-Security headers please read into</span>
+<span class="s">\t\t# this topic first.</span>
+<span class="s">\t\t# add_header Strict-Transport-Security &quot;max-age=15768000; includeSubDomains; preload;&quot;;</span>
+<span class="s">\t\t#</span>
+<span class="s">\t\t# WARNING: Only add the preload option once you read about</span>
+<span class="s">\t\t# the consequences in https://hstspreload.org/. This option</span>
+<span class="s">\t\t# will add the domain to a hardcoded list that is shipped</span>
+<span class="s">\t\t# in all major browsers and getting removed from this list</span>
+<span class="s">\t\t# could take several months.</span>
+<span class="s">\t\tadd_header X-Content-Type-Options nosniff;</span>
+<span class="s">\t\tadd_header X-XSS-Protection &quot;1; mode=block&quot;;</span>
+<span class="s">\t\tadd_header X-Robots-Tag none;</span>
+<span class="s">\t\tadd_header X-Download-Options noopen;</span>
+<span class="s">\t\tadd_header X-Permitted-Cross-Domain-Policies none;</span>
+<span class="s">\t\t# Optional: Don&#39;t log access to assets</span>
+<span class="s">\t\taccess_log off;</span>
+<span class="s">\t}</span>
+
+<span class="s">\tlocation ~ \.(?:png|html|ttf|ico|jpg|jpeg)\$ {</span>
+<span class="s">\t\ttry_files \$uri /index.php\$request_uri;</span>
+<span class="s">\t\t# Optional: Don&#39;t log access to other assets</span>
+<span class="s">\t\taccess_log off;</span>
+<span class="s">\t}</span>
+
+<span class="s">\tinclude\t\t/etc/nginx/ssl_params;</span>
+
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<p>Check if the nginx configuration is correct:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo nginx -t
+</pre></div>
+</td></tr></table></p>
+<p>Install a Let's encrypt SSL Certificate:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Don't add a redirect to HTTPS.</p>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo certbot --nginx -d cloud.pphg.tech <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo sed -i <span class="s1">&#39;/ssl_certificate_key/a \ \ \ \ ssl_trusted_certificate /etc/letsencrypt/live/cloud.pphg.tech/chain.pem;&#39;</span> /etc/nginx/sites-available/10-cloud.pphg.tech.conf <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo systemctl reload nginx.service
+</pre></div>
+</td></tr></table>
+
+<p>Add cronjob for renewing cetificates:<br />
+<code>sudo crontab -e</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0 */12 * * * /usr/local/bin/certbot renew
+</pre></div>
+</td></tr></table></p>
+<h3 id="download-nextcloud">Download Nextcloud<a class="headerlink" href="#download-nextcloud" title="Permanent link">&para;</a></h3>
+<p>Install required packages:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install wget unzip zip -y
+</pre></div>
+</td></tr></table></p>
+<p>Download newstest Nextcloud stable release into <code>/var/www/</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">cd</span> /var/www/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo wget https://download.nextcloud.com/server/releases/latest.zip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo unzip latest.zip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo rm latest.zip <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo chown -R www-data:www-data /var/www/nextcloud/
+</pre></div>
+</td></tr></table></p>
+<p>Create a Nextcloud Data directory:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo -u www-data mkdir /mnt/cifs/ncdata
+</pre></div>
+</td></tr></table></p>
+<h3 id="install-nextcloud_1">Install NextCloud<a class="headerlink" href="#install-nextcloud_1" title="Permanent link">&para;</a></h3>
+<p>Go to <a href="https://cloud.pphg.tech">https://cloud.pphg.tech</a> and use the following varaibles:<br />
+* User: <code>root</code>
+* PW: <code>***</code>
+* Data folder: <code>/mnt/cifs/ncdata/</code>
+* Database user: <code>nextcloud</code>
+* Database pw: <code>***</code>
+* Database name: <code>nextcloud</code></p>
+<ul>
+<li>Enable the Audit / Logging App!</li>
+</ul>
+<p>Afterwards go to <code>Settings &gt; Basic settings</code> and setup the email server:<br />
+* Background jobs
+    * Cron
+* Email server
+    * to your needs</p>
+<p>Add the following to the <code>/var/www/nextcloud/config/config.php</code> file:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="x">&#39;memcache.local&#39; =&gt; &#39;\OC\Memcache\APCu&#39;,</span>
+</pre></div>
+</td></tr></table></p>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<h3 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h3>
+<details class="tip"><summary>Explanation iptables rules</summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># Allow loopback</span>
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
+
+<span class="c1"># Allow SSH incoming</span>
+iptables -t filter -A INPUT -i ens3 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+<span class="c1"># Allow quassel incoming</span>
+iptables -t filter -A INPUT -i ens3 -p tcp --dport <span class="m">4242</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+<span class="c1"># Allow ESTABLISHED and RELATED connection (important for outgoing connections!)</span>
+iptables -t filter -A INPUT -i ens3 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+<span class="c1"># Policy DROP INPUT on</span>
+iptables -P INPUT DROP
+
+<span class="c1"># Policy ACCEPT OUTPUT</span>
+iptables -P OUTPUT ACCEPT
+</pre></div>
+</td></tr></table>
+
+</details>
+<p>Set up needed iptables rules:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo iptables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -A INPUT -i lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i ens3 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i ens3 -p tcp -m multiport --dports <span class="m">80</span>,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i ens3 -m state --state ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i ens3 -p icmp -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -P INPUT DROP<span class="p">;</span> <span class="se">\</span>
+sudo iptables -P OUTPUT ACCEPT
+</pre></div>
+</td></tr></table>
+Set up needed ip6tables rules:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo ip6tables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -A INPUT -i lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i ens3 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i ens3 -p tcp -m multiport --dports <span class="m">80</span>,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i ens3 -m state --state ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i ens3 -p ipv6-icmp -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -P INPUT DROP<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -P OUTPUT ACCEPT
+</pre></div>
+</td></tr></table></p>
+<p>Persist iptables rules:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt install -y iptables-persistent <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo netfilter-persistent save <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo netfilter-persistent reload
+</pre></div>
+</td></tr></table></p>
+<h3 id="fail2ban-sshnextcloud">fail2Ban (SSH/Nextcloud)<a class="headerlink" href="#fail2ban-sshnextcloud" title="Permanent link">&para;</a></h3>
+<h3 id="backup-nextcloud">Backup Nextcloud<a class="headerlink" href="#backup-nextcloud" title="Permanent link">&para;</a></h3>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="http://pphg.tech" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://keybase.io/philip_henning" class="md-footer-social__link fa fa-key"></a>
+    
+      <a href="https://twitter.com/__phg" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://github.com/shokinn" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://gitlab.com/shokinn" class="md-footer-social__link fa fa-gitlab"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
