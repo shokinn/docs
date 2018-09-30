@@ -1,0 +1,1510 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Everything which I have to write down to remember it">
+      
+      
+      
+        <meta name="author" content="Philip Henning">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../..">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>SeedBox - Philip's docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500"
+    viewBox="0 0 500 500" id="__gitlab">
+  <g transform="translate(156.197863, 1.160267)">
+  	<path fill="currentColor"
+        d="M93.667,473.347L93.667,473.347l90.684-279.097H2.983L93.667,
+          473.347L93.667,473.347z" />
+  </g>
+  <g transform="translate(28.531199, 1.160800)" opacity="0.7">
+  	<path fill="currentColor"
+        d="M221.333,473.345L130.649,194.25H3.557L221.333,473.345L221.333,
+          473.345z" />
+  </g>
+  <g transform="translate(0.088533, 0.255867)" opacity="0.5">
+  	<path fill="currentColor"
+        d="M32,195.155L32,195.155L4.441,279.97c-2.513,7.735,0.24,16.21,6.821,
+          20.99l238.514,173.29 L32,195.155L32,195.155z" />
+  </g>
+  <g transform="translate(29.421866, 280.255593)">
+  	<path fill="currentColor"
+        d="M2.667-84.844h127.092L75.14-252.942c-2.811-8.649-15.047-8.649-17.856,
+          0L2.667-84.844 L2.667-84.844z" />
+  </g>
+  <g transform="translate(247.197860, 1.160800)" opacity="0.7">
+  	<path fill="currentColor"
+        d="M2.667,473.345L93.351,194.25h127.092L2.667,473.345L2.667,
+          473.345z" />
+  </g>
+  <g transform="translate(246.307061, 0.255867)" opacity="0.5">
+  	<path fill="currentColor"
+        d="M221.334,195.155L221.334,195.155l27.559,84.815c2.514,7.735-0.24,
+          16.21-6.821,20.99 L3.557,474.25L221.334,195.155L221.334,195.155z" />
+  </g>
+  <g transform="translate(336.973725, 280.255593)">
+  	<path fill="currentColor"
+        d="M130.667-84.844H3.575l54.618-168.098c2.811-8.649,15.047-8.649,
+          17.856,0L130.667-84.844 L130.667-84.844z" />
+  </g>
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#seedbox" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Philip's docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Philip's docs
+              </span>
+              <span class="md-header-nav__topic">
+                SeedBox
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://gitlab.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="gitlab">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__gitlab" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Philip's docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    Philip's docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://gitlab.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="gitlab">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__gitlab" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Hardware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Dell XPS 15 9560
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Dell XPS 15 9560
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux/" title="Arch Linux" class="md-nav__link">
+      Arch Linux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Software
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../playonlinux/" title="PlayOnLinux" class="md-nav__link">
+      PlayOnLinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SeedBox
+      </label>
+    
+    <a href="./" title="SeedBox" class="md-nav__link md-nav__link--active">
+      SeedBox
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mono" title="Mono" class="md-nav__link">
+    Mono
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quickbox" title="QuickBox" class="md-nav__link">
+    QuickBox
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-set-the-ssh-port-back-to-22" title="Optional set the SSH port back to 22" class="md-nav__link">
+    Optional set the SSH port back to 22
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-use-lets-encrypt-for-a-proper-ssl-certificate" title="Optional use 'Let's Encrypt' for a proper SSL certificate" class="md-nav__link">
+    Optional use 'Let's Encrypt' for a proper SSL certificate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipset" title="IPset" class="md-nav__link">
+    IPset
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dnsmasq" title="Dnsmasq" class="md-nav__link">
+    Dnsmasq
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_2" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn" title="OpenVPN" class="md-nav__link">
+    OpenVPN
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_3" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptables" title="iptables" class="md-nav__link">
+    iptables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_2" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-ruleroute" title="ip rule/route" class="md-nav__link">
+    ip rule/route
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_3" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mount-storage-box" title="Mount storage box" class="md-nav__link">
+    Mount storage box
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclone" title="rclone" class="md-nav__link">
+    rclone
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_4" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_4" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Knowledge base
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Knowledge base
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../kb/change_tty/" title="How to change to TTYn" class="md-nav__link">
+      How to change to TTYn
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../imprint/" title="Impressum" class="md-nav__link">
+      Impressum
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../datenschutzerklaerung/" title="Datenschutzerklärung" class="md-nav__link">
+      Datenschutzerklärung
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mono" title="Mono" class="md-nav__link">
+    Mono
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quickbox" title="QuickBox" class="md-nav__link">
+    QuickBox
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-set-the-ssh-port-back-to-22" title="Optional set the SSH port back to 22" class="md-nav__link">
+    Optional set the SSH port back to 22
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-use-lets-encrypt-for-a-proper-ssl-certificate" title="Optional use 'Let's Encrypt' for a proper SSL certificate" class="md-nav__link">
+    Optional use 'Let's Encrypt' for a proper SSL certificate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipset" title="IPset" class="md-nav__link">
+    IPset
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dnsmasq" title="Dnsmasq" class="md-nav__link">
+    Dnsmasq
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_2" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openvpn" title="OpenVPN" class="md-nav__link">
+    OpenVPN
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_3" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptables" title="iptables" class="md-nav__link">
+    iptables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_2" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-ruleroute" title="ip rule/route" class="md-nav__link">
+    ip rule/route
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_3" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mount-storage-box" title="Mount storage box" class="md-nav__link">
+    Mount storage box
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclone" title="rclone" class="md-nav__link">
+    rclone
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_4" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration_4" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://gitlab.com/shokinn/docs/edit/master/docs/software/seedbox.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="seedbox">Seedbox<a class="headerlink" href="#seedbox" title="Permanent link">&para;</a></h1>
+<p>This Guide contains instructions to set up a seedbox based on <a href="https://quickbox.io/">QuickBox</a> with <a href="https://www.perfect-privacy.com/">Perferct Privacy</a> as all outgoing VPN on a VPS or a bare metal server.</p>
+<p>This Guide is not sponsored by QuickBox nor by Perfect Privacy.</p>
+<p>This Guide also requires that the server is already installed and access via SSH is working.</p>
+<h2 id="mono">Mono<a class="headerlink" href="#mono" title="Permanent link">&para;</a></h2>
+<p>We want to use the latest version of mono. So we add the official mono repositories.</p>
+<pre class="codehilite"><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+sudo apt install apt-transport-https
+echo &quot;deb https://download.mono-project.com/repo/ubuntu stable-xenial main&quot; | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update &amp;&amp; \
+sudo apt -y full-upgrade</code></pre>
+
+<h2 id="quickbox">QuickBox<a class="headerlink" href="#quickbox" title="Permanent link">&para;</a></h2>
+<p><a href="https://quickbox.io/">QuickBox</a> is an easy to setup seedbox 'script', which also allows you to add several services (e.g. <a href="https://sonarr.tv/">Sonarr</a> and <a href="https://radarr.video/">Radarr</a>) just by clicking 'install' at the webinterface.</p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Run all commads as root</p>
+<p>You have to be logged in as <code>root</code> to install QuckBox!</p>
+</div>
+<p>Now we will update all installed software and install git (for cloning the QuickBox repo) as well as lsb-release (a little tool to get the release version).</p>
+<pre class="codehilite"><code class="language-shell">apt update; apt -y full-upgrade; apt -y install git lsb-release; \
+git clone https://github.com/QuickBox/QB /etc/QuickBox; \
+bash /etc/QuickBox/setup/quickbox-setup</code></pre>
+
+<p>If you get a locale warning like this one, just ignore it ;)<br />
+<pre class="codehilite"><code>perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+    LANGUAGE = (unset),
+    LC_ALL = (unset),
+    LC_CTYPE = &quot;UTF-8&quot;,
+    LANG = &quot;en_US.UTF-8&quot;
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale (&quot;en_US.UTF-8&quot;).
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+    LANGUAGE = (unset),
+    LC_ALL = (unset),
+    LC_CTYPE = &quot;UTF-8&quot;,
+    LANG = &quot;en_US.UTF-8&quot;
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale (&quot;en_US.UTF-8&quot;).</code></pre></p>
+<p>When the installer opens install and configure QuickBox for your needs.<br />
+This is my setup log:<br />
+<pre class="codehilite"><code>
+[QuickBox]  QuickBox Seedbox Installation
+
+                 Heads Up!
+     QuickBox works with the following
+     Ubuntu 15.10 | 16.04
+
+
+Checking distribution ...
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 16.04.4 LTS
+Release:    16.04
+Codename:   xenial
+
+Congrats! You're running as root. Let's continue ...
+
+Do you wish to write to a log file? (Default: Y) y
+Output is being sent to /root/quickbox.2175.log
+Please enter a hostname for this server (Hit ENTER to make no changes):
+No hostname supplied, no changes made!!
+
+Do you wish to use user quotas? (Default: Y) n
+Quotas will not be installed
+
+Press ENTER when you're ready to begin or Ctrl+Z to cancel</code></pre></p>
+<div class="admonition warning">
+<p class="admonition-title">Password is shown as clear text</p>
+<p>Please be aware that the password which you have to setup for the 'admin' account will be shown as clear text.</p>
+</div>
+<details class="tip"><summary>Public Trackers needed?</summary><p>If you don't plan to use public trackers like The Pirate Bay, you should set the option <code>Block Public Tracers</code> to yes to protect yourself.</p>
+</details>
+<details class="tip"><summary>FFmpeg needed?</summary><p>If you don't need FFmpeg (used for generating screen shots) don't install it, because it will be compiled from source which takes some time.</p>
+</details>
+<pre class="codehilite"><code>Is this a 10 gigabit server? (Default: N) n
+Who can afford that stuff anyway?
+
+1) rtorrent 0.9.6
+2) rtorrent 0.9.4
+3) rtorrent 0.9.3
+What version of rtorrent do you want? (Default 1): 1
+We will be using rtorrent-0.9.6/libtorrent-0.13.6
+
+1) Deluge repo (fastest)
+2) Deluge with libtorrent 1.0.11 (stable)
+3) Deluge with libtorrent 1.1.3 (dev)
+4) Do not install Deluge
+What version of Deluge do you want? (Default 1): 1
+We will be using Deluge with Libtorrent REPO
+
+Would you like to install transmission?  [y]es or [n]o: n
+
+1) QuickBox - smoked :: Dark theme
+2) QuickBox - defaulted :: Light theme
+Pick your QuickBox Dashboard Theme (Default 1): 1
+We will be using QuickBox Theme : smoked
+
+Add a Master Account user to sudoers
+Username: dedibox
+Password: (hit enter to generate a password) ***
+setting password to ***
+
+Would you like to install ffmpeg? (Used for screenshots) [y]es or [n]o: y
+
+Please, write your public server IP (used for ftp) (Default: 0.0.0.0)
+
+Block Public Trackers?: [y]es or [n]o: y
+[ -  Blocking public trackers  - ]
+
+Would you like to install bbr? (Used for Congestion Control) [y]es or [n]o: y</code></pre>
+
+<p>Wait until it's installed.<br />
+On my machine it tooks 19 minuts.<br />
+* 1 CPU (Intel Xeon - Skylake@2.1GHz)
+* 2GB RAM
+* SSD</p>
+<pre class="codehilite"><code>QuickBox will now install, this may take between
+10 and 45 minutes depending on your systems specs
+
+Pulling QuickBox Ecosystem ... [ DONE ]
+Updating system ... [ DONE ]
+Installing all needed dependencies ... [ DONE ]
+Setting up system executables ... [ DONE ]
+Building required user directories ... [ DONE ]
+Setting up Limited Shell environment ... [ DONE ]
+Building ffmpeg from source for screenshots ... [ DONE ]
+Installing xmlrpc-c-1.33.12 ... [ DONE ]
+Installing libtorrent-0.13.6 ... [ DONE ]
+Installing rtorrent-0.9.6 ... [ DONE ]
+Installing rutorrent into /srv ... [ DONE ]
+Installing rutorrent plugins ... [ DONE ]
+Installing deluge ... [ DONE ]
+Installing mktorrent from source ... [ DONE ]
+Installing quickbox dashboard ... [ DONE ]
+Building system file indexer (h5ai) ... [ DONE ]
+Setting up seedbox.conf for apache ... [ DONE ]
+Fix SSL Cert for apache ... [ DONE ]
+Installing .rtorrent.rc for dedibox ... [ DONE ]
+Adjusting fileupload &amp; filemanager plugins ... [ DONE ]
+Installing autodl-irssi ... [ DONE ]
+Making dedibox directory structure ... [ DONE ]
+Writing dedibox rutorrent config.php file ... [ DONE ]
+Installing vsftpd ... [ DONE ]
+Setting up vsftpd ... [ DONE ]
+Setting irssi/rtorrent to start on boot ... [ DONE ]
+Setting permissions on dedibox ... [ DONE ]
+install BBR ... [ DONE ]</code></pre>
+
+<p>After finishing the installation <strong>don't</strong> reboot the machine, if you want to use port <code>22</code> for SSH. If you're fine to use port <code>4747</code> for SSH just reboot.</p>
+<pre class="codehilite"><code>     [quickbox] Seedbox &amp; GUI Installation Completed
+            INSTALLATION COMPLETED in 19/min
+
+
+  Valid Commands:
+  -------------------
+
+ createSeedboxUser - creates a shelled seedbox user
+ deleteSeedboxUser - deletes a created seedbox user and their directories
+ changeUserpass - change users SSH/FTP/ruTorrent password
+ setdisk - set your disk quota for any given user
+ showspace - shows the amount of space used by all users on the server
+ reload - restarts your seedbox services, i.e; rtorrent &amp; irssi
+ upgradeBTSync - upgrades BTSync when new version is available
+ upgradeOmbi - upgrades Ombi when new version is available
+ upgradePlex - upgrades Plex when new version is available
+ box install letsencrypt - installs a valid SSL certificate to be used with
+                           a valid domain name.
+ box - type 'box -h' for a summary of how to use box!
+
+
+
+################################################################################################
+#   Seedbox can be found at https://dedibox:***@138.201.173.51
+#   (Also works for FTP:5757/SSH:4747)
+#   If you need to restart rtorrent/irssi, you can type 'reload'
+#   Reloading: sshd, apache, memcached, php7.0, vsftpd and fail2ban
+################################################################################################
+
+  Do you wish to reboot (recommended!): (Default Y) N</code></pre>
+
+<h4 id="optional-set-the-ssh-port-back-to-22">Optional set the SSH port back to <code>22</code><a class="headerlink" href="#optional-set-the-ssh-port-back-to-22" title="Permanent link">&para;</a></h4>
+<p>Because the install script forces a SSH port change we have to change it back to 22 manually.</p>
+<p>Just run this <code>sed</code> command to replace the port 4747 with 22.</p>
+<pre class="codehilite"><code class="language-shell">sed -i -e 's/^Port 4747$/Port 22/g' /etc/ssh/sshd_config</code></pre>
+
+<p>Afterwards reboot the machine.</p>
+<h4 id="optional-use-lets-encrypt-for-a-proper-ssl-certificate">Optional use 'Let's Encrypt' for a proper SSL certificate<a class="headerlink" href="#optional-use-lets-encrypt-for-a-proper-ssl-certificate" title="Permanent link">&para;</a></h4>
+<p>If you use a domain for your server you should set up an let's encrypt ssl certificate.</p>
+<p>Run the following command and follow the process. It's really straight forward.  </p>
+<pre class="codehilite"><code class="language-shell">box install letsencrypt</code></pre>
+
+<h2 id="ipset">IPset<a class="headerlink" href="#ipset" title="Permanent link">&para;</a></h2>
+<p>With IPset (and Dnsmasq) we are able to filter on a "DNS name" basis.</p>
+<h3 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">apt install -y ipset</code></pre>
+
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<p>First we have to create the IPsets which want to use. In our case we need 2 of them, the 1<sup>st</sup> will store the IPs of the Perfect Privacy servers and the 2<sup>nd</sup> will store the IPs of the letsencrypt acme challenge servers.</p>
+<pre class="codehilite"><code class="language-shell">ipset create perfect_privacy hash:ip family inet; \
+ipset create letsencrypt hash:ip family inet; \
+ipset create storagebox hash:ip family inet</code></pre>
+
+<p>Afterwards we have to save our rules because they only configured in RAM. We will also write a little script which reloads the rules at startup.</p>
+<pre class="codehilite"><code class="language-shell">ipset save &gt; /etc/ipset.up.rules; \
+cat &gt; /etc/network/if-pre-up.d/loadrules &lt;&lt;-EOF; chmod 755 /etc/network/if-pre-up.d/loadrules
+#!/bin/sh
+/sbin/ipset restore -! &lt; /etc/ipset.up.rules
+EOF</code></pre>
+
+<h2 id="dnsmasq">Dnsmasq<a class="headerlink" href="#dnsmasq" title="Permanent link">&para;</a></h2>
+<p>Dnsmasq is a tiny DNS server which we will use to resolve the dns addresses and store them to a IPset.</p>
+<h3 id="installation_2">Installation<a class="headerlink" href="#installation_2" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">apt install -y dnsmasq</code></pre>
+
+<h3 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h3>
+<p>We configure Dnsmasq to listen only on 127.0.0.1 and to store the IP addresses of specific domains in our IPsets.</p>
+<p>Uncomment the last line to activate reading the conf file in <code>/etc/dnsmasq.d/</code>:<br />
+<pre class="codehilite"><code class="language-shell">sed -i -e 's/^#conf-dir=\/etc\/dnsmasq\.d\/,\*\.conf/conf-dir=\/etc\/dnsmasq\.d\/,\*\.conf/g' /etc/dnsmasq.conf</code></pre></p>
+<p>Configure the interfaces which the DNS server should listen to:<br />
+<pre class="codehilite"><code class="language-shell">cat &gt; /etc/dnsmasq.d/01_interfaces.conf &lt;&lt;-EOF
+# If you want dnsmasq to listen for DHCP and DNS requests only on
+# specified interfaces (and the loopback) give the name of the
+# interface (eg eth0) here.
+# Repeat the line for more than one interface.
+#interface=
+# Or you can specify which interface _not_ to listen on
+except-interface=tun0
+# Or which to listen on by address (remember to include 127.0.0.1 if
+# you use this.)
+listen-address=127.0.0.1
+# If you want dnsmasq to provide only DNS service on an interface,
+# configure it as shown above, and then use the following line to
+# disable DHCP and TFTP on it.
+#no-dhcp-interface=
+EOF</code></pre></p>
+<p>Configure the server to store the matching IPs to the IPset:<br />
+<pre class="codehilite"><code class="language-shell">cat &gt; /etc/dnsmasq.d/02_ipsets.conf &lt;&lt;-EOF
+# Add the IPs of all queries to yahoo.com, google.com, and their
+# subdomains to the vpn and search ipsets:
+#ipset=/yahoo.com/google.com/vpn,search
+ipset=/perfect-privacy.com/perfect_privacy
+ipset=/letsencrypt.org/letsencrypt
+ipset=/your-storagebox.de/storagebox
+EOF</code></pre></p>
+<h2 id="openvpn">OpenVPN<a class="headerlink" href="#openvpn" title="Permanent link">&para;</a></h2>
+<p>OpenVPN in an open source vpn software.</p>
+<h3 id="installation_3">Installation<a class="headerlink" href="#installation_3" title="Permanent link">&para;</a></h3>
+<p>First install OpenVPN, go to the OpenVPN config directory (<code>/etc/openvpn</code>) and download the configuration files from Perfect Privacy.<br />
+The script below also creates a <code>password.txt</code> with credentials and modifies the files so that they refer to the credentials.</p>
+<pre class="codehilite"><code class="language-shell">apt install -y openvpn &amp;&amp; \
+cd /etc/openvpn/ &amp;&amp; \
+clear; \
+echo &quot;Please enter your Perfect Privacy credentials&quot;; \
+read -p 'Username: ' username &amp;&amp; \
+read -sp 'Password: ' password &amp;&amp; \
+wget -v --post-data &quot;username=$username&amp;password=$password&amp;uri=/member/download/?file=linux_udp.tar.gz&quot; -O linux_udp.tar.gz &quot;https://www.perfect-privacy.com/member/&quot; &amp;&amp; \
+echo &quot;$username&quot; &gt; password.txt &amp;&amp; \
+echo &quot;$password&quot; &gt;&gt; password.txt &amp;&amp; \
+username=''; \
+password=''; \
+tar xfvz linux_udp.tar.gz &amp;&amp; \
+mv ./linux_udp/* ./ &amp;&amp; \
+rmdir ./linux_udp &amp;&amp; \
+rm -f ./linux_udp.tar.gz &amp;&amp; \
+chown root:root ./* &amp;&amp; \
+chmod 400 password.txt &amp;&amp; \
+for file in ./*.ovpn; do sed -i -e 's/^auth-user-pass.*$/auth-user-pass password.txt/g' $file; done &amp;&amp; \
+sed -i -e '/echo -n \&quot;\$R\&quot; \| \/sbin\/resolvconf -a \&quot;\${dev}\.openvpn\&quot;/a \ \ \ \ \ \ \ \ \/etc\/openvpn\/patch_ports\.sh' /etc/openvpn/update-resolv-conf</code></pre>
+
+<p>Afterwards link the config which you want to use to <code>.conf</code> (e.g. <code>Rotterdam.ovpn</code> to <code>Rotterdam.conf</code>) and modify the defaults file for OpenVPN to start the VPN connection automatically.  </p>
+<pre class="codehilite"><code class="language-shell">clear; \
+echo &quot;Enter the file name of the for your preferred server location.&quot;; \
+read -p &quot;File name (e.g. Rotterdam.ovpn): &quot; config_file &amp;&amp; \
+if [ ! -f ./$config_file ]; \
+then echo &quot;File not found!&quot;; \
+else \
+config_name=$(echo $config_file | awk '{split($0,a,&quot;.&quot;); print a[1]}'); \
+ln -s ./$config_file ./$config_name.conf; \
+sed -i -e &quot;/^#AUTOSTART=\&quot;home office\&quot;$/a AUTOSTART=\&quot;$config_name\&quot;&quot; /etc/default/openvpn; \
+fi &amp;&amp; \
+systemctl daemon-reload</code></pre>
+
+<p>Now we are adding a script to modify the torrent client ports.<br />
+<code>/etc/openvpn/patch_ports.sh</code>:</p>
+<pre class="codehilite"><code class="language-shell">touch /etc/openvpn/patch_ports.sh &amp;&amp; \
+chmod +x /etc/openvpn/patch_ports.sh; \
+vim /etc/openvpn/patch_ports.sh;</code></pre>
+
+<pre class="codehilite"><code class="language-shell">#!/bin/bash
+vpn_tun_dev=&quot;tun0&quot;
+user=&quot;dedibox&quot;
+
+# Get VPN internal IP Address
+vpn_int_ip=$(ip -f inet a s $vpn_tun_dev | grep &quot;inet\b&quot; | awk '{print $2}' | cut -d'/' -f1)
+
+# Check if tunnel device is available
+if [[ -z $vpn_int_ip ]]; then
+        echo &quot;Shit there is no $vpn_tun_dev interface&quot;
+        exit 1
+fi
+
+# Generate ports
+blck3_ip=$(echo &quot;$vpn_int_ip&quot; | cut -f3 -d'.')
+blck4_ip=$(echo &quot;$vpn_int_ip&quot; | cut -f4 -d'.')
+
+blck3_prt=$(($(($blck3_ip%16))*256)) # Perfect Privacy port calculation for the 3rd octet -- (&lt;3rd Block Number&gt; mod 16) * 256
+
+# PP port calcucaltion -- &lt;Base port&gt;+&lt;generated 3rd block&gt;+&lt;4th block&gt;
+vpn_port1=$((10000+$blck3_prt+$blck4_ip))
+vpn_port2=$((20000+$blck3_prt+$blck4_ip))
+vpn_port3=$((30000+$blck3_prt+$blck4_ip))
+
+# Change rtorrent incoming port
+sed -i -E &quot;s/^network\.port_range\.set = [0-9]{1,5}-[0-9]{1,5}$/network\.port_range\.set = $vpn_port1-$vpn_port1/g&quot; /home/$user/.rtorrent.rc
+systemctl restart rtorrent@dedibox.service
+
+# Change Deluge incoming port
+systemctl stop deluged@dedibox.service
+deluge_line=$(grep -n 'listen_ports' /home/$user/.config/deluge/core.conf | cut -d&quot;:&quot; -f1)
+sed -i &quot;$(($deluge_line+1))s/.*/    $vpn_port2,/&quot; /home/$user/.config/deluge/core.conf
+sed -i &quot;$(($deluge_line+2))s/.*/    $vpn_port2/&quot; /home/$user/.config/deluge/core.conf
+systemctl start deluged@dedibox.service</code></pre>
+
+<h2 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h2>
+<p>iptables is a userpace program to configure the firewall.</p>
+<h3 id="configuration_2">Configuration<a class="headerlink" href="#configuration_2" title="Permanent link">&para;</a></h3>
+<details class="tip"><summary>Explanation iptables rules</summary><pre class="codehilite"><code class="language-shell"># Allow loopback
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
+
+# Allow SSH incoming
+iptables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# DROP storage box traffic via tun0
+iptables -t filter -A OUTPUT -o tun0 -m set --match-set storagebox dst -j DROP
+iptables -t filter -A INPUT -i tun0 -m set --match-set storagebox src -j DROP
+
+# Allow DNS outgoing
+iptables -t filter -A INPUT -i eth0 -p udp --sport 53 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A OUTPUT -o eth0 -p udp --dport 53 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+# Allow OpenVPN outgoing only to perfect-privacy servers
+iptables -t filter -A OUTPUT -o eth0 -p udp -m set --match-set perfect_privacy dst -m multiport --dports 148,149,150,151,1148,1149,1150,1151 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m set --match-set perfect_privacy dst -m multiport --dports 300,301,142,152,1142,1152 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 148,149,150,151,1148,1149,1150,1151 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 300,301,142,152,1142,1152 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Allow web interface SeedBox incoming
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443,10354 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --sports 80,443,10354 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Allow StorageBox outgoing
+iptables -t filter -A OUTPUT -o eth0 -p udp -m multiport --dports 137,138 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --dports 139,445 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 137,138 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 139,445 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Allow traffic through OpenVPN
+iptables -t filter -A OUTPUT -o tun0 -j ACCEPT
+iptables -t filter -A INPUT -i tun0 -j ACCEPT
+
+# Policy DROP (everything else)
+iptables -t filter -P OUTPUT DROP
+iptables -t filter -P INPUT DROP</code></pre>
+
+</details>
+<p>Set up needed iptables rules:<br />
+<pre class="codehilite"><code class="language-shell">iptables -A OUTPUT -o lo -j ACCEPT; \
+iptables -A INPUT -i lo -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p udp --sport 53 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p udp --dport 53 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p udp -m set --match-set perfect_privacy dst -m multiport --dports 148,149,150,151,1148,1149,1150,1151 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m set --match-set perfect_privacy dst -m multiport --dports 300,301,142,152,1142,1152 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 148,149,150,151,1148,1149,1150,1151 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 300,301,142,152,1142,1152 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443,10354 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --sports 80,443,10354 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p udp -m multiport --dports 137,138 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o eth0 -p tcp -m multiport --dports 139,445 -m set --match-set storagebox dst -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p udp -m multiport --sports 137,138 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --sports 139,445 -m set --match-set storagebox src -m state --state ESTABLISHED,RELATED -j ACCEPT; \
+iptables -t filter -A OUTPUT -o tun0 -j ACCEPT; \
+iptables -t filter -A INPUT -i tun0 -j ACCEPT; \
+iptables -t filter -P OUTPUT DROP; \
+iptables -t filter -P INPUT DROP</code></pre></p>
+<div class="admonition warning">
+<p class="admonition-title">If you use fail2ban</p>
+<p>If you use fail to ban you have to delete the fail2ban rules from the config file!</p>
+</div>
+<p>Save iptables rules because they also only configured in RAM:<br />
+<pre class="codehilite"><code class="language-shell">iptables-save &gt; /etc/iptables.up.rules; \
+echo &quot;/sbin/iptables-restore &lt; /etc/iptables.up.rules&quot; &gt;&gt; /etc/network/if-pre-up.d/loadrules</code></pre></p>
+<h2 id="ip-ruleroute">ip rule/route<a class="headerlink" href="#ip-ruleroute" title="Permanent link">&para;</a></h2>
+<h3 id="configuration_3">Configuration<a class="headerlink" href="#configuration_3" title="Permanent link">&para;</a></h3>
+<p>Add the following at the end of the block for the <code>eth0</code> device.<br />
+Replace <code>1.2.3.4</code> with the public IP from your server:<br />
+<pre class="codehilite"><code class="language-shell">vim /etc/network/interfaces</code></pre>
+<pre class="codehilite"><code class="language-shell">post-up ip route add 172.31.1.1/32 dev eth0 proto kernel scope link src 1.2.3.4 table 1
+post-up ip route add default via 172.31.1.1 table 1
+post-up ip route add 195.201.107.35/32 via 172.31.1.1 dev eth0
+post-up ip rule add table 1 from 1.2.3.4
+post-up ip rule add fwmark 1 table 1</code></pre></p>
+<p>Afterwards apply the routes/rules:<br />
+<pre class="codehilite"><code class="language-shell">clear; \
+ip a; \
+read -p 'Local interface name (e.g. eth0): ' intname &amp;&amp; \
+intip=$(ip -f inet a s $intname | grep &quot;inet\b&quot; | awk '{print $2}' | cut -d'/' -f1) &amp;&amp; \
+ip route add 172.31.1.1/32 dev eth0 proto kernel scope link src $intip table 1 &amp;&amp; \
+ip route add default via 172.31.1.1 table 1 &amp;&amp; \
+storageboxip=$(dig +noall +answer +nocomments +short u177197.your-storagebox.de) &amp;&amp; \
+ip route add $storageboxip/32 via 172.31.1.1 dev eth0 &amp;&amp; \
+ip rule add table 1 from $intip &amp;&amp; \
+ip rule add fwmark 1 table 1</code></pre></p>
+<h2 id="mount-storage-box">Mount storage box<a class="headerlink" href="#mount-storage-box" title="Permanent link">&para;</a></h2>
+<p>Install <code>cifs-utils</code>:<br />
+<pre class="codehilite"><code class="language-shell">apt install -y cifs-utils</code></pre></p>
+<p>Create directory within <code>/mnt</code>:<br />
+<pre class="codehilite"><code class="language-shell">mkdir /mnt/.nas &amp;&amp; \
+chmod 444 /mnt/.nas</code></pre></p>
+<p>Add a group for storage access and nice the group id:<br />
+<pre class="codehilite"><code class="language-shell">addgroup storage &amp;&amp; \
+usermod -aG storage dedibox</code></pre></p>
+<p>Add mount to fstab:<br />
+<pre class="codehilite"><code class="language-shell">clear; \
+echo &quot;Please enter your Storage Box credentials&quot;; \
+read -p 'Storage Box Username: ' sbusername &amp;&amp; \
+read -sp 'Storage Box Password: ' sbpassword &amp;&amp; \
+echo &quot;&quot; &amp;&amp; \
+read -p 'Mount User ID: ' muid &amp;&amp; \
+read -p 'Mount Group ID: ' mgid &amp;&amp; \
+echo &quot;&quot; &gt;&gt; /etc/fstab &amp;&amp; \
+echo &quot;# Storage Box - dedibox&quot; &gt;&gt; /etc/fstab &amp;&amp; \
+echo &quot;//$sbusername.your-storagebox.de/backup /mnt/.nas cifs iocharset=utf8,credentials=/root/.smbcredentials,uid=$muid,gid=$mgid,rw,file_mode=0775,dir_mode=0775 0 0&quot; &gt;&gt; /etc/fstab &amp;&amp; \
+echo &quot;username=$sbusername&quot; &gt; /root/.smbcredentials &amp;&amp; \
+echo &quot;password=$sbpassword&quot; &gt;&gt; /root/.smbcredentials &amp;&amp; \
+chmod 600 /root/.smbcredentials &amp;&amp; \
+cat &lt;&lt; EOF &gt; /root/mount.sh &amp;&amp; chmod 700 /root/mount.sh
+#!/bin/bash
+
+# Check if script runs as root
+if [ $UID != 0 ]; then
+    echo &quot;You have to run this script as root.&quot;
+    exit 1
+fi
+
+# Add route to storage box
+storageboxip=$(dig +noall +answer +nocomments +short u177197.your-storagebox.de)
+if [[ -z $(ip route | grep &quot;$storageboxip via 172.31.1.1 dev eth0&quot;) ]]; then
+    ip route add $storageboxip/32 via 172.31.1.1 dev eth0
+fi
+
+# Mount all unmounted mounts
+mount -a
+
+# Mount Crypto
+read -sp 'rclone config password: ' RCLONE_CONFIG_PASS
+echo &quot;&quot;
+export RCLONE_CONFIG_PASS
+screen -dmS rclone rclone mount --ask-password=false --uid $muid --gid $mgid --umask 002 --allow-other storage_box_crypt: /mnt/nas
+unset RCLONE_CONFIG_PASS
+EOF</code></pre></p>
+<p>Mount NAS storage:<br />
+<pre class="codehilite"><code class="language-shell">mount -a</code></pre></p>
+<h2 id="rclone">rclone<a class="headerlink" href="#rclone" title="Permanent link">&para;</a></h2>
+<p>rclone is tiny tool to mount cloud storages. It also provides a strong encryption.</p>
+<h3 id="installation_4">Installation<a class="headerlink" href="#installation_4" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">curl https://rclone.org/install.sh | sudo bash</code></pre>
+
+<h3 id="configuration_4">Configuration<a class="headerlink" href="#configuration_4" title="Permanent link">&para;</a></h3>
+<p>Open rclone configuration:<br />
+<pre class="codehilite"><code class="language-shell">rclone config</code></pre></p>
+<ol>
+<li>Select 'n' (new remote)</li>
+<li>Name: <code>storage_box_crypt</code></li>
+<li>Storage Type: '7' (Encrypt/Decrypt a remote) "crypt"</li>
+<li>remote: <code>/mnt/.nas</code></li>
+<li>Filename encryption: '2' (Encrypt the filenames see the docs for the details.) "standard"</li>
+<li>Encrypt directories: '1' (Encrypt directory names.) "true"</li>
+<li>Password: 'y' (Yes type in my own password)</li>
+<li>Salt: 'y' (Yes type in my own password)</li>
+<li>Confirm configuration: 'y' (Yes this is OK)</li>
+<li>Set configuration password: 's'</li>
+<li>Add Password: 'a'</li>
+<li>Quit to main menu: 'q'</li>
+<li>Quit configuration: 'q'</li>
+</ol>
+<p>Create mount point:<br />
+<pre class="codehilite"><code class="language-shell">mkdir /mnt/nas &amp;&amp; \
+chmod 444 /mnt/nas</code></pre></p>
+<p>Mount rclone share:<br />
+<pre class="codehilite"><code class="language-shell">./mount.sh</code></pre></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../playonlinux/" title="PlayOnLinux" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                PlayOnLinux
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../kb/change_tty/" title="How to change to TTYn" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                How to change to TTYn
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://pphg.tech" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://keybase.io/philip_henning" class="md-footer-social__link fa fa-key"></a>
+    
+      <a href="https://twitter.com/__phg" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://github.com/shokinn" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://gitlab.com/shokinn" class="md-footer-social__link fa fa-gitlab"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.e72fd936.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

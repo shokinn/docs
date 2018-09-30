@@ -1,0 +1,1257 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Everything which I have to write down to remember it">
+      
+      
+      
+        <meta name="author" content="Philip Henning">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../..">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>ZNC - Philip's docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500"
+    viewBox="0 0 500 500" id="__gitlab">
+  <g transform="translate(156.197863, 1.160267)">
+  	<path fill="currentColor"
+        d="M93.667,473.347L93.667,473.347l90.684-279.097H2.983L93.667,
+          473.347L93.667,473.347z" />
+  </g>
+  <g transform="translate(28.531199, 1.160800)" opacity="0.7">
+  	<path fill="currentColor"
+        d="M221.333,473.345L130.649,194.25H3.557L221.333,473.345L221.333,
+          473.345z" />
+  </g>
+  <g transform="translate(0.088533, 0.255867)" opacity="0.5">
+  	<path fill="currentColor"
+        d="M32,195.155L32,195.155L4.441,279.97c-2.513,7.735,0.24,16.21,6.821,
+          20.99l238.514,173.29 L32,195.155L32,195.155z" />
+  </g>
+  <g transform="translate(29.421866, 280.255593)">
+  	<path fill="currentColor"
+        d="M2.667-84.844h127.092L75.14-252.942c-2.811-8.649-15.047-8.649-17.856,
+          0L2.667-84.844 L2.667-84.844z" />
+  </g>
+  <g transform="translate(247.197860, 1.160800)" opacity="0.7">
+  	<path fill="currentColor"
+        d="M2.667,473.345L93.351,194.25h127.092L2.667,473.345L2.667,
+          473.345z" />
+  </g>
+  <g transform="translate(246.307061, 0.255867)" opacity="0.5">
+  	<path fill="currentColor"
+        d="M221.334,195.155L221.334,195.155l27.559,84.815c2.514,7.735-0.24,
+          16.21-6.821,20.99 L3.557,474.25L221.334,195.155L221.334,195.155z" />
+  </g>
+  <g transform="translate(336.973725, 280.255593)">
+  	<path fill="currentColor"
+        d="M130.667-84.844H3.575l54.618-168.098c2.811-8.649,15.047-8.649,
+          17.856,0L130.667-84.844 L130.667-84.844z" />
+  </g>
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#znc" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Philip's docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Philip's docs
+              </span>
+              <span class="md-header-nav__topic">
+                ZNC
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://gitlab.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="gitlab">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__gitlab" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Philip's docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    Philip's docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://gitlab.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="gitlab">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__gitlab" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Hardware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Dell XPS 15 9560
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Dell XPS 15 9560
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux/" title="Arch Linux" class="md-nav__link">
+      Arch Linux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Software
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../playonlinux/" title="PlayOnLinux" class="md-nav__link">
+      PlayOnLinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../seedbox/" title="SeedBox" class="md-nav__link">
+      SeedBox
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Knowledge base
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Knowledge base
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../kb/change_tty/" title="How to change to TTYn" class="md-nav__link">
+      How to change to TTYn
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../imprint/" title="Impressum" class="md-nav__link">
+      Impressum
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../datenschutzerklaerung/" title="Datenschutzerklärung" class="md-nav__link">
+      Datenschutzerklärung
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-server-setup" title="Initial Server setup" class="md-nav__link">
+    Initial Server setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-system" title="Update System" class="md-nav__link">
+    Update System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-vim-colored-with-dark-background-settings" title="Make vim colored with dark background settings" class="md-nav__link">
+    Make vim colored with dark background settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-locale" title="Fix locale" class="md-nav__link">
+    Fix locale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-bashrc" title="Edit .bashrc" class="md-nav__link">
+    Edit .bashrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-user-user" title="Create a new user user" class="md-nav__link">
+    Create a new user user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-ssh-deamon-to-allow-only-ssh-keys" title="Change the SSH deamon to allow only SSH-keys" class="md-nav__link">
+    Change the SSH deamon to allow only SSH-keys
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-roots-authorized_keys-file" title="Delete root's authorized_keys file" class="md-nav__link">
+    Delete root's authorized_keys file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-base-packages" title="Install base packages" class="md-nav__link">
+    Install base packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-znc" title="Install ZNC" class="md-nav__link">
+    Install ZNC
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requiemetns" title="Pre-requiemetns" class="md-nav__link">
+    Pre-requiemetns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-znc_1" title="Install ZNC" class="md-nav__link">
+    Install ZNC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-znc" title="Configure ZNC" class="md-nav__link">
+    Configure ZNC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#znc-service" title="ZNC service" class="md-nav__link">
+    ZNC service
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx" title="Nginx" class="md-nav__link">
+    Nginx
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure" title="Configure" class="md-nav__link">
+    Configure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-default-entry" title="Delete default entry" class="md-nav__link">
+    Delete default entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-ssl_params" title="Add ssl_params" class="md-nav__link">
+    Add ssl_params
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-http-to-https-redirector" title="General HTTP to HTTPS redirector" class="md-nav__link">
+    General HTTP to HTTPS redirector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#znc-web-interface-on-port-443" title="ZNC web interface on Port 443" class="md-nav__link">
+    ZNC web interface on Port 443
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-cronjob-for-renewing-cetificates" title="Add cronjob for renewing cetificates" class="md-nav__link">
+    Add cronjob for renewing cetificates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#znc-ssl-config" title="ZNC SSL config" class="md-nav__link">
+    ZNC SSL config
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-copy-of-our-lets-encrypt-certificates-to-znc" title="Initial copy of our let's encrypt certificates to znc" class="md-nav__link">
+    Initial copy of our let's encrypt certificates to znc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-znc-for-the-1st-time" title="Run ZNC for the 1st time" class="md-nav__link">
+    Run ZNC for the 1st time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://gitlab.com/shokinn/docs/edit/master/docs/software/znc_irc_bouncer.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="znc">ZNC<a class="headerlink" href="#znc" title="Permanent link">&para;</a></h1>
+<p>ZNC is an advanced IRC bouncer that is left connected so an IRC client can disconnect/reconnect without losing the chat session.</p>
+<p>OS: Ubuntu 18.04 LTS (Bionic Beaver)</p>
+<h2 id="initial-server-setup">Initial Server setup<a class="headerlink" href="#initial-server-setup" title="Permanent link">&para;</a></h2>
+<h3 id="update-system">Update System<a class="headerlink" href="#update-system" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">apt update &amp;&amp; apt full-upgrade -y &amp;&amp; \
+apt autoremove -y</code></pre>
+
+<h3 id="make-vim-colored-with-dark-background-settings">Make vim colored with dark background settings<a class="headerlink" href="#make-vim-colored-with-dark-background-settings" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">cat &lt;&lt; EOF &gt;&gt; /etc/vim/vimrc
+
+&quot; Set background to dark for better readability in SSH connections
+set background=dark
+EOF</code></pre>
+
+<h3 id="fix-locale">Fix locale<a class="headerlink" href="#fix-locale" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">cat &lt;&lt; EOF | sudo tee -a /etc/environment
+
+# Fix locale
+LC_ALL=en_US.UTF-8
+LANGUAGE=en_US:en
+EOF</code></pre>
+
+<h3 id="edit-bashrc">Edit .bashrc<a class="headerlink" href="#edit-bashrc" title="Permanent link">&para;</a></h3>
+<p><code>/root/.bashrc</code> / <code>/etc/skel/.bashrc</code>:<br />
+<pre class="codehilite"><code># ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z &quot;$PS1&quot; ] &amp;&amp; return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=999999
+HISTFILESIZE=999999
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] &amp;&amp; eval &quot;$(SHELL=/bin/sh lesspipe)&quot;
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z &quot;$debian_chroot&quot; ] &amp;&amp; [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we &quot;want&quot; color)
+case &quot;$TERM&quot; in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n &quot;$force_color_prompt&quot; ]; then
+    if [ -x /usr/bin/tput ] &amp;&amp; tput setaf 1 &gt;&amp;/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+    else
+    color_prompt=
+    fi
+fi
+
+if [ &quot;$color_prompt&quot; = yes ]; then
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    if [ $UID == 0 ]; then
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]'
+    else
+        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]'
+    fi
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case &quot;$TERM&quot; in
+xterm*|rxvt*)
+    PS1=&quot;\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1&quot;
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors &amp;&amp; eval &quot;$(dircolors -b ~/.dircolors)&quot; || eval &quot;$(dircolors -b)&quot;
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] &amp;&amp; ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi</code></pre></p>
+<h3 id="create-a-new-user-user">Create a new user <code>user</code><a class="headerlink" href="#create-a-new-user-user" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">adduser user &amp;&amp; \
+usermod -aG sudo user &amp;&amp; \
+mkdir /home/user/.ssh &amp;&amp; \
+chmod 700 /home/user/.ssh &amp;&amp; \
+cp /root/.ssh/authorized_keys /home/user/.ssh/ &amp;&amp; \
+chmod 400 /home/user/.ssh/authorized_keys &amp;&amp; \
+chown -R user:user /home/user/.ssh/</code></pre>
+
+<h3 id="change-the-ssh-deamon-to-allow-only-ssh-keys">Change the SSH deamon to allow only SSH-keys<a class="headerlink" href="#change-the-ssh-deamon-to-allow-only-ssh-keys" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">cat &lt;&lt; EOF &gt; /etc/ssh/sshd_config &amp;&amp; systemctl restart sshd.service
+#   $OpenBSD: sshd_config,v 1.101 2017/03/14 07:19:07 djm Exp $
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+Port 22
+AddressFamily any
+ListenAddress 0.0.0.0
+ListenAddress ::
+
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+#SyslogFacility AUTH
+#LogLevel INFO
+
+# Authentication:
+
+#LoginGraceTime 2m
+PermitRootLogin without-password
+#StrictModes yes
+#MaxAuthTries 6
+#MaxSessions 10
+
+PubkeyAuthentication yes
+
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+AuthorizedKeysFile  .ssh/authorized_keys .ssh/authorized_keys2
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# HostbasedAuthentication
+#IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+PermitEmptyPasswords no
+
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+ChallengeResponseAuthentication no
+
+# Kerberos options
+#KerberosAuthentication no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+#KerberosGetAFSToken no
+
+# GSSAPI options
+#GSSAPIAuthentication no
+#GSSAPICleanupCredentials yes
+#GSSAPIStrictAcceptorCheck yes
+#GSSAPIKeyExchange no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of &quot;PermitRootLogin without-password&quot;.
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+#GatewayPorts no
+X11Forwarding yes
+#X11DisplayOffset 10
+#X11UseLocalhost yes
+#PermitTTY yes
+PrintMotd no
+#PrintLastLog yes
+#TCPKeepAlive yes
+#UseLogin no
+#PermitUserEnvironment no
+#Compression delayed
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
+#UseDNS no
+#PidFile /var/run/sshd.pid
+#MaxStartups 10:30:100
+#PermitTunnel no
+#ChrootDirectory none
+#VersionAddendum none
+
+# no default banner path
+#Banner none
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# override default of no subsystems
+Subsystem   sftp    /usr/lib/openssh/sftp-server
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#   X11Forwarding no
+#   AllowTcpForwarding no
+#   PermitTTY no
+#   ForceCommand cvs server
+EOF</code></pre>
+
+<h4 id="delete-roots-authorized_keys-file">Delete root's <code>authorized_keys</code> file<a class="headerlink" href="#delete-roots-authorized_keys-file" title="Permanent link">&para;</a></h4>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Please check before if you can login to the user <code>user</code> with your ssh-key!</p>
+</div>
+<pre class="codehilite"><code class="language-shell">rm ~/.ssh/authorized_keys</code></pre>
+
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Log out and re login as <code>user</code>!</p>
+</div>
+<h3 id="install-base-packages">Install base packages<a class="headerlink" href="#install-base-packages" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">sudo apt install -y \
+p7zip-full \
+p7zip-rar \
+zip \
+unzip \
+unrar \
+screen \
+tmux \
+htop</code></pre>
+
+<h2 id="install-znc">Install ZNC<a class="headerlink" href="#install-znc" title="Permanent link">&para;</a></h2>
+<p>You can find a detailed install instruction here: <a href="https://wiki.znc.in/Installation#Ubuntu">https://wiki.znc.in/Installation#Ubuntu</a></p>
+<h3 id="pre-requiemetns">Pre-requiemetns<a class="headerlink" href="#pre-requiemetns" title="Permanent link">&para;</a></h3>
+<p>Install python-software-properties:<br />
+<pre class="codehilite"><code class="language-shell">sudo apt install -y software-properties-common</code></pre></p>
+<p>Create user for running znc:<br />
+<pre class="codehilite"><code class="language-shell">sudo useradd -r -s /usr/sbin/nologin znc</code></pre></p>
+<p>Create a config directory for znc:<br />
+<pre class="codehilite"><code class="language-shell">sudo mkdir /etc/znc &amp;&amp; \
+sudo chown znc:znc /etc/znc; \
+sudo chmod 750 /etc/znc</code></pre></p>
+<h3 id="install-znc_1">Install ZNC<a class="headerlink" href="#install-znc_1" title="Permanent link">&para;</a></h3>
+<p>Add PPA and install:<br />
+<pre class="codehilite"><code class="language-shell">sudo add-apt-repository ppa:teward/znc &amp;&amp; \
+sudo apt update &amp;&amp; \
+sudo apt install -y znc znc-dev znc-perl znc-python znc-tcl</code></pre></p>
+<h3 id="configure-znc">Configure ZNC<a class="headerlink" href="#configure-znc" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">sudo -u znc znc -c -d /etc/znc</code></pre>
+
+<p>Configuration Options:<br />
+<pre class="codehilite"><code>[ .. ] Checking for list of available modules...
+[ ** ]
+[ ** ] -- Global settings --
+[ ** ]
+[ ?? ] Listen on port (1025 to 65534): 6667
+[ !! ] WARNING: Some web browsers reject port 6667. If you intend to
+[ !! ] use ZNC's web interface, you might want to use another port.
+[ ?? ] Proceed with port 6667 anyway? (yes/no) [yes]:
+[ ?? ] Listen using SSL (yes/no) [no]: yes
+[ ?? ] Listen using both IPv4 and IPv6 (yes/no) [yes]:
+[ .. ] Verifying the listener...
+[ ** ] Unable to locate pem file: [/etc/znc/znc.pem], creating it
+[ .. ] Writing Pem file [/etc/znc/znc.pem]...
+[ ** ] Enabled global modules [webadmin]
+[ ** ]
+[ ** ] -- Admin user settings --
+[ ** ]
+[ ?? ] Username (alphanumeric): admin
+[ ?? ] Enter password:
+[ ?? ] Confirm password:
+[ ?? ] Nick [admin]:
+[ ?? ] Alternate nick [admin_]:
+[ ?? ] Ident [admin]:
+[ ?? ] Real name (optional):
+[ ?? ] Bind host (optional):
+[ ** ] Enabled user modules [chansaver, controlpanel]
+[ ** ]
+[ ?? ] Set up a network? (yes/no) [yes]:
+[ ** ]
+[ ** ] -- Network settings --
+[ ** ]
+[ ?? ] Name [freenode]:
+[ ?? ] Server host [chat.freenode.net]: ^C
+user@znc /etc $ sudo -u znc znc -c -d /etc/znc
+[ .. ] Checking for list of available modules...
+[ ** ]
+[ ** ] -- Global settings --
+[ ** ]
+[ ?? ] Listen on port (1025 to 65534): 6667
+[ !! ] WARNING: Some web browsers reject port 6667. If you intend to
+[ !! ] use ZNC's web interface, you might want to use another port.
+[ ?? ] Proceed with port 6667 anyway? (yes/no) [yes]:
+[ ?? ] Listen using SSL (yes/no) [no]: yes
+[ ?? ] Listen using both IPv4 and IPv6 (yes/no) [yes]:
+[ .. ] Verifying the listener...
+[ ** ] Enabled global modules [webadmin]
+[ ** ]
+[ ** ] -- Admin user settings --
+[ ** ]
+[ ?? ] Username (alphanumeric): admin
+[ ?? ] Enter password:
+[ ?? ] Confirm password:
+[ ?? ] Nick [admin]:
+[ ?? ] Alternate nick [admin_]:
+[ ?? ] Ident [admin]:
+[ ?? ] Real name (optional):
+[ ?? ] Bind host (optional):
+[ ** ] Enabled user modules [chansaver, controlpanel]
+[ ** ]
+[ ?? ] Set up a network? (yes/no) [yes]: no
+[ ** ]
+[ .. ] Writing config [/etc/znc/configs/znc.conf]...
+[ ** ]
+[ ** ] To connect to this ZNC you need to connect to it as your IRC server
+[ ** ] using the port that you supplied.  You have to supply your login info
+[ ** ] as the IRC server password like this: user/network:pass.
+[ ** ]
+[ ** ] Try something like this in your IRC client...
+[ ** ] /server &lt;znc_server_ip&gt; +6667 admin:&lt;pass&gt;
+[ ** ]
+[ ** ] To manage settings, users and networks, point your web browser to
+[ ** ] https://&lt;znc_server_ip&gt;:6667/
+[ ** ]
+[ ?? ] Launch ZNC now? (yes/no) [yes]: no</code></pre></p>
+<h3 id="znc-service">ZNC service<a class="headerlink" href="#znc-service" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">cat &lt;&lt; EOF | sudo tee /etc/systemd/system/znc.service &amp;&amp; \
+sudo systemctl daemon-reload &amp;&amp; \
+sudo systemctl enable znc
+[Unit]
+Description=ZNC, an advanced IRC bouncer
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/znc -f --datadir=/etc/znc
+User=znc
+
+[Install]
+WantedBy=multi-user.target
+EOF</code></pre>
+
+<h2 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
+<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h3>
+<p>Install all needed Packages for nginx tasks: 
+<pre class="codehilite"><code class="language-shell">sudo apt update &amp;&amp; \
+sudo apt install -y \
+nginx \
+python3-pip &amp;&amp; \
+sudo -H pip3 install --system --upgrade \
+pip &amp;&amp; \
+sudo -H pip3 install --upgrade \
+cryptography &amp;&amp; \
+sudo -H pip3 install --upgrade \
+setuptools &amp;&amp; \
+sudo -H pip3 install \
+certbot \
+certbot-nginx</code></pre></p>
+<h3 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h3>
+<h4 id="delete-default-entry">Delete default entry<a class="headerlink" href="#delete-default-entry" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-shell">sudo rm /etc/nginx/sites-enabled/default</code></pre>
+
+<h4 id="add-ssl_params">Add ssl_params<a class="headerlink" href="#add-ssl_params" title="Permanent link">&para;</a></h4>
+<pre class="codehilite"><code class="language-shell">cat &lt;&lt; EOF | sudo tee /etc/nginx/ssl_params
+# Session settings
+ssl_session_timeout 1d;
+ssl_session_cache shared:SSL:50m;
+ssl_session_tickets off;
+
+# modern configuration. tweak to your needs.
+ssl_protocols TLSv1.2;
+ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256';
+ssl_prefer_server_ciphers on;
+
+# HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
+add_header Strict-Transport-Security max-age=15768000;
+
+# OCSP Stapling ---
+# fetch OCSP records from URL in ssl_certificate and cache them
+ssl_stapling on;
+ssl_stapling_verify on;
+EOF</code></pre>
+
+<h4 id="general-http-to-https-redirector">General HTTP to HTTPS redirector<a class="headerlink" href="#general-http-to-https-redirector" title="Permanent link">&para;</a></h4>
+<p>This nginx entry will rewrite all traffic from HTTP to HTTPS.
+<pre class="codehilite"><code class="language-shell">read -r -d '' read_tmp&lt;&lt;&quot;EOF&quot;
+server {
+\tlisten 80 default_server;
+\tlisten [::]:80 default_server;
+\tserver_name _;
+\treturn 301 https://$host$request_uri;
+}
+EOF
+echo -e &quot;$read_tmp&quot; | sudo tee /etc/nginx/sites-available/99-https-rewrite.conf &amp;&amp; \
+sudo ln -s ../sites-available/99-https-rewrite.conf /etc/nginx/sites-enabled/99-https-rewrite.conf</code></pre></p>
+<h4 id="znc-web-interface-on-port-443">ZNC web interface on Port 443<a class="headerlink" href="#znc-web-interface-on-port-443" title="Permanent link">&para;</a></h4>
+<p>Add server directive for Portainer:<br />
+<pre class="codehilite"><code class="language-shell">cat &lt;&lt; EOF | sed 's/\\t/\t/g' | sudo tee /etc/nginx/sites-available/10-znc.mischaufen.de.conf &amp;&amp; \
+sudo ln -s ../sites-available/10-znc.mischaufen.de.conf /etc/nginx/sites-enabled/10-znc.mischaufen.de.conf
+server {
+\tlisten\t\t443 ssl http2;
+\tlisten\t\t[::]:443 ssl http2;
+\tserver_name\tznc.mischaufen.de;
+
+\taccess_log\t/var/log/nginx/znc.mischaufen.de_access.log combined gzip=9;
+\terror_log\t/var/log/nginx/znc.mischaufen.de_error.log warn;
+
+\tlocation / {
+\t\tproxy_pass\t\thttps://[::1]:6667/;
+\t\tproxy_set_header\tHost \$host;
+\t\tproxy_set_header\tX-Forwarded-Host \$server_name;
+\t\tproxy_set_header\tX-Forwarded-For \$proxy_add_x_forwarded_for;
+\t}
+
+\tinclude\t\t/etc/nginx/ssl_params;
+
+}
+EOF</code></pre></p>
+<p>Install a Let's encrypt SSL Certificate:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Don't add a redirect to HTTPS.</p>
+</div>
+<pre class="codehilite"><code class="language-shell">sudo certbot --nginx -d znc.mischaufen.de &amp;&amp; \
+sudo sed -i '/ssl_certificate_key/a \ \ \ \ ssl_trusted_certificate /etc/letsencrypt/live/znc.mischaufen.de/chain.pem;' /etc/nginx/sites-available/10-znc.mischaufen.de.conf &amp;&amp; \
+sudo systemctl reload nginx.service</code></pre>
+
+<h3 id="add-cronjob-for-renewing-cetificates">Add cronjob for renewing cetificates<a class="headerlink" href="#add-cronjob-for-renewing-cetificates" title="Permanent link">&para;</a></h3>
+<p>This cronjob renews the certificat and create one for znc.</p>
+<p><code>sudo crontab -e</code>:<br />
+<pre class="codehilite"><code>0 */12 * * * /usr/local/bin/certbot renew &amp;&amp; cat /etc/letsencrypt/live/znc.mischaufen.de/{privkey,cert,chain}.pem &gt; /etc/znc/znc.pem</code></pre></p>
+<h2 id="znc-ssl-config">ZNC SSL config<a class="headerlink" href="#znc-ssl-config" title="Permanent link">&para;</a></h2>
+<h3 id="initial-copy-of-our-lets-encrypt-certificates-to-znc">Initial copy of our let's encrypt certificates to znc<a class="headerlink" href="#initial-copy-of-our-lets-encrypt-certificates-to-znc" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">sudo cat /etc/letsencrypt/live/znc.mischaufen.de/{privkey,cert,chain}.pem | sudo tee /etc/znc/znc.pem</code></pre>
+
+<h3 id="run-znc-for-the-1st-time">Run ZNC for the 1<sup>st</sup> time<a class="headerlink" href="#run-znc-for-the-1st-time" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-shell">sudo systemctl start znc.service</code></pre>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://pphg.tech" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://keybase.io/philip_henning" class="md-footer-social__link fa fa-key"></a>
+    
+      <a href="https://twitter.com/__phg" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://github.com/shokinn" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://gitlab.com/shokinn" class="md-footer-social__link fa fa-gitlab"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.e72fd936.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
