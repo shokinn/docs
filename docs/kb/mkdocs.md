@@ -8,8 +8,8 @@ MKINCLUDE_VERSION="0.5.1" && \
 PYMD_EXT_VERSION="5.0" && \
 PYGMENTS_VERSION="2.2.0" && \
 MATERIAL_VERSION="3.0.4" && \
-sudo apt get update && \
-sudo apt get install -y python3 python3-pip && \
+sudo apt update && \
+sudo apt install -y python3 python3-pip && \
 sudo -H pip3 install --upgrade pip && \
 sudo -H pip3 install \
   mkdocs==${MKDOCS_VERSION} \
