@@ -69,7 +69,7 @@ sudo reboot
 	```shell
 	DOCKER_USER_ID="shokinn" && \
 	DOCKER_IMG_NAME="gsh-streaming" && \
-	DOCKER_TAG="2018-10-2" && \
+	DOCKER_TAG="2018-10-5" && \
 	mkdir -p ~/workspace/streaming; \
 	cd ~/workspace/streaming/ && \
 	cat << EOF > ~/workspace/streaming/Dockerfile && \
@@ -90,18 +90,16 @@ sudo reboot
 	echo "Width: \$1"
 	echo "Height: \$2"
 	echo "raspivid fps: \$3"
-	echo "ffmpeg fps: \$4"
-	echo "KBit/s: \$5"
-	echo "URL: \$6"
+	echo "KBit/s: \$4"
+	echo "URL: \$5"
 
 	width=\$1
 	height=\$2
 	rfps=\$3
-	ffps=\$4
-	bitrate=\$(expr \$5 \* 1000)
-	url=\$6
+	bitrate=\$(expr \$4 \* 1000)
+	url=\$5
 
-	raspivid -o - -t 0 -w \$width -h \$height -fps \$rfps -b \$bitrate -g 40 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i pipe:0 -c:v copy -c:a aac -ab 128k -g 40 -strict experimental -f flv -r \$ffps \$url
+	raspivid -o - -t 0 -w \$width -h \$height -fps \$rfps -b \$bitrate -g 40 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i pipe:0 -c:v copy -c:a aac -ab 128k -g 40 -strict experimental -f flv \$url
 	EOF
 	```
 		
@@ -112,15 +110,14 @@ sudo reboot
 	read -p "Stream height: " height && \
 	echo "For Camera specs see here: https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes"; \
 	read -p "raspivid FPS (40-90@720p; 1/10-30fps@1080p): " rfps && \
-	read -p "ffmpeg fps: " ffps && \
 	read -p "Streaming bitrate (KBit/s): " bitrate && \
 	read -p "Enter Streaming Endpoint: " url && \
 	docker run \
 	--privileged \
 	--name streaming \
 	-it \
-	shokinn/gsh-streaming:2018-10-2 \
-	$width $height $rfps $ffps $bitrate "$url"
+	shokinn/gsh-streaming:2018-10-5 \
+	$width $height $rfps $bitrate "$url"
 	```
 
 ```shell
@@ -128,7 +125,6 @@ read -p "Stream width: " width && \
 read -p "Stream height: " height && \
 echo "For Camera specs see here: https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes"; \
 read -p "raspivid FPS (40-90@720p; 1/10-30fps@1080p): " rfps && \
-read -p "ffmpeg fps: " ffps && \
 read -p "Streaming bitrate (KBit/s): " bitrate && \
 read -p "Enter Streaming Endpoint: " url && \
 docker run \
@@ -136,6 +132,6 @@ docker run \
 --name streaming \
 -d \
 --restart=always \
-shokinn/gsh-streaming:2018-10-2 \
-$width $height $rfps $ffps $bitrate "$url"
+shokinn/gsh-streaming:2018-10-5 \
+$width $height $rfps $bitrate "$url"
 ```
