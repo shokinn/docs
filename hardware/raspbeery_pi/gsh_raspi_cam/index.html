@@ -695,11 +695,9 @@ Der Container ist auf DockerHub verfügbar.<br />
 31
 32
 33
-34
-35
-36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">DOCKER_USER_ID</span><span class="o">=</span><span class="s2">&quot;shokinn&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">DOCKER_USER_ID</span><span class="o">=</span><span class="s2">&quot;shokinn&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nv">DOCKER_IMG_NAME</span><span class="o">=</span><span class="s2">&quot;gsh-streaming&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<span class="nv">DOCKER_TAG</span><span class="o">=</span><span class="s2">&quot;2018-10-2&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nv">DOCKER_TAG</span><span class="o">=</span><span class="s2">&quot;2018-10-5&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
 mkdir -p ~/workspace/streaming<span class="p">;</span> <span class="se">\</span>
 <span class="nb">cd</span> ~/workspace/streaming/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
 cat <span class="s">&lt;&lt; EOF &gt; ~/workspace/streaming/Dockerfile &amp;&amp; \</span>
@@ -720,18 +718,16 @@ EOF
 <span class="nb">echo</span> <span class="s2">&quot;Width: \$1&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;Height: \$2&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;raspivid fps: \$3&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;ffmpeg fps: \$4&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;KBit/s: \$5&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;URL: \$6&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;KBit/s: \$4&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;URL: \$5&quot;</span>
 
 <span class="nv">width</span><span class="o">=</span><span class="se">\$</span><span class="m">1</span>
 <span class="nv">height</span><span class="o">=</span><span class="se">\$</span><span class="m">2</span>
 <span class="nv">rfps</span><span class="o">=</span><span class="se">\$</span><span class="m">3</span>
-<span class="nv">ffps</span><span class="o">=</span><span class="se">\$</span><span class="m">4</span>
-<span class="nv">bitrate</span><span class="o">=</span><span class="se">\$</span><span class="o">(</span>expr <span class="se">\$</span><span class="m">5</span> <span class="se">\*</span> <span class="m">1000</span><span class="o">)</span>
-<span class="nv">url</span><span class="o">=</span><span class="se">\$</span><span class="m">6</span>
+<span class="nv">bitrate</span><span class="o">=</span><span class="se">\$</span><span class="o">(</span>expr <span class="se">\$</span><span class="m">4</span> <span class="se">\*</span> <span class="m">1000</span><span class="o">)</span>
+<span class="nv">url</span><span class="o">=</span><span class="se">\$</span><span class="m">5</span>
 
-raspivid -o - -t <span class="m">0</span> -w <span class="se">\$</span>width -h <span class="se">\$</span>height -fps <span class="se">\$</span>rfps -b <span class="se">\$</span>bitrate -g <span class="m">40</span> <span class="p">|</span> ffmpeg -re -ar <span class="m">44100</span> -ac <span class="m">2</span> -acodec pcm_s16le -f s16le -ac <span class="m">2</span> -i /dev/zero -f h264 -i pipe:0 -c:v copy -c:a aac -ab 128k -g <span class="m">40</span> -strict experimental -f flv -r <span class="se">\$</span>ffps <span class="se">\$</span>url
+raspivid -o - -t <span class="m">0</span> -w <span class="se">\$</span>width -h <span class="se">\$</span>height -fps <span class="se">\$</span>rfps -b <span class="se">\$</span>bitrate -g <span class="m">40</span> <span class="p">|</span> ffmpeg -re -ar <span class="m">44100</span> -ac <span class="m">2</span> -acodec pcm_s16le -f s16le -ac <span class="m">2</span> -i /dev/zero -f h264 -i pipe:0 -c:v copy -c:a aac -ab 128k -g <span class="m">40</span> -strict experimental -f flv <span class="se">\$</span>url
 EOF
 </pre></div>
 </td></tr></table>
@@ -748,20 +744,18 @@ EOF
  9
 10
 11
-12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">read</span> -p <span class="s2">&quot;Stream width: &quot;</span> width <span class="o">&amp;&amp;</span> <span class="se">\</span>
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">read</span> -p <span class="s2">&quot;Stream width: &quot;</span> width <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;Stream height: &quot;</span> height <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">echo</span> <span class="s2">&quot;For Camera specs see here: https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes&quot;</span><span class="p">;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;raspivid FPS (40-90@720p; 1/10-30fps@1080p): &quot;</span> rfps <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<span class="nb">read</span> -p <span class="s2">&quot;ffmpeg fps: &quot;</span> ffps <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;Streaming bitrate (KBit/s): &quot;</span> bitrate <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;Enter Streaming Endpoint: &quot;</span> url <span class="o">&amp;&amp;</span> <span class="se">\</span>
 docker run <span class="se">\</span>
 --privileged <span class="se">\</span>
 --name streaming <span class="se">\</span>
 -it <span class="se">\</span>
-shokinn/gsh-streaming:2018-10-2 <span class="se">\</span>
-<span class="nv">$width</span> <span class="nv">$height</span> <span class="nv">$rfps</span> <span class="nv">$ffps</span> <span class="nv">$bitrate</span> <span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
+shokinn/gsh-streaming:2018-10-5 <span class="se">\</span>
+<span class="nv">$width</span> <span class="nv">$height</span> <span class="nv">$rfps</span> <span class="nv">$bitrate</span> <span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
 </pre></div>
 </td></tr></table>
 
@@ -778,12 +772,10 @@ shokinn/gsh-streaming:2018-10-2 <span class="se">\</span>
 10
 11
 12
-13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">read</span> -p <span class="s2">&quot;Stream width: &quot;</span> width <span class="o">&amp;&amp;</span> <span class="se">\</span>
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">read</span> -p <span class="s2">&quot;Stream width: &quot;</span> width <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;Stream height: &quot;</span> height <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">echo</span> <span class="s2">&quot;For Camera specs see here: https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes&quot;</span><span class="p">;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;raspivid FPS (40-90@720p; 1/10-30fps@1080p): &quot;</span> rfps <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<span class="nb">read</span> -p <span class="s2">&quot;ffmpeg fps: &quot;</span> ffps <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;Streaming bitrate (KBit/s): &quot;</span> bitrate <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">read</span> -p <span class="s2">&quot;Enter Streaming Endpoint: &quot;</span> url <span class="o">&amp;&amp;</span> <span class="se">\</span>
 docker run <span class="se">\</span>
@@ -791,8 +783,8 @@ docker run <span class="se">\</span>
 --name streaming <span class="se">\</span>
 -d <span class="se">\</span>
 --restart<span class="o">=</span>always <span class="se">\</span>
-shokinn/gsh-streaming:2018-10-2 <span class="se">\</span>
-<span class="nv">$width</span> <span class="nv">$height</span> <span class="nv">$rfps</span> <span class="nv">$ffps</span> <span class="nv">$bitrate</span> <span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
+shokinn/gsh-streaming:2018-10-5 <span class="se">\</span>
+<span class="nv">$width</span> <span class="nv">$height</span> <span class="nv">$rfps</span> <span class="nv">$bitrate</span> <span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
 </pre></div>
 </td></tr></table>
                 
