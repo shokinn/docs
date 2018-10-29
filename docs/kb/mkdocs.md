@@ -10,8 +10,8 @@ PYGMENTS_VERSION="2.2.0" && \
 MATERIAL_VERSION="3.0.4" && \
 sudo apt update && \
 sudo apt install -y python3 python3-pip && \
-sudo -H pip3 install --upgrade pip && \
-sudo -H pip3 install \
+pip3 install --user --upgrade pip && \
+pip3 install --user \
   mkdocs==${MKDOCS_VERSION} \
   markdown-include==${MKINCLUDE_VERSION} \
   pymdown-extensions==${PYMD_EXT_VERSION} \
