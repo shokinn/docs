@@ -1,0 +1,2199 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Everything which I have to write down to remember it">
+      
+      
+      
+        <meta name="author" content="Philip Henning">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>Arch Linux Base - Philip's docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../../#arch-linux-dell-xps-15-9560-base-arch" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Philip's docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Philip's docs
+              </span>
+              <span class="md-header-nav__topic">
+                Arch Linux Base
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Philip's docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    Philip's docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/shokinn/docs/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      shokinn/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Hardware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Dell XPS 15 9560
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Dell XPS 15 9560
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Arch Linux Base
+      </label>
+    
+    <a href="./" title="Arch Linux Base" class="md-nav__link md-nav__link--active">
+      Arch Linux Base
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-installation" title="Pre-installation" class="md-nav__link">
+    Pre-installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uefi" title="UEFI" class="md-nav__link">
+    UEFI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-keyboard-layout" title="Change Keyboard layout" class="md-nav__link">
+    Change Keyboard layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-a-wireless-network-during-installation-temporary" title="Connect to a wireless network during installation (temporary)" class="md-nav__link">
+    Connect to a wireless network during installation (temporary)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-system-clock" title="Update the system clock" class="md-nav__link">
+    Update the system clock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparing-disks" title="Preparing Disks" class="md-nav__link">
+    Preparing Disks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wipe-data-on-all-partitions" title="Wipe Data on all partitions" class="md-nav__link">
+    Wipe Data on all partitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparing-the-logical-volumes" title="Preparing the logical volumes" class="md-nav__link">
+    Preparing the logical volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-luks-for-our-partitions" title="Setup LUKS for our partitions" class="md-nav__link">
+    Setup LUKS for our partitions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-arch" title="Install Arch" class="md-nav__link">
+    Install Arch
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sort-mirrors-by-speed" title="Sort mirrors by speed" class="md-nav__link">
+    Sort mirrors by speed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-base-packages" title="Install the base packages" class="md-nav__link">
+    Install the base packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-system" title="Configure the system" class="md-nav__link">
+    Configure the system
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gen-fstab" title="Gen fstab" class="md-nav__link">
+    Gen fstab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-mntetccrypttab" title="Modify /mnt/etc/crypttab" class="md-nav__link">
+    Modify /mnt/etc/crypttab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chroot" title="Chroot" class="md-nav__link">
+    Chroot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uncomment-pacman-multilib-option" title="Uncomment pacman multilib option" class="md-nav__link">
+    Uncomment pacman multilib option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages" title="Install Packages" class="md-nav__link">
+    Install Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-vim-dark-colors-stuff" title="Fix vim dark colors stuff" class="md-nav__link">
+    Fix vim dark colors stuff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-vim-to-default-editor" title="set vim to default editor" class="md-nav__link">
+    set vim to default editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-my-user" title="Create my User" class="md-nav__link">
+    Create my User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-root-login" title="Disable root login" class="md-nav__link">
+    Disable root login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-group-wheel-so-user-sudo" title="Allow group wheel so user sudo" class="md-nav__link">
+    Allow group wheel so user sudo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-http_proxy-variables" title="Keep http_proxy variables" class="md-nav__link">
+    Keep http_proxy variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-yay" title="Install yay" class="md-nav__link">
+    Install yay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-zone" title="Time zone" class="md-nav__link">
+    Time zone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locale" title="Locale" class="md-nav__link">
+    Locale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-console" title="Setup console" class="md-nav__link">
+    Setup console
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-console-powerline-font" title="Install console powerline font" class="md-nav__link">
+    Install console powerline font
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-keymap" title="Set keymap" class="md-nav__link">
+    Set keymap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hostname" title="Hostname" class="md-nav__link">
+    Hostname
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-mkinitpico" title="Edit mkinitpico" class="md-nav__link">
+    Edit mkinitpico
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-initramfs" title="Generate initramfs" class="md-nav__link">
+    Generate initramfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-grub" title="Install GRUB" class="md-nav__link">
+    Install GRUB
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-boot-loader" title="Configuring the boot loader" class="md-nav__link">
+    Configuring the boot loader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-grub-config" title="Generate GRUB config" class="md-nav__link">
+    Generate GRUB config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reboot-into-the-installed-system" title="Reboot into the installed system" class="md-nav__link">
+    Reboot into the installed system
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-uefi" title="Modify UEFI" class="md-nav__link">
+    Modify UEFI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-installation-configuration" title="Post installation configuration" class="md-nav__link">
+    Post installation configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-useful-services" title="Install useful services" class="md-nav__link">
+    Install useful services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-graphics-card-and-x-working" title="Get graphics card and X working" class="md-nav__link">
+    Get graphics card and X working
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-graphic-card-tools" title="Install graphic card tools" class="md-nav__link">
+    Install graphic card tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphics-card-driversutils" title="Graphics card drivers/utils" class="md-nav__link">
+    Graphics card drivers/utils
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-my-dot-files" title="Get my dot files" class="md-nav__link">
+    Get my dot files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powertop" title="Powertop" class="md-nav__link">
+    Powertop
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimize-power-comsumption" title="Optimize power comsumption" class="md-nav__link">
+    Optimize power comsumption
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-powertop-optimazations-permanent" title="Make powertop optimazations permanent" class="md-nav__link">
+    Make powertop optimazations permanent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages_1" title="Install packages" class="md-nav__link">
+    Install packages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-audio-packages" title="Install audio packages" class="md-nav__link">
+    Install audio packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-various-packages" title="Install various packages" class="md-nav__link">
+    Install various packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-ssh-agent-serive" title="Enable SSH-Agent Serive" class="md-nav__link">
+    Enable SSH-Agent Serive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dell_xps_15_9560_arch_linux_bspwm_in_xfce/" title="Arch Linux bspwm under xfce4" class="md-nav__link">
+      Arch Linux bspwm under xfce4
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Software
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Software
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Desktop
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Desktop
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../software/desktop/playonlinux/" title="PlayOnLinux" class="md-nav__link">
+      PlayOnLinux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../software/server/concourse_dockerized/" title="Concourse Dockerized" class="md-nav__link">
+      Concourse Dockerized
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../software/server/quassel/" title="Quassel" class="md-nav__link">
+      Quassel
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Knowledge base
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Knowledge base
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../kb/change_tty/" title="How to change to TTYn" class="md-nav__link">
+      How to change to TTYn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../kb/mkdocs/" title="MkDocs testing environment" class="md-nav__link">
+      MkDocs testing environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../kb/bmon/" title="Bmon network monitor" class="md-nav__link">
+      Bmon network monitor
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../imprint/" title="Impressum" class="md-nav__link">
+      Impressum
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../datenschutzerklaerung/" title="Datenschutzerklärung" class="md-nav__link">
+      Datenschutzerklärung
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-installation" title="Pre-installation" class="md-nav__link">
+    Pre-installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uefi" title="UEFI" class="md-nav__link">
+    UEFI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-keyboard-layout" title="Change Keyboard layout" class="md-nav__link">
+    Change Keyboard layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-a-wireless-network-during-installation-temporary" title="Connect to a wireless network during installation (temporary)" class="md-nav__link">
+    Connect to a wireless network during installation (temporary)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-system-clock" title="Update the system clock" class="md-nav__link">
+    Update the system clock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparing-disks" title="Preparing Disks" class="md-nav__link">
+    Preparing Disks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wipe-data-on-all-partitions" title="Wipe Data on all partitions" class="md-nav__link">
+    Wipe Data on all partitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparing-the-logical-volumes" title="Preparing the logical volumes" class="md-nav__link">
+    Preparing the logical volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-luks-for-our-partitions" title="Setup LUKS for our partitions" class="md-nav__link">
+    Setup LUKS for our partitions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-arch" title="Install Arch" class="md-nav__link">
+    Install Arch
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sort-mirrors-by-speed" title="Sort mirrors by speed" class="md-nav__link">
+    Sort mirrors by speed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-base-packages" title="Install the base packages" class="md-nav__link">
+    Install the base packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-system" title="Configure the system" class="md-nav__link">
+    Configure the system
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gen-fstab" title="Gen fstab" class="md-nav__link">
+    Gen fstab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-mntetccrypttab" title="Modify /mnt/etc/crypttab" class="md-nav__link">
+    Modify /mnt/etc/crypttab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chroot" title="Chroot" class="md-nav__link">
+    Chroot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uncomment-pacman-multilib-option" title="Uncomment pacman multilib option" class="md-nav__link">
+    Uncomment pacman multilib option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages" title="Install Packages" class="md-nav__link">
+    Install Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-vim-dark-colors-stuff" title="Fix vim dark colors stuff" class="md-nav__link">
+    Fix vim dark colors stuff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-vim-to-default-editor" title="set vim to default editor" class="md-nav__link">
+    set vim to default editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-my-user" title="Create my User" class="md-nav__link">
+    Create my User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-root-login" title="Disable root login" class="md-nav__link">
+    Disable root login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-group-wheel-so-user-sudo" title="Allow group wheel so user sudo" class="md-nav__link">
+    Allow group wheel so user sudo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-http_proxy-variables" title="Keep http_proxy variables" class="md-nav__link">
+    Keep http_proxy variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-yay" title="Install yay" class="md-nav__link">
+    Install yay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-zone" title="Time zone" class="md-nav__link">
+    Time zone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locale" title="Locale" class="md-nav__link">
+    Locale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-console" title="Setup console" class="md-nav__link">
+    Setup console
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-console-powerline-font" title="Install console powerline font" class="md-nav__link">
+    Install console powerline font
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-keymap" title="Set keymap" class="md-nav__link">
+    Set keymap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hostname" title="Hostname" class="md-nav__link">
+    Hostname
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-mkinitpico" title="Edit mkinitpico" class="md-nav__link">
+    Edit mkinitpico
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-initramfs" title="Generate initramfs" class="md-nav__link">
+    Generate initramfs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-grub" title="Install GRUB" class="md-nav__link">
+    Install GRUB
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-boot-loader" title="Configuring the boot loader" class="md-nav__link">
+    Configuring the boot loader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-grub-config" title="Generate GRUB config" class="md-nav__link">
+    Generate GRUB config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reboot-into-the-installed-system" title="Reboot into the installed system" class="md-nav__link">
+    Reboot into the installed system
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-uefi" title="Modify UEFI" class="md-nav__link">
+    Modify UEFI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-installation-configuration" title="Post installation configuration" class="md-nav__link">
+    Post installation configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-useful-services" title="Install useful services" class="md-nav__link">
+    Install useful services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-graphics-card-and-x-working" title="Get graphics card and X working" class="md-nav__link">
+    Get graphics card and X working
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-graphic-card-tools" title="Install graphic card tools" class="md-nav__link">
+    Install graphic card tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphics-card-driversutils" title="Graphics card drivers/utils" class="md-nav__link">
+    Graphics card drivers/utils
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-my-dot-files" title="Get my dot files" class="md-nav__link">
+    Get my dot files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powertop" title="Powertop" class="md-nav__link">
+    Powertop
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimize-power-comsumption" title="Optimize power comsumption" class="md-nav__link">
+    Optimize power comsumption
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-powertop-optimazations-permanent" title="Make powertop optimazations permanent" class="md-nav__link">
+    Make powertop optimazations permanent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages_1" title="Install packages" class="md-nav__link">
+    Install packages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-audio-packages" title="Install audio packages" class="md-nav__link">
+    Install audio packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-various-packages" title="Install various packages" class="md-nav__link">
+    Install various packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-ssh-agent-serive" title="Enable SSH-Agent Serive" class="md-nav__link">
+    Enable SSH-Agent Serive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/shokinn/docs/edit/master/docs/hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux_base.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="arch-linux-dell-xps-15-9560-base-arch">Arch Linux Dell XPS 15 (9560) - Base Arch<a class="headerlink" href="#arch-linux-dell-xps-15-9560-base-arch" title="Permanent link">&para;</a></h1>
+<h2 id="pre-installation">Pre-installation<a class="headerlink" href="#pre-installation" title="Permanent link">&para;</a></h2>
+<h3 id="uefi">UEFI<a class="headerlink" href="#uefi" title="Permanent link">&para;</a></h3>
+<p>Before installing it is necessary to modify some UEFI Settings. They can be accessed by pressing the F2 key repeatedly when booting.</p>
+<ul>
+<li>Change the SATA Mode from the default "RAID" to "AHCI". This will allow Linux to detect the NVME SSD. If dual booting with an existing Windows installation, Windows will not boot after the change but this can be fixed without a reinstallation.</li>
+<li>Change Fastboot to "Thorough" in "POST Behaviour". This prevents intermittent boot failures.</li>
+<li>Disable secure boot to allow Linux to boot.</li>
+</ul>
+<p>Installation of Arch Linux can proceed normally. Refer to the <a href="https://wiki.archlinux.org/index.php/Installation_guide">Installation guide</a> for more information. </p>
+<h3 id="change-keyboard-layout">Change Keyboard layout<a class="headerlink" href="#change-keyboard-layout" title="Permanent link">&para;</a></h3>
+<p>If you don't have an EN:Intl. Keyboard layout you should change it to your layout. In my case it is <code>de-latin1-nodeadkeys1</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>loadkeys de-latin1-nodeadkeys
+</pre></div>
+</td></tr></table>
+
+<h3 id="connect-to-a-wireless-network-during-installation-temporary">Connect to a wireless network during installation (temporary)<a class="headerlink" href="#connect-to-a-wireless-network-during-installation-temporary" title="Permanent link">&para;</a></h3>
+<p>Run <code>wifi-menu</code> to get a graphical interface to connect to your wifi.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>wifi-menu
+</pre></div>
+</td></tr></table>
+
+<p>Afterwards you establish the connection change back to TTY1 with <code>ALT</code>+<code>F1</code>.</p>
+<p>Run dhclient to receive an ip via dhcp:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>dhclient wlp2s0
+</pre></div>
+</td></tr></table></p>
+<h3 id="update-the-system-clock">Update the system clock<a class="headerlink" href="#update-the-system-clock" title="Permanent link">&para;</a></h3>
+<p>Use <a href="http://jlk.fjfi.cvut.cz/arch/manpages/man/timedatectl.1">timedatectl(1)</a> to ensure the system clock is accurate:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>timedatectl set-ntp <span class="nb">true</span>
+systemctl restart systemd-timesyncd
+</pre></div>
+</td></tr></table></p>
+<p>To check the service status, use timedatectl status.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h3 id="preparing-disks">Preparing Disks<a class="headerlink" href="#preparing-disks" title="Permanent link">&para;</a></h3>
+<p>I'll encrypt my Data so my Partition layout looks like this:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>+----------------+----------------+-----------------------------------------------------------------------------------------------+
+|                |                |                       |                       |                       |                       |
+|                |                | LUKS encrypted volume | LUKS encrypted volume | LUKS encrypted volume | LUKS encrypted volume |
+|                |                | /dev/mapper/swap      | /dev/mapper/tmp       | /dev/mapper/root      | /dev/mapper/home      |
+|                |                |_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|
+|                |                |                       |                       |                       |                       |
+|                |                |         16 GiB        |         30 GiB        |         50 GiB        |        100%FREE       |
+|                |                |    Logical volume1    |    Logical volume2    |    Logical volume3    |    Logical volume4    |
+|                |                | /dev/mapper/osvg-swap | /dev/mapper/osvg-tmp  | /dev/mapper/osvg-root | /dev/mapper/osvg-home |
+|                |      EF02      |_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|
+|      EF00      |      8 MiB     |                                                                                               |
+|    1050 MiB    |      BIOS      |                                             8E00                                              |
+|  EFI partition | Boot partition |                                           100%FREE                                            |
+| /dev/nvme0n1p1 | /dev/nvme0n1p2 |                                        /dev/nvme0n1p3                                         |
++----------------+----------------+-----------------------------------------------------------------------------------------------+
+</pre></div>
+</td></tr></table>
+
+<p>Create these partitions with <code>gdisk</code> so that you have <code>GPT</code> instead of <code>MBR</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Old partition table</p>
+<p>If you get the message that the kernel is still using the old partition table run:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>partprobe /dev/nvme0n1
+</pre></div>
+</td></tr></table></p>
+</div>
+<p>If you still get the message the the kernel is using the old partition table you have to reboot your device and perform all steps except the partitioning again.</p>
+<h4 id="wipe-data-on-all-partitions">Wipe Data on all partitions<a class="headerlink" href="#wipe-data-on-all-partitions" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/nvme0n1p1 <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">status</span><span class="o">=</span>progress
+dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/nvme0n1p2 <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">status</span><span class="o">=</span>progress
+dd <span class="k">if</span><span class="o">=</span>/dev/uransom <span class="nv">of</span><span class="o">=</span>/dev/nvme0n1p3 <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</td></tr></table>
+
+<h4 id="preparing-the-logical-volumes">Preparing the logical volumes<a class="headerlink" href="#preparing-the-logical-volumes" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pvcreate /dev/nvme0n1p3
+vgcreate osvg /dev/nvme0n1p3
+lvcreate -L 16G -n swap osvg
+lvcreate -L 30G -n tmp osvg
+lvcreate -L 50G -n root osvg
+lvcreate -l <span class="m">100</span>%FREE -n home osvg
+</pre></div>
+</td></tr></table>
+
+<h4 id="setup-luks-for-our-partitions">Setup <code>LUKS</code> for our partitions<a class="headerlink" href="#setup-luks-for-our-partitions" title="Permanent link">&para;</a></h4>
+<p>Create an encrypted root with a key you can remember.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cryptsetup luksFormat /dev/mapper/osvg-root
+</pre></div>
+</td></tr></table></p>
+<p>Open the root filesystem to create an encryption key for all other partitions.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cryptsetup luksOpen /dev/mapper/osvg-root root
+mkfs.ext4 /dev/mapper/root
+mount /dev/mapper/root /mnt
+mkdir -pm <span class="m">700</span> /mnt/etc/luks-keys
+dd <span class="k">if</span><span class="o">=</span>/dev/random <span class="nv">of</span><span class="o">=</span>/mnt/etc/luks-keys/home <span class="nv">bs</span><span class="o">=</span><span class="m">1</span> <span class="nv">count</span><span class="o">=</span><span class="m">1024</span> <span class="nv">status</span><span class="o">=</span>progress
+chmod <span class="m">000</span> /mnt/etc/luks-keys/home
+</pre></div>
+</td></tr></table></p>
+<p>Use the encrypted key to create our encrypted home and add a pass phrase for emergency access:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cryptsetup luksFormat /dev/mapper/osvg-home
+cryptsetup luksAddKey /dev/mapper/osvg-home /mnt/etc/luks-keys/home
+</pre></div>
+</td></tr></table></p>
+<p>Now we open home, make a filesystem and mount it to <code>/mnt/home</code>.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cryptsetup luksOpen --key-file<span class="o">=</span>/mnt/etc/luks-keys/home /dev/mapper/osvg-home home
+mkfs.ext4 /dev/mapper/home
+mkdir /mnt/home
+mount /dev/mapper/home /mnt/home
+</pre></div>
+</td></tr></table></p>
+<p>and rebuild the EFI and boot partition:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkfs.fat -F32 /dev/nvme0n1p1
+</pre></div>
+</td></tr></table></p>
+<p>Setup and mount the boot/EFI partition:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkdir /mnt/boot
+mkdir /mnt/efi
+mount /dev/nvme0n1p1 /mnt/efi
+mkdir -p /mnt/efi/EFI/arch
+mount --bind /mnt/efi/EFI/arch /mnt/boot
+</pre></div>
+</td></tr></table></p>
+<h3 id="install-arch">Install Arch<a class="headerlink" href="#install-arch" title="Permanent link">&para;</a></h3>
+<h4 id="sort-mirrors-by-speed">Sort mirrors by speed<a class="headerlink" href="#sort-mirrors-by-speed" title="Permanent link">&para;</a></h4>
+<p>The <a href="https://www.archlinux.org/packages/?name=pacman">pacman</a> package provides a Bash script, <code>/usr/bin/rankmirrors</code>, which can be used to rank the mirrors according to their connection and opening speeds to take advantage of using the fastest local mirror.<br />
+Back up the existing <code>/etc/pacman.d/mirrorlist</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+</pre></div>
+</td></tr></table></p>
+<p>Download a german mirrorlist:  </p>
+<details class="info"><summary>Full URL</summary><p><a href="https://www.archlinux.org/mirrorlist/?country=DE&amp;protocol=http&amp;protocol=https&amp;ip_version=4&amp;ip_version=6&amp;use_mirror_status=on">https://www.archlinux.org/mirrorlist/?country=DE&amp;protocol=http&amp;protocol=https&amp;ip_version=4&amp;ip_version=6&amp;use_mirror_status=on</a></p>
+</details>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>curl -L -o /etc/pacman.d/mirrorlist <span class="s2">&quot;https://bit.ly/1yFCU2R&quot;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Edit <code>/etc/pacman.d/mirrorlist.bak</code> and uncomment mirrors for testing with <code>rankmirrors</code>.<br />
+Run the following <code>sed</code> line to uncomment every mirror:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sed -i <span class="s1">&#39;s/^#Server/Server/&#39;</span> /etc/pacman.d/mirrorlist
+</pre></div>
+</td></tr></table></p>
+<h4 id="install-the-base-packages">Install the base packages<a class="headerlink" href="#install-the-base-packages" title="Permanent link">&para;</a></h4>
+<p>Use the <a href="https://projects.archlinux.org/arch-install-scripts.git/tree/pacstrap.in">pacstrap</a> script to install the <a href="https://www.archlinux.org/groups/x86_64/base/"><code>base</code></a> package group:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pacstrap /mnt base base-devel intel-ucode wpa_supplicant dialog
+</pre></div>
+</td></tr></table>
+This group does not include all tools from the live installation, such as <a href="https://www.archlinux.org/packages/?name=btrfs-progs"><code>btrfs-progs</code></a> or specific wireless firmware; see <a href="https://projects.archlinux.org/archiso.git/tree/configs/releng/packages.both">packages.both</a> for comparison.
+To <a href="#Install_Arch">install</a> packages and other groups such as <a href="https://www.archlinux.org/groups/x86_64/base-devel/"><code>base-devel</code></a>, append the names to <em>pacstrap</em> (space separated) or to individual <a href="https://wiki.archlinux.org/index.php/Pacman">pacman</a> commands after the <a href="#Chroot">#Chroot</a> step.</p>
+<h3 id="configure-the-system">Configure the system<a class="headerlink" href="#configure-the-system" title="Permanent link">&para;</a></h3>
+<h4 id="gen-fstab">Gen fstab<a class="headerlink" href="#gen-fstab" title="Permanent link">&para;</a></h4>
+<p>Generate an <a href="https://wiki.archlinux.org/index.php/Fstab">fstab</a> file (use <code>-U</code> or <code>-L</code> to define by <a href="https://wiki.archlinux.org/index.php/UUID"><strong>UUID</strong></a> or labels, respectively):<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</pre></div>
+</td></tr></table>
+Check the resulting file in <code>/mnt/etc/fstab</code> afterwards, and edit it in case of errors.</p>
+<p>Add the following at the end of the <code>/mnt/etc/fstab</code> configuration.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>/dev/mapper/tmp     /tmp        tmpfs   defaults        0   0
+/dev/mapper/swap    none        swap    sw              0   0
+</pre></div>
+</td></tr></table></p>
+<h4 id="modify-mntetccrypttab">Modify <code>/mnt/etc/crypttab</code><a class="headerlink" href="#modify-mntetccrypttab" title="Permanent link">&para;</a></h4>
+<p>Add these at the end to the <code>/mnt/etc/crypttab</code>.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>swap    /dev/mapper/osvg-swap   /dev/urandom        swap,cipher=aes-xts-plain64,size=256
+tmp     /dev/mapper/osvg-tmp    /dev/urandom        tmp,cipher=aes-xts-plain64,size=256
+home    /dev/mapper/osvg-home   /etc/luks-keys/home
+</pre></div>
+</td></tr></table></p>
+<h4 id="chroot">Chroot<a class="headerlink" href="#chroot" title="Permanent link">&para;</a></h4>
+<p><a href="https://wiki.archlinux.org/index.php/Change_root">Change root</a> into the new system:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>arch-chroot /mnt
+</pre></div>
+</td></tr></table></p>
+<h4 id="uncomment-pacman-multilib-option">Uncomment pacman multilib option<a class="headerlink" href="#uncomment-pacman-multilib-option" title="Permanent link">&para;</a></h4>
+<p>In <code>/etc/pacman.conf</code> uncomment the following lines.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[...]
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+[...]
+</pre></div>
+</td></tr></table></p>
+<h4 id="install-packages">Install Packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pacman -Sy
+pacman -S grub efibootmgr networkmanager network-manager-applet wireless_tools zsh w3m vim powertop bc git
+</pre></div>
+</td></tr></table>
+
+<h4 id="fix-vim-dark-colors-stuff">Fix vim dark colors stuff<a class="headerlink" href="#fix-vim-dark-colors-stuff" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/vimrc</span>
+
+<span class="s">&quot; Set background to dark for better readability in SSH connections</span>
+<span class="s">set background=dark</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="set-vim-to-default-editor">set vim to default editor<a class="headerlink" href="#set-vim-to-default-editor" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/environment</span>
+<span class="s">EDITOR=vim</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="create-my-user">Create my User<a class="headerlink" href="#create-my-user" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>useradd -m -G wheel,audio,video,users,uucp,disk,optical,storage,rfkill -s /bin/zsh phg
+
+passwd phg
+</pre></div>
+</td></tr></table>
+
+<h4 id="disable-root-login">Disable root login<a class="headerlink" href="#disable-root-login" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>passwd -l root
+</pre></div>
+</td></tr></table>
+
+<h4 id="allow-group-wheel-so-user-sudo">Allow group wheel so user sudo<a class="headerlink" href="#allow-group-wheel-so-user-sudo" title="Permanent link">&para;</a></h4>
+<p>Uncomment <code>%wheel ALL=(ALL) ALL</code>. Use <code>visudo</code> to edit the <code>/etc/sudoers</code> file.</p>
+<h5 id="keep-http_proxy-variables">Keep <code>http_proxy</code> variables<a class="headerlink" href="#keep-http_proxy-variables" title="Permanent link">&para;</a></h5>
+<p>Add the following at the end of the 'Defaults' section.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Defaults env_keep += &quot;http_proxy&quot;
+Defaults env_keep += &quot;https_proxy&quot;
+</pre></div>
+</td></tr></table>
+
+<h4 id="install-yay">Install yay<a class="headerlink" href="#install-yay" title="Permanent link">&para;</a></h4>
+<p>Clone the yay sources. Build, install and delete it.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git clone https://aur.archlinux.org/yay.git
+chown phg:phg yay
+<span class="nb">cd</span> yay
+sudo -u phg makepkg -si
+<span class="nb">cd</span> ..
+rm -rf yay
+</pre></div>
+</td></tr></table></p>
+<h4 id="time-zone">Time zone<a class="headerlink" href="#time-zone" title="Permanent link">&para;</a></h4>
+<p>Set the time zone:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+</pre></div>
+</td></tr></table></p>
+<p>Run hwclock(8) to generate /etc/adjtime:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>hwclock --systohc
+</pre></div>
+</td></tr></table></p>
+<p>This command assumes the hardware clock is set to UTC. See Time#Time standard for details.</p>
+<p>Enable <code>timedated</code> service:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>systemctl enable systemd-timesyncd
+</pre></div>
+</td></tr></table></p>
+<h4 id="locale">Locale<a class="headerlink" href="#locale" title="Permanent link">&para;</a></h4>
+<p>Uncomment the following <a href="https://wiki.archlinux.org/index.php/Localization">localizations</a> in <code>/etc/locale.gen</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[...]
+de_DE.UTF-8 UTF-8
+de_DE ISO-8859-1
+de_DE@euro ISO-8859-15
+[...]
+en_US.UTF-8 UTF-8
+en_US ISO-8859-1
+[...]
+</pre></div>
+</td></tr></table></p>
+<p>and generate them with:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>locale-gen
+</pre></div>
+</td></tr></table></p>
+<p>Set the <code>LANG</code> variable in <a href="http://jlk.fjfi.cvut.cz/arch/manpages/man/locale.conf.5"><code>locale.conf(5)</code></a> accordingly, for example:<br />
+<code>/etc/locale.conf</code><br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>LANG=en_US.UTF-8
+LANGUAGE=en_US:en
+LC_TIME=de_DE.UTF-8
+LC_CTYPE=en_US.UTF-8
+LC_COLLATE=C
+LC_MONETARY=de_DE.UTF-8
+LC_MESSAGES=en_US.UTF-8
+LC_PAPER=de_DE.UTF-8
+LC_NAME=de_DE.UTF-8
+LC_ADDRESS=de_DE.UTF-8
+LC_TELEPHONE=de_DE.UTF-8
+LC_MEASUREMENT=de_DE.UTF-8
+LC_IDENTIFICATION=de_DE.UTF-8
+</pre></div>
+</td></tr></table></p>
+<h4 id="setup-console">Setup console<a class="headerlink" href="#setup-console" title="Permanent link">&para;</a></h4>
+<h5 id="install-console-powerline-font">Install console powerline font<a class="headerlink" href="#install-console-powerline-font" title="Permanent link">&para;</a></h5>
+<p>Install the console powerline fonts.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo -u phg yay -S powerline-console-fonts ttf-ms-fonts ttf-dejavu
+</pre></div>
+</td></tr></table></p>
+<p>Edit the <code>/etc/vconsole.conf</code> file and add the following to the <em>TOP</em> of the file:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>FONT=ter-powerline-v14n
+[...]
+</pre></div>
+</td></tr></table></p>
+<h5 id="set-keymap">Set keymap<a class="headerlink" href="#set-keymap" title="Permanent link">&para;</a></h5>
+<p>If you <a href="https://wiki.archlinux.org/index.php/Installation_guide#Set_the_keyboard_layout">set the keyboard</a> layout, make the changes persistent in <a href="http://jlk.fjfi.cvut.cz/arch/manpages/man/vconsole.conf.5"><code>vconsole.conf(5)</code></a>:<br />
+<code>/etc/vconsole.conf</code><br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[</span>...<span class="o">]</span>
+<span class="nv">KEYMAP</span><span class="o">=</span>de-latin1-nodeadkeys
+</pre></div>
+</td></tr></table></p>
+<h4 id="hostname">Hostname<a class="headerlink" href="#hostname" title="Permanent link">&para;</a></h4>
+<p>Create the <a href="http://jlk.fjfi.cvut.cz/arch/manpages/man/hostname.5"><code>hostname(5)</code></a> file:<br />
+<code>/etc/hostname</code>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yoetunheimr
+</pre></div>
+</td></tr></table></p>
+<p>Consider adding a matching entry to <a href="http://jlk.fjfi.cvut.cz/arch/manpages/man/hosts.5">hosts(5)</a>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>/etc/hosts
+
+127.0.0.1   localhost.localdomain   localhost
+::1     localhost.localdomain   localhost
+127.0.1.1   yoetunheimr.sao.local   yoetunheimr
+</pre></div>
+</td></tr></table></p>
+<p>See also <a href="https://wiki.archlinux.org/index.php/Network_configuration#Set_the_hostname">Network configuration#Set the hostname</a>.</p>
+<h4 id="edit-mkinitpico">Edit mkinitpico<a class="headerlink" href="#edit-mkinitpico" title="Permanent link">&para;</a></h4>
+<p>Add the <code>keyboard</code>, <code>keymap</code>, <code>lvm2</code> and <code>encrypt</code> hooks to <a href="https://wiki.archlinux.org/index.php/Mkinitcpio.conf"><code>mkinitcpio.conf</code></a>:</p>
+<p><code>/etc/mkinitcpio.conf</code>:<br />
+<code>HOOKS=(base udev autodetect</code><strong><code>keyboard keymap</code></strong><code>consolefont modconf block</code><strong><code>encrypt lvm2</code></strong><code>filesystems fsck)</code></p>
+<h4 id="generate-initramfs">Generate initramfs<a class="headerlink" href="#generate-initramfs" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkinitcpio -p linux
+</pre></div>
+</td></tr></table>
+
+<h4 id="install-grub">Install GRUB<a class="headerlink" href="#install-grub" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>grub-mkconfig -o /boot/grub/grub.cfg
+grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/efi --bootloader-id<span class="o">=</span>grub
+</pre></div>
+</td></tr></table>
+
+<h5 id="configuring-the-boot-loader">Configuring the boot loader<a class="headerlink" href="#configuring-the-boot-loader" title="Permanent link">&para;</a></h5>
+<p>In order to unlock the encrypted root partition at boot, the following kernel parameters need to be set by the boot loader (<code>/etc/default/grub</code>):<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet acpi_rev_override=1 pci=nommconf&quot;
+GRUB_CMDLINE_LINUX=&quot;cryptdevice=/dev/mapper/osvg-root:root root=/dev/mapper/root&quot;
+</pre></div>
+</td></tr></table></p>
+<details class="info"><summary>Command explanation</summary><ul>
+<li><code>acpi_rev_override=1</code> is needed to get the NVIDIA graphics card working resp. to disable it.</li>
+<li>The kernel option <code>pci=nommconf</code> disables Memory-Mapped PCI Configuration Space, which is available in Linux since kernel 2.6. Very roughly, all PCI devices have an area that describe this device (which you see with lspci -vv), and the originally method to access this area involves going through I/O ports, while PCIe allows this space to be mapped to memory for simpler access.</li>
+<li><code>cryptdevice=/dev/mapper/osvg-root:root root=/dev/mapper/root</code> configures the crypt device.</li>
+</ul>
+</details>
+<h5 id="generate-grub-config">Generate GRUB config<a class="headerlink" href="#generate-grub-config" title="Permanent link">&para;</a></h5>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>grub-mkconfig -o /boot/grub/grub.cfg
+</pre></div>
+</td></tr></table>
+
+<p>See <a href="https://wiki.archlinux.org/index.php/Dm-crypt/System_configuration#Boot_loader">Dm-crypt/System configuration#Boot</a> loader for details.</p>
+<h4 id="reboot-into-the-installed-system">Reboot into the installed system<a class="headerlink" href="#reboot-into-the-installed-system" title="Permanent link">&para;</a></h4>
+<p>Leave the <code>chroot</code> environment.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">exit</span>
+</pre></div>
+</td></tr></table></p>
+<p>Unmount all partitions and reboot.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>umount -R /mnt
+reboot
+</pre></div>
+</td></tr></table></p>
+<h5 id="modify-uefi">Modify UEFI<a class="headerlink" href="#modify-uefi" title="Permanent link">&para;</a></h5>
+<p>Open UEFI Configuration menu. (F12 -&gt; Setup)
+Go to:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>- General
+ | - Boot Sequence
+    \ Boot List Option
+     \ Add Boot Option
+      | - Boot Option Name
+      |  \ &quot;Linux&quot;
+      | - File System List
+      |  \ PciRoot(0x0)/[...]
+      | - File Name
+      |  \ &quot;\EFI\grub\grubx64.efi&quot;
+</pre></div>
+</td></tr></table></p>
+<p>Afterwards set "Linux" in the Boot Sequence to the top.</p>
+<h2 id="post-installation-configuration">Post installation configuration<a class="headerlink" href="#post-installation-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="install-useful-services">Install useful services<a class="headerlink" href="#install-useful-services" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pacman -S acpid dbus avahi cups cronie
+systemctl <span class="nb">enable</span> acpid avahi-daemon org.cups.cupsd.service cronie
+</pre></div>
+</td></tr></table>
+
+<h3 id="get-graphics-card-and-x-working">Get graphics card and X working<a class="headerlink" href="#get-graphics-card-and-x-working" title="Permanent link">&para;</a></h3>
+<h4 id="install-graphic-card-tools">Install graphic card tools<a class="headerlink" href="#install-graphic-card-tools" title="Permanent link">&para;</a></h4>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S bbswitch bumblebee primus lib32-primus
+</pre></div>
+</td></tr></table>
+Use <code>libglvnd</code> as libgl provider.</p>
+<p>Enable the bumblebee service.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl <span class="nb">enable</span> bumblebeed.service
+</pre></div>
+</td></tr></table></p>
+<h4 id="graphics-card-driversutils">Graphics card drivers/utils<a class="headerlink" href="#graphics-card-driversutils" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yay -Sy
+yay -S nvidia nvidia-utils lib32-nvidia-utils
+</pre></div>
+</td></tr></table>
+
+<h3 id="get-my-dot-files">Get my dot files<a class="headerlink" href="#get-my-dot-files" title="Permanent link">&para;</a></h3>
+<p>Clone my dotfiles.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+sudo pacman -Sy
+sudo pacman -S python-pip
+<span class="nb">cd</span> ~
+git clone --recurse https://github.com/shokinn/.files.git ~/.files
+<span class="nb">cd</span> .files
+git remote -v
+git remote set-url origin git@github.com:shokinn/.files.git
+pip install --user -r dotdrop/requirements.txt
+<span class="nb">alias</span> <span class="nv">dotdrop</span><span class="o">=</span><span class="s1">&#39;eval $(grep -v &quot;^#&quot; ~/.files/.env.public) ~/.files/dotdrop.sh&#39;</span>
+dotdrop install
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+</pre></div>
+</td></tr></table></p>
+<h3 id="powertop">Powertop<a class="headerlink" href="#powertop" title="Permanent link">&para;</a></h3>
+<h4 id="optimize-power-comsumption">Optimize power comsumption<a class="headerlink" href="#optimize-power-comsumption" title="Permanent link">&para;</a></h4>
+<p>Run the following command to calibrate your power consumption:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo powertop --calibrate
+</pre></div>
+</td></tr></table></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your screen will turn several times black and keep black for a couple minutes!</p>
+<p>Don't worry :)</p>
+</div>
+<h4 id="make-powertop-optimazations-permanent">Make powertop optimazations permanent<a class="headerlink" href="#make-powertop-optimazations-permanent" title="Permanent link">&para;</a></h4>
+<p><code>/etc/systemd/system/powertop.service</code>:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt;EOF | sudo tee /etc/systemd/system/powertop.service</span>
+<span class="s">[Unit]</span>
+<span class="s">Description=PowerTOP auto tune</span>
+
+<span class="s">[Service]</span>
+<span class="s">Type=oneshot</span>
+<span class="s">ExecStart=/usr/sbin/powertop --auto-tune</span>
+
+<span class="s">[Install]</span>
+<span class="s">WantedBy=multi-user.target</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl daemon-reload
+sudo systemctl start powertop.service
+sudo systemctl <span class="nb">enable</span> powertop.service
+</pre></div>
+</td></tr></table>
+
+<h3 id="install-packages_1">Install packages<a class="headerlink" href="#install-packages_1" title="Permanent link">&para;</a></h3>
+<h4 id="install-audio-packages">Install audio packages<a class="headerlink" href="#install-audio-packages" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S <span class="se">\</span>
+alsa-utils <span class="se">\</span>
+alsa-oss
+</pre></div>
+</td></tr></table>
+
+<h4 id="install-various-packages">Install various packages<a class="headerlink" href="#install-various-packages" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S <span class="se">\</span>
+exfat-utils <span class="se">\</span>
+openssh <span class="se">\</span>
+net-tools <span class="se">\</span>
+libsecret <span class="se">\</span>
+gnome-keyring <span class="se">\</span>
+libgnome-keyring <span class="se">\</span>
+mc <span class="se">\</span>
+htop <span class="se">\</span>
+linux-headers <span class="se">\</span>
+wireguard-dkms <span class="se">\</span>
+wireguard-tools
+
+yay -S tldr
+</pre></div>
+</td></tr></table>
+
+<h3 id="enable-ssh-agent-serive">Enable SSH-Agent Serive<a class="headerlink" href="#enable-ssh-agent-serive" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>systemctl --user daemon-reload
+systemctl --user <span class="nb">enable</span> ssh-agent.service
+systemctl --user start ssh-agent.service
+</pre></div>
+</td></tr></table>
+
+<h1 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Crypto fixen<ul>
+<li>Use an Hardware device for 2<sup>nd</sup> Factor authentication</li>
+<li>Maybe use TOTP as 2<sup>nd</sup> Factor?</li>
+</ul>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../dell_xps_15_9560_arch_linux_bspwm_in_xfce/" title="Arch Linux bspwm under xfce4" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Arch Linux bspwm under xfce4
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="http://pphg.tech" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://keybase.io/philip_henning" class="md-footer-social__link fa fa-key"></a>
+    
+      <a href="https://twitter.com/__phg" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://github.com/shokinn" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://gitlab.com/shokinn" class="md-footer-social__link fa fa-gitlab"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
