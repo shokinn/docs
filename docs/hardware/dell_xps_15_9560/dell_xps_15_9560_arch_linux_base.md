@@ -534,13 +534,13 @@ EOF
 
 ```shell
 sudo systemctl daemon-reload
-sudo systemctl enable powertop.service
 sudo systemctl start powertop.service
+sudo systemctl enable powertop.service
 ```
 
 ### Install packages
 
-#### Fix sound
+#### Install audio packages
 
 ```shell
 sudo pacman -S \
@@ -559,6 +559,7 @@ libsecret \
 gnome-keyring \
 libgnome-keyring \
 mc \
+htop \
 linux-headers \
 wireguard-dkms \
 wireguard-tools
@@ -576,7 +577,5 @@ systemctl --user start ssh-agent.service
 
 # TODO
 * Crypto fixen
-  * Use an Hardware device for 2nd Factor authentication
-  * Maybe use TOTP as 2nd Factor?
-* Audio (Mic)
-  * Get external Microphones working!
+    * Use an Hardware device for 2nd Factor authentication
+    * Maybe use TOTP as 2nd Factor?
