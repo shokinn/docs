@@ -30,12 +30,17 @@ wpa_supplicant -D nl80211,ext -i wlp2s0 -c <(wpa_passphrase 'YourWififNetwork' '
 
 Afterwards you establish the connection change back to TTY1 with `ALT`+`F1`.
 
+Run dhclient to reciev an ip via dhcp:  
+```shell
+dhclient wlp2s0
+```
+
 ### Update the system clock
 
 Use [timedatectl(1)](http://jlk.fjfi.cvut.cz/arch/manpages/man/timedatectl.1) to ensure the system clock is accurate:  
 ```shell
 # timedatectl set-ntp true
-# systemctl start sysdemd-timesyncd
+# systemctl start systemd-timesyncd
 ```
 
 To check the service status, use timedatectl status.
@@ -58,7 +63,7 @@ I'll encrypt my Data so my Partition layout looks like this:
 |                |                |                | /dev/mapper/osvg-swap | /dev/mapper/osvg-tmp  | /dev/mapper/osvg-root | /dev/mapper/osvg-home |
 |                |                |      EF02      |_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|
 |      EF00      |      8300      |      8 MiB     |                                                                                               |
-|     500 MiB    |     500 MiB    |      BIOS      |                                             8E00                                              |
+|     550 MiB    |     500 MiB    |      BIOS      |                                             8E00                                              |
 |  EFI partition | boot partition | Boot partition |                                           100%FREE                                            |
 | /dev/nvme0n1p1 | /dev/nvme0n1p2 | /dev/nvme0n1p3 |                                        /dev/nvme0n1p4                                         |
 +----------------+----------------+----------------+-----------------------------------------------------------------------------------------------+

@@ -17,18 +17,23 @@ Installation of Arch Linux can proceed normally. Refer to the [Installation guid
 If you don't have an EN:Intl. Keyboard layout you should change it to your layout. In my case it is `de-latin1-nodeadkeys1`.
 
 ```shell
-loadkeys de-latin1-nodeadkeys1
+loadkeys de-latin1-nodeadkeys
 ```
 
 ### Connect to a wireless network during installation (temporary)
 
-Change to TTY2 with `ALT`+`F2` and use the following example to connect to your network.
+Run `wifi-menu` to get a graphical interface to connect to your wifi.
 
 ```shell
-wpa_supplicant -D nl80211,ext -i wlp2s0 -c <(wpa_passphrase 'YourWififNetwork' 'YourWifiPassword')
+wifi-menu
 ```
 
 Afterwards you establish the connection change back to TTY1 with `ALT`+`F1`.
+
+Run dhclient to receive an ip via dhcp:  
+```shell
+dhclient wlp2s0
+```
 
 ### Update the system clock
 
@@ -47,21 +52,21 @@ To check the service status, use timedatectl status.
 I'll encrypt my Data so my Partition layout looks like this:
 
 ```
-+----------------+----------------+----------------+-----------------------------------------------------------------------------------------------+
-|                |                |                |                       |                       |                       |                       |
-|                |                |                | LUKS encrypted volume | LUKS encrypted volume | LUKS encrypted volume | LUKS encrypted volume |
-|                |                |                | /dev/mapper/swap      | /dev/mapper/tmp       | /dev/mapper/root      | /dev/mapper/home      |
-|                |                |                |_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|
-|                |                |                |                       |                       |                       |                       |
-|                |                |                |         16 GiB        |         30 GiB        |         50 GiB        |        100%FREE       |
-|                |                |                |    Logical volume1    |    Logical volume2    |    Logical volume3    |    Logical volume4    |
-|                |                |                | /dev/mapper/osvg-swap | /dev/mapper/osvg-tmp  | /dev/mapper/osvg-root | /dev/mapper/osvg-home |
-|                |                |      EF02      |_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|
-|      EF00      |      8300      |      8 MiB     |                                                                                               |
-|     550 MiB    |     500 MiB    |      BIOS      |                                             8E00                                              |
-|  EFI partition | boot partition | Boot partition |                                           100%FREE                                            |
-| /dev/nvme0n1p1 | /dev/nvme0n1p2 | /dev/nvme0n1p3 |                                        /dev/nvme0n1p4                                         |
-+----------------+----------------+----------------+-----------------------------------------------------------------------------------------------+
++----------------+----------------+-----------------------------------------------------------------------------------------------+
+|                |                |                       |                       |                       |                       |
+|                |                | LUKS encrypted volume | LUKS encrypted volume | LUKS encrypted volume | LUKS encrypted volume |
+|                |                | /dev/mapper/swap      | /dev/mapper/tmp       | /dev/mapper/root      | /dev/mapper/home      |
+|                |                |_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|
+|                |                |                       |                       |                       |                       |
+|                |                |         16 GiB        |         30 GiB        |         50 GiB        |        100%FREE       |
+|                |                |    Logical volume1    |    Logical volume2    |    Logical volume3    |    Logical volume4    |
+|                |                | /dev/mapper/osvg-swap | /dev/mapper/osvg-tmp  | /dev/mapper/osvg-root | /dev/mapper/osvg-home |
+|                |      EF02      |_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _|
+|      EF00      |      8 MiB     |                                                                                               |
+|    1050 MiB    |      BIOS      |                                             8E00                                              |
+|  EFI partition | Boot partition |                                           100%FREE                                            |
+| /dev/nvme0n1p1 | /dev/nvme0n1p2 |                                        /dev/nvme0n1p3                                         |
++----------------+----------------+-----------------------------------------------------------------------------------------------+
 ```
 
 Create these partitions with `gdisk` so that you have `GPT` instead of `MBR`.
@@ -71,21 +76,21 @@ Create these partitions with `gdisk` so that you have `GPT` instead of `MBR`.
 	```shell
 	partprobe /dev/nvme0n1
 	```
+  If you still get the message the the kernel is using the old partition table you have to reboot your device and perform all steps except the partitioning again.
 
 #### Wipe Data on all partitions
 
 ```shell
 dd if=/dev/zero of=/dev/nvme0n1p1 bs=1M status=progress
 dd if=/dev/zero of=/dev/nvme0n1p2 bs=1M status=progress
-dd if=/dev/zero of=/dev/nvme0n1p3 bs=1M status=progress
-dd if=/dev/zero of=/dev/nvme0n1p4 bs=1M status=progress
+dd if=/dev/uransom of=/dev/nvme0n1p3 bs=1M status=progress
 ```
 
 #### Preparing the logical volumes
 
 ```shell
-pvcreate /dev/nvme0n1p4
-vgcreate osvg /dev/nvme0n1p4
+pvcreate /dev/nvme0n1p3
+vgcreate osvg /dev/nvme0n1p3
 lvcreate -L 16G -n swap osvg
 lvcreate -L 30G -n tmp osvg
 lvcreate -L 50G -n root osvg
@@ -126,16 +131,15 @@ mount /dev/mapper/home /mnt/home
 and rebuild the EFI and boot partition:  
 ```shell
 mkfs.fat -F32 /dev/nvme0n1p1
-mkfs.ext4 /dev/nvme0n1p2
 ```
 
 Setup and mount the boot/EFI partition:  
 ```shell
 mkdir /mnt/boot
-mount /dev/nvme0n1p2 /mnt/boot
-mkdir /mnt/boot/EFI
 mkdir /mnt/efi
 mount /dev/nvme0n1p1 /mnt/efi
+mkdir -p /mnt/efi/EFI/arch
+mount --bind /mnt/efi/EFI/arch /mnt/boot
 ```
 
 ### Install Arch
@@ -149,21 +153,25 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 ```
 
 Download a german mirrorlist:  
+
+??? info "Full URL"
+    <https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4&ip_version=6&use_mirror_status=on>
+
 ```shell
-wget -O /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4&ip_version=6&use_mirror_status=on"
+curl -L -o /etc/pacman.d/mirrorlist "https://bit.ly/1yFCU2R"
 ```
 
 Edit `/etc/pacman.d/mirrorlist.bak` and uncomment mirrors for testing with `rankmirrors`.  
 Run the following `sed` line to uncomment every mirror:  
 ```shell
-sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.bak
+sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
 ```
 
 #### Install the base packages
 
 Use the [pacstrap](https://projects.archlinux.org/arch-install-scripts.git/tree/pacstrap.in) script to install the [`base`](https://www.archlinux.org/groups/x86_64/base/) package group:  
 ```shell
-pacstrap /mnt base
+pacstrap /mnt base base-devel intel-ucode wpa_supplicant dialog
 ```
 This group does not include all tools from the live installation, such as [`btrfs-progs`](https://www.archlinux.org/packages/?name=btrfs-progs) or specific wireless firmware; see [packages.both](https://projects.archlinux.org/archiso.git/tree/configs/releng/packages.both) for comparison.
 To [install](#Install_Arch) packages and other groups such as [`base-devel`](https://www.archlinux.org/groups/x86_64/base-devel/), append the names to *pacstrap* (space separated) or to individual [pacman](https://wiki.archlinux.org/index.php/Pacman) commands after the [#Chroot](#Chroot) step.
@@ -182,7 +190,6 @@ Add the following at the end of the `/mnt/etc/fstab` configuration.
 ```
 /dev/mapper/tmp		/tmp		tmpfs	defaults		0	0
 /dev/mapper/swap	none		swap	sw				0	0
-/efi/EFI			/boot/EFI	none	defaults,bind 	0	0
 ```
 
 #### Modify `/mnt/etc/crypttab`
@@ -215,7 +222,7 @@ Include = /etc/pacman.d/mirrorlist
 
 ```shell
 pacman -Sy
-pacman -S base-devel grub efibootmgr dialog networkmanager network-manager-applet wireless_tools intel-ucode zsh w3m vim powertop bc git
+pacman -S grub efibootmgr networkmanager network-manager-applet wireless_tools zsh w3m vim powertop bc git
 ```
 
 #### Fix vim dark colors stuff
@@ -225,6 +232,14 @@ cat << EOF >> /etc/vimrc
 
 " Set background to dark for better readability in SSH connections
 set background=dark
+EOF
+```
+
+#### set vim to default editor
+
+```shell
+cat << EOF >> /etc/environment
+EDITOR=vim
 EOF
 ```
 
@@ -259,7 +274,8 @@ Defaults env_keep += "https_proxy"
 
 Clone the yay sources. Build, install and delete it.  
 ```shell
-sudo -u phg git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/yay.git
+chown phg:phg yay
 cd yay
 sudo -u phg makepkg -si
 cd ..
@@ -328,7 +344,7 @@ LC_IDENTIFICATION=de_DE.UTF-8
 
 Install the console powerline fonts.
 ```shell
-sudo -u phg yay -S powerline-console-fonts ttf-ms-fonts
+sudo -u phg yay -S powerline-console-fonts ttf-ms-fonts ttf-dejavu
 ```
 
 Edit the `/etc/vconsole.conf` file and add the following to the *TOP* of the file:
@@ -381,12 +397,8 @@ mkinitcpio -p linux
 #### Install GRUB
 
 ```shell
+grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=grub
-```
-
-```shell
-mkdir /boot/EFI
-mount --bind /efi/EFI /boot/EFI
 ```
 
 ##### Configuring the boot loader
@@ -440,11 +452,18 @@ Go to:
       |  \ "\EFI\grub\grubx64.efi"
 ```
 
-Afterwards set "Linux" in the Boot Squence to the top.
+Afterwards set "Linux" in the Boot Sequence to the top.
 
 ## Post installation configuration
 
-### Get graphicscard and X working
+### Install useful services
+
+```shell
+pacman -S acpid dbus avahi cups cronie
+systemctl enable acpid avahi-daemon org.cups.cupsd.service cronie
+```
+
+### Get graphics card and X working
 
 #### Install graphic card tools
 
@@ -462,7 +481,7 @@ sudo systemctl enable bumblebeed.service
 
 ```shell
 yay -Sy
-yay -S nvidia-beta nvidia-utils-beta lib32-nvidia-utils-beta
+yay -S nvidia nvidia-utils lib32-nvidia-utils
 ```
 
 ### Get my dot files
@@ -470,15 +489,16 @@ Clone my dotfiles.
 ```shell
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo pacman -Sy
-sudo pacman -S git python-pip
+sudo pacman -S python-pip
 cd ~
-git clone --recurse-submodules https://github.com/shokinn/.files.git ~/.files
+git clone --recurse https://github.com/shokinn/.files.git ~/.files
 cd .files
 git remote -v
 git remote set-url origin git@github.com:shokinn/.files.git
 pip install --user -r dotdrop/requirements.txt
 alias dotdrop='eval $(grep -v "^#" ~/.files/.env.public) ~/.files/dotdrop.sh'
 dotdrop install
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
 ### Powertop
@@ -520,12 +540,18 @@ sudo systemctl start powertop.service
 
 ### Install packages
 
+#### Fix sound
+
 ```shell
-sudo pacman -S alsa-utils \
-alsa-tools \
-alsa-plugins \
-pulseaudio \
-pulseaudio-alsa \
+sudo pacman -S \
+alsa-utils \
+alsa-oss
+```
+
+#### Install various packages
+
+```shell
+sudo pacman -S \
 exfat-utils \
 openssh \
 net-tools \
