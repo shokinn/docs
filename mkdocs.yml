@@ -73,7 +73,8 @@ nav:
   - 'Home': 'index.md'
   - 'Hardware':
     - 'Dell XPS 15 9560':
-      - 'Arch Linux': 'hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux.md'
+      - 'Arch Linux Base': 'hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux_base.md'
+      - 'Arch Linux bspwm under xfce4': 'hardware/dell_xps_15_9560/dell_xps_15_9560_arch_linux_bspwm_in_xfce.md'
   - 'Software':
     - 'Desktop':
       - 'PlayOnLinux': 'software/desktop/playonlinux.md'
@@ -83,6 +84,7 @@ nav:
   - 'Knowledge base':
     - 'How to change to TTYn': 'kb/change_tty.md'
     - 'MkDocs testing environment': 'kb/mkdocs.md'
+    - 'Bmon network monitor': 'kb/bmon.md'
   - 'Impressum': 'imprint.md'
   - 'Datenschutzerklärung': 'datenschutzerklaerung.md'
   - 'License': 'license.md'
