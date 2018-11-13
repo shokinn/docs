@@ -957,9 +957,7 @@ startx
 <ol>
 <li>
 <p>Install xscreensaver-aerial theme and download the 1080p videos to disk.<br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yay -S xscreensaver-aerial <span class="o">&amp;&amp;</span> <span class="se">\</span>
-sudo mkdir /opt/ATV4
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yay -S xscreensaver-aerial
 </pre></div>
 </td></tr></table></p>
 </li>
@@ -1014,10 +1012,16 @@ sudo mkdir /opt/ATV4
 47
 48
 49
-50</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo touch /opt/ATV4/download.sh <span class="o">&amp;&amp;</span> <span class="se">\</span>
-cat <span class="s">&lt;&lt; EOF | sudo tee /opt/ATV4/download.sh &amp;&amp; \</span>
-<span class="s">sudo chmod +x /opt/ATV4/download.sh &amp;&amp; \</span>
-<span class="s">cd /opt/ATV4 &amp;&amp; \</span>
+50
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkdir ~/Videos <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo mkdir ~/Videos/ATV4 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo ln -s /home/<span class="nv">$USER</span>/Videos/ATV4 /opt/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo touch ~/Videos/ATV4/download.sh <span class="o">&amp;&amp;</span> <span class="se">\</span>
+cat <span class="s">&lt;&lt; EOF | sudo tee ~/Videos/ATV4/download.sh &amp;&amp; \</span>
+<span class="s">sudo chmod +x ~/Videos/ATV4/download.sh &amp;&amp; \</span>
+<span class="s">cd ~/Videos/ATV4 &amp;&amp; \</span>
 <span class="s">sudo ./download.sh</span>
 <span class="s">#!/bin/sh</span>
 <span class="s"># run this from /opt/ATV4 which you created and assigned 755 premissions manually</span>
@@ -1160,7 +1164,7 @@ yay -S sddm-config-editor-git
 <span class="s">sudo /bin/sh /tmp/create_playlists.sh</span>
 <span class="s">#!/bin/sh</span>
 
-<span class="s">path_vid=&#39;/opt/ATV4&#39;</span>
+<span class="s">path_vid=&#39;/home/Videos/$USER/ATV4&#39;</span>
 <span class="s">path_playlist=&#39;/usr/share/sddm/themes/aerial-sddm-theme/playlists&#39;</span>
 
 <span class="s">echo &quot;&quot; &gt; \$path_playlist/day.m3u</span>
