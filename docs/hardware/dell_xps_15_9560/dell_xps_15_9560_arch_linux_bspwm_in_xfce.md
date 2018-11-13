@@ -30,14 +30,16 @@ yay -S xscreensaver-aerial
 
 2. Add download script and download the Videos for offline use:  
 ```shell
-mkdir ~/Videos && \
-sudo mkdir ~/Videos/ATV4 && \
-sudo ln -s /home/$USER/Videos/ATV4 /opt/ && \
-sudo touch ~/Videos/ATV4/download.sh && \
-cat << EOF | sudo tee ~/Videos/ATV4/download.sh && \
-sudo chmod +x ~/Videos/ATV4/download.sh && \
-cd ~/Videos/ATV4 && \
-sudo ./download.sh
+sudo mkdir -p /home/sddm/ATV4 && \
+sudo ln -s /home/sddm/ATV4 /opt/ && \
+sudo touch /home/sddm/ATV4/download.sh && \
+cat << EOF | sudo tee /home/sddm/ATV4/download.sh && \
+sudo chmod +x /home/sddm/ATV4/download.sh && \
+cd /home/sddm/ATV4 && \
+sudo ./download.sh && \
+cd ~ && \
+sudo chmod 700 /home/sddm && \
+sudo chown -R sddm:sddm /home/sddm
 #!/bin/sh
 # run this from /opt/ATV4 which you created and assigned 755 premissions manually
 
