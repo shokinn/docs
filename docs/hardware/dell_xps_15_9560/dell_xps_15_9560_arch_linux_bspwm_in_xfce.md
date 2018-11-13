@@ -358,7 +358,6 @@ keepass2-plugin-tray-icon \
 nextcloud-client \
 franz-bin \
 thunderbird-enigmail-bin \
-gtkhash-nemo \
 nemo-compare \
 spotify-stable
 ```
