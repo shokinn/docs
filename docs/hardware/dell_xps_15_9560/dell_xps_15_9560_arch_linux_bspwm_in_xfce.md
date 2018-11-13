@@ -117,7 +117,7 @@ cat << EOF > /tmp/create_playlists.sh && \
 sudo /bin/sh /tmp/create_playlists.sh
 #!/bin/sh
 
-path_vid='/home/Videos/$USER/ATV4'
+path_vid='/home/$USER/Videos/ATV4'
 path_playlist='/usr/share/sddm/themes/aerial-sddm-theme/playlists'
 
 echo "" > \$path_playlist/day.m3u
