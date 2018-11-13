@@ -25,16 +25,18 @@ The `.xinitrc` should already be fine because I installed my dot-files.
 
 1. Install xscreensaver-aerial theme and download the 1080p videos to disk.  
 ```shell
-yay -S xscreensaver-aerial && \
-sudo mkdir /opt/ATV4
+yay -S xscreensaver-aerial
 ```
 
 2. Add download script and download the Videos for offline use:  
 ```shell
-sudo touch /opt/ATV4/download.sh && \
-cat << EOF | sudo tee /opt/ATV4/download.sh && \
-sudo chmod +x /opt/ATV4/download.sh && \
-cd /opt/ATV4 && \
+mkdir ~/Videos && \
+sudo mkdir ~/Videos/ATV4 && \
+sudo ln -s /home/$USER/Videos/ATV4 /opt/ && \
+sudo touch ~/Videos/ATV4/download.sh && \
+cat << EOF | sudo tee ~/Videos/ATV4/download.sh && \
+sudo chmod +x ~/Videos/ATV4/download.sh && \
+cd ~/Videos/ATV4 && \
 sudo ./download.sh
 #!/bin/sh
 # run this from /opt/ATV4 which you created and assigned 755 premissions manually
@@ -115,7 +117,7 @@ cat << EOF > /tmp/create_playlists.sh && \
 sudo /bin/sh /tmp/create_playlists.sh
 #!/bin/sh
 
-path_vid='/opt/ATV4'
+path_vid='/home/Videos/$USER/ATV4'
 path_playlist='/usr/share/sddm/themes/aerial-sddm-theme/playlists'
 
 echo "" > \$path_playlist/day.m3u
