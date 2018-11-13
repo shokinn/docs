@@ -562,7 +562,8 @@ mc \
 htop \
 linux-headers \
 wireguard-dkms \
-wireguard-tools
+wireguard-tools \
+rsync
 
 yay -S tldr
 ```
