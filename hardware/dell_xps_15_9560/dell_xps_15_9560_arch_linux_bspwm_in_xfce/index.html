@@ -353,15 +353,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-xscreensaver" title="Install xscreensaver" class="md-nav__link">
-    Install xscreensaver
+  <a href="#install-login-manager" title="Install login manager" class="md-nav__link">
+    Install login manager
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-login-manager" title="Install login manager" class="md-nav__link">
-    Install login manager
+  <a href="#install-xscreensaver" title="Install xscreensaver" class="md-nav__link">
+    Install xscreensaver
   </a>
   
 </li>
@@ -762,15 +762,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-xscreensaver" title="Install xscreensaver" class="md-nav__link">
-    Install xscreensaver
+  <a href="#install-login-manager" title="Install login manager" class="md-nav__link">
+    Install login manager
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-login-manager" title="Install login manager" class="md-nav__link">
-    Install login manager
+  <a href="#install-xscreensaver" title="Install xscreensaver" class="md-nav__link">
+    Install xscreensaver
   </a>
   
 </li>
@@ -937,12 +937,14 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -Syu
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -Syu
 sudo pacman -S xorg-server xorg-xinit
 lspci <span class="p">|</span>grep VGA
 sudo pacman -S xf86-video-intel
 sudo localectl set-x11-keymap de pc105 nodeadkeys
 sudo pacman -S xfce4 xfce4-goodies human-icon-theme
+yay -S xfce4-volumed-pulse
 </pre></div>
 </td></tr></table>
 
@@ -953,136 +955,6 @@ startx
 </pre></div>
 </td></tr></table></p>
 <p>The <code>.xinitrc</code> should already be fine because I installed my dot-files.</p>
-<h3 id="install-xscreensaver">Install xscreensaver<a class="headerlink" href="#install-xscreensaver" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Install xscreensaver-aerial theme and download the 1080p videos to disk.<br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yay -S xscreensaver-aerial
-</pre></div>
-</td></tr></table></p>
-</li>
-<li>
-<p>Add download script and download the Videos for offline use:<br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkdir ~/Videos <span class="o">&amp;&amp;</span> <span class="se">\</span>
-sudo mkdir ~/Videos/ATV4 <span class="o">&amp;&amp;</span> <span class="se">\</span>
-sudo ln -s /home/<span class="nv">$USER</span>/Videos/ATV4 /opt/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
-sudo touch ~/Videos/ATV4/download.sh <span class="o">&amp;&amp;</span> <span class="se">\</span>
-cat <span class="s">&lt;&lt; EOF | sudo tee ~/Videos/ATV4/download.sh &amp;&amp; \</span>
-<span class="s">sudo chmod +x ~/Videos/ATV4/download.sh &amp;&amp; \</span>
-<span class="s">cd ~/Videos/ATV4 &amp;&amp; \</span>
-<span class="s">sudo ./download.sh</span>
-<span class="s">#!/bin/sh</span>
-<span class="s"># run this from /opt/ATV4 which you created and assigned 755 premissions manually</span>
-
-<span class="s">_url1=&quot;http://a1.v2.phobos.apple.com.edgesuite.net/us/r1000/000/Features/atv/AutumnResources/videos/&quot;</span>
-<span class="s">_url3=&quot;http://sylvan.apple.com/Aerials/2x/Videos/&quot;</span>
-
-<span class="s">for i in b2-1.mov b5-1.mov b6-1.mov comp_GL_G010_C006_v08_6Mbps.mov b1-1.mov \</span>
-<span class="s">    b2-2.mov b4-1.mov b6-2.mov b7-1.mov b8-1.mov b1-2.mov b3-1.mov b5-2.mov \</span>
-<span class="s">    b6-3.mov b1-3.mov b2-3.mov b3-2.mov b4-2.mov b7-2.mov b1-4.mov b2-4.mov \</span>
-<span class="s">    b3-3.mov b4-3.mov b5-3.mov b6-4.mov b7-3.mov b8-2.mov b8-3.mov b9-2.mov \</span>
-<span class="s">    b9-3.mov b10-3.mov; do</span>
-<span class="s">    wget &quot;\$_url1/\$i&quot;</span>
-<span class="s">    chmod 644 \$(pwd)/\$i</span>
-<span class="s">done</span>
-
-<span class="s">for i in comp_CH_C007_C011_PSNK_v02_SDR_PS_FINAL_20180709_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_CH_C002_C005_PSNK_v05_SDR_PS_FINAL_20180709_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_CH_C007_C004_PSNK_v02_SDR_PS_FINAL_20180709_SDR_2K_HEVC.mov \</span>
-<span class="s">    DB_D008_C010_2K_SDR_HEVC.mov DB_D001_C001_2K_SDR_HEVC.mov \</span>
-<span class="s">    DB_D011_C010_2K_SDR_HEVC.mov DB_D002_C003_2K_SDR_HEVC.mov \</span>
-<span class="s">    DB_D001_C005_2K_SDR_HEVC.mov DB_D011_C009_2K_SDR_HEVC.mov \</span>
-<span class="s">    GL_G004_C010_2K_SDR_HEVC.mov GL_G002_C002_2K_SDR_HEVC.mov \</span>
-<span class="s">    HK_B005_C011_2K_SDR_HEVC.mov HK_H004_C010_2K_SDR_HEVC.mov \</span>
-<span class="s">    HK_H004_C013_2K_SDR_HEVC.mov HK_H004_C001_2K_SDR_HEVC.mov \</span>
-<span class="s">    HK_H004_C008_2K_SDR_HEVC.mov \</span>
-<span class="s">    comp_GMT312_162NC_139M_1041_AFRICA_NIGHT_v14_SDR_FINAL_20180706_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_A103_C002_0205DG_v12_SDR_FINAL_20180706_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_GMT306_139NC_139J_3066_CALI_TO_VEGAS_v07_SDR_FINAL_22062018_SDR_4K_HEVC.mov \</span>
-<span class="s">    comp_A108_C001_v09_SDR_FINAL_22062018_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_GMT308_139K_142NC_CARIBBEAN_DAY_v09_SDR_FINAL_22062018_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_GMT329_113NC_396B_1105_CHINA_v04_SDR_FINAL_20180706_F900F2700_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_A083_C002_1130KZ_v04_SDR_PS_FINAL_20180725_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_GMT329_117NC_401C_1037_IRELAND_TO_ASIA_v48_SDR_PS_FINAL_20180725_F0F6300_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_GMT026_363A_103NC_E1027_KOREA_JAPAN_NIGHT_v17_SDR_FINAL_25062018_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_A105_C003_0212CT_FLARE_v10_SDR_PS_FINAL_20180711_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_A009_C001_010181A_v09_SDR_PS_FINAL_20180725_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_A114_C001_0305OT_v10_SDR_FINAL_22062018_SDR_2K_HEVC.mov \</span>
-<span class="s">    comp_A001_C004_1207W5_v23_SDR_FINAL_20180706_SDR_2K_HEVC.mov \</span>
-<span class="s">    LA_A006_C008_2K_SDR_HEVC.mov LA_A009_C009_2K_SDR_HEVC.mov LA_A008_C004_2K_SDR_HEVC.mov \</span>
-<span class="s">    comp_LA_A006_C004_v01_SDR_FINAL_PS_20180730_SDR_2K_HEVC.mov LA_A005_C009_2K_SDR_HEVC.mov \</span>
-<span class="s">    LA_A011_C003_2K_SDR_HEVC.mov; do</span>
-<span class="s">    wget &quot;\$_url3/\$i&quot;</span>
-<span class="s">  chmod 644 \$(pwd)/\$i</span>
-<span class="s">done</span>
-<span class="s">EOF</span>
-</pre></div>
-</td></tr></table></p>
-</li>
-<li>
-<p>Run <code>xscreensaver-demo</code> and close it afterwards. This will create a <code>.xscreensaver</code> configuration file in your home directory.</p>
-</li>
-<li>
-<p>Edit <code>~/.xscreensaver</code> to add support for it to see this script. Look for the line that beings with "programs" and simply add the following to the file:<br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;ATV4-1080&quot;</span> atv4-1080 -root <span class="se">\n\</span>
-<span class="s2">&quot;ATV4-4k&quot;</span> atv4-4k -root <span class="se">\n\</span>
-</pre></div>
-</td></tr></table></p>
-</li>
-</ol>
 <h3 id="install-login-manager">Install login manager<a class="headerlink" href="#install-login-manager" title="Permanent link">&para;</a></h3>
 <p>Install sddm:<br />
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -1164,7 +1036,7 @@ yay -S sddm-config-editor-git
 <span class="s">sudo /bin/sh /tmp/create_playlists.sh</span>
 <span class="s">#!/bin/sh</span>
 
-<span class="s">path_vid=&#39;/home/$USER/Videos/ATV4&#39;</span>
+<span class="s">path_vid=&#39;/home/sddm/ATV4&#39;</span>
 <span class="s">path_playlist=&#39;/usr/share/sddm/themes/aerial-sddm-theme/playlists&#39;</span>
 
 <span class="s">echo &quot;&quot; &gt; \$path_playlist/day.m3u</span>
@@ -1226,6 +1098,144 @@ sed -i <span class="s1">&#39;$d&#39;</span> ~/.xinitrc
 reboot
 </pre></div>
 </td></tr></table></p>
+<div class="admonition info">
+<p class="admonition-title">No videos yet</p>
+<p>Because we didn't downloaded the videos yet there will be shown a replacement background.</p>
+</div>
+<h3 id="install-xscreensaver">Install xscreensaver<a class="headerlink" href="#install-xscreensaver" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Install xscreensaver-aerial theme and download the 1080p videos to disk.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yay -S xscreensaver-aerial
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>Add download script and download the Videos for offline use:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo mkdir -p /home/sddm/ATV4 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo ln -s /home/sddm/ATV4 /opt/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo touch /home/sddm/ATV4/download.sh <span class="o">&amp;&amp;</span> <span class="se">\</span>
+cat <span class="s">&lt;&lt; EOF | sudo tee /home/sddm/ATV4/download.sh &amp;&amp; \</span>
+<span class="s">sudo chmod +x /home/sddm/ATV4/download.sh &amp;&amp; \</span>
+<span class="s">cd /home/sddm/ATV4 &amp;&amp; \</span>
+<span class="s">sudo ./download.sh &amp;&amp; \</span>
+<span class="s">cd ~ &amp;&amp; \</span>
+<span class="s">sudo chmod 700 /home/sddm &amp;&amp; \</span>
+<span class="s">sudo chown -R sddm:sddm /home/sddm</span>
+<span class="s">#!/bin/sh</span>
+<span class="s"># run this from /opt/ATV4 which you created and assigned 755 premissions manually</span>
+
+<span class="s">_url1=&quot;http://a1.v2.phobos.apple.com.edgesuite.net/us/r1000/000/Features/atv/AutumnResources/videos/&quot;</span>
+<span class="s">_url3=&quot;http://sylvan.apple.com/Aerials/2x/Videos/&quot;</span>
+
+<span class="s">for i in b2-1.mov b5-1.mov b6-1.mov comp_GL_G010_C006_v08_6Mbps.mov b1-1.mov \</span>
+<span class="s">    b2-2.mov b4-1.mov b6-2.mov b7-1.mov b8-1.mov b1-2.mov b3-1.mov b5-2.mov \</span>
+<span class="s">    b6-3.mov b1-3.mov b2-3.mov b3-2.mov b4-2.mov b7-2.mov b1-4.mov b2-4.mov \</span>
+<span class="s">    b3-3.mov b4-3.mov b5-3.mov b6-4.mov b7-3.mov b8-2.mov b8-3.mov b9-2.mov \</span>
+<span class="s">    b9-3.mov b10-3.mov; do</span>
+<span class="s">    wget &quot;\$_url1/\$i&quot;</span>
+<span class="s">    chmod 644 \$(pwd)/\$i</span>
+<span class="s">done</span>
+
+<span class="s">for i in comp_CH_C007_C011_PSNK_v02_SDR_PS_FINAL_20180709_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_CH_C002_C005_PSNK_v05_SDR_PS_FINAL_20180709_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_CH_C007_C004_PSNK_v02_SDR_PS_FINAL_20180709_SDR_2K_HEVC.mov \</span>
+<span class="s">    DB_D008_C010_2K_SDR_HEVC.mov DB_D001_C001_2K_SDR_HEVC.mov \</span>
+<span class="s">    DB_D011_C010_2K_SDR_HEVC.mov DB_D002_C003_2K_SDR_HEVC.mov \</span>
+<span class="s">    DB_D001_C005_2K_SDR_HEVC.mov DB_D011_C009_2K_SDR_HEVC.mov \</span>
+<span class="s">    GL_G004_C010_2K_SDR_HEVC.mov GL_G002_C002_2K_SDR_HEVC.mov \</span>
+<span class="s">    HK_B005_C011_2K_SDR_HEVC.mov HK_H004_C010_2K_SDR_HEVC.mov \</span>
+<span class="s">    HK_H004_C013_2K_SDR_HEVC.mov HK_H004_C001_2K_SDR_HEVC.mov \</span>
+<span class="s">    HK_H004_C008_2K_SDR_HEVC.mov \</span>
+<span class="s">    comp_GMT312_162NC_139M_1041_AFRICA_NIGHT_v14_SDR_FINAL_20180706_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_A103_C002_0205DG_v12_SDR_FINAL_20180706_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_GMT306_139NC_139J_3066_CALI_TO_VEGAS_v07_SDR_FINAL_22062018_SDR_4K_HEVC.mov \</span>
+<span class="s">    comp_A108_C001_v09_SDR_FINAL_22062018_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_GMT308_139K_142NC_CARIBBEAN_DAY_v09_SDR_FINAL_22062018_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_GMT329_113NC_396B_1105_CHINA_v04_SDR_FINAL_20180706_F900F2700_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_A083_C002_1130KZ_v04_SDR_PS_FINAL_20180725_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_GMT329_117NC_401C_1037_IRELAND_TO_ASIA_v48_SDR_PS_FINAL_20180725_F0F6300_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_GMT026_363A_103NC_E1027_KOREA_JAPAN_NIGHT_v17_SDR_FINAL_25062018_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_A105_C003_0212CT_FLARE_v10_SDR_PS_FINAL_20180711_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_A009_C001_010181A_v09_SDR_PS_FINAL_20180725_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_A114_C001_0305OT_v10_SDR_FINAL_22062018_SDR_2K_HEVC.mov \</span>
+<span class="s">    comp_A001_C004_1207W5_v23_SDR_FINAL_20180706_SDR_2K_HEVC.mov \</span>
+<span class="s">    LA_A006_C008_2K_SDR_HEVC.mov LA_A009_C009_2K_SDR_HEVC.mov LA_A008_C004_2K_SDR_HEVC.mov \</span>
+<span class="s">    comp_LA_A006_C004_v01_SDR_FINAL_PS_20180730_SDR_2K_HEVC.mov LA_A005_C009_2K_SDR_HEVC.mov \</span>
+<span class="s">    LA_A011_C003_2K_SDR_HEVC.mov; do</span>
+<span class="s">    wget &quot;\$_url3/\$i&quot;</span>
+<span class="s">  chmod 644 \$(pwd)/\$i</span>
+<span class="s">done</span>
+<span class="s">EOF</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>Run <code>xscreensaver-demo</code> and close it afterwards. This will create a <code>.xscreensaver</code> configuration file in your home directory.</p>
+</li>
+<li>
+<p>Edit <code>~/.xscreensaver</code> to add support for it to see this script. Look for the line that beings with "programs" and simply add the following to the file:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;ATV4-1080&quot;</span> atv4-1080 -root <span class="se">\n\</span>
+<span class="s2">&quot;ATV4-4k&quot;</span> atv4-4k -root <span class="se">\n\</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+</ol>
 <h3 id="install-bspwm-sxhkd-compton-rofi-polybar">Install bspwm, sxhkd, compton, rofi, polybar<a class="headerlink" href="#install-bspwm-sxhkd-compton-rofi-polybar" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S bspwm sxhkd compton rofi
@@ -1387,7 +1397,9 @@ sudo systemctl start NetworkManager.service
 26
 27
 28
-29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S firefox <span class="se">\</span>
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S firefox <span class="se">\</span>
 keepass <span class="se">\</span>
 keepass-plugin-keeagent <span class="se">\</span>
 inkscape <span class="se">\</span>
@@ -1403,7 +1415,8 @@ nemo-image-converter <span class="se">\</span>
 nemo-preview <span class="se">\</span>
 nemo-seahorse <span class="se">\</span>
 nemo-share <span class="se">\</span>
-quassel-client
+quassel-client <span class="se">\</span>
+libappindicator-gtk3
 
 gpg --recv-keys --keyserver sks-keyservers.net 0xDB1187B9DD5F693B
 
@@ -1415,7 +1428,8 @@ nextcloud-client <span class="se">\</span>
 franz-bin <span class="se">\</span>
 thunderbird-enigmail-bin <span class="se">\</span>
 nemo-compare <span class="se">\</span>
-spotify-stable
+spotify-stable <span class="se">\</span>
+caffeine
 </pre></div>
 </td></tr></table>
 
