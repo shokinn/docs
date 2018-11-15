@@ -11,6 +11,7 @@ lspci |grep VGA
 sudo pacman -S xf86-video-intel
 sudo localectl set-x11-keymap de pc105 nodeadkeys
 sudo pacman -S xfce4 xfce4-goodies human-icon-theme
+yay -S xfce4-volumed-pulse
 ```
 
 Start xfce with:  
