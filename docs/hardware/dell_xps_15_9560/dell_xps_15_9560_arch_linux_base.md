@@ -186,10 +186,10 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```
 Check the resulting file in `/mnt/etc/fstab` afterwards, and edit it in case of errors.
 
-Add the following at the end of the `/mnt/etc/fstab` configuration.  
+Add the following at the end of the `/mnt/etc/fstab` configuration Adjust the 30G to the size of your /tmp partition.  
 ```
-/dev/mapper/tmp		/tmp		tmpfs	defaults		0	0
-/dev/mapper/swap	none		swap	sw				0	0
+/dev/mapper/tmp		/tmp		tmpfs	defaults,size=30G		0	0
+/dev/mapper/swap	none		swap	sw			            0	0
 ```
 
 #### Modify `/mnt/etc/crypttab`
