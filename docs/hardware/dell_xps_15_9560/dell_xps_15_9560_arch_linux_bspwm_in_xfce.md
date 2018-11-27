@@ -336,6 +336,28 @@ sudo systemctl enable NetworkManager.service
 sudo systemctl start NetworkManager.service
 ```
 
+### Install a shitload of fonts
+
+```shell
+yay -Syu \
+ttf-inconsolata-g \
+ttf-hack noto-fonts \
+ttf-iosevka \
+ttf-freefont \
+adobe-source-sans-pro-fonts \
+adobe-source-han-sans-otc-fonts \
+adobe-source-han-serif-otc-fonts \
+noto-fonts-cjk \
+adobe-source-han-sans-cn-fonts \
+adobe-source-han-sans-tw-fonts \
+adobe-source-han-serif-cn-fonts \
+adobe-source-han-serif-tw-fonts \
+adobe-source-han-sans-jp-fonts \
+adobe-source-han-sans-kr-fonts \
+noto-fonts-emoji \
+ttf-mac-fonts
+```
+
 ### Install packages
 
 ```shell
