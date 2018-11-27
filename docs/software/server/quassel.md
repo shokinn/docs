@@ -906,6 +906,9 @@ Add at the end of the file:
     # Allow quassel incoming
     iptables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 
+    # Allow http/https incoming for certificate renewal
+    iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
     # Allow ESTABLISHED and RELATED connection (important for outgoing connections!)
     iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
 
@@ -922,6 +925,7 @@ sudo iptables -A OUTPUT -o lo -j ACCEPT; \
 sudo iptables -A INPUT -i lo -j ACCEPT; \
 sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
 sudo iptables -t filter -A INPUT -i eth0 -p icmp -j ACCEPT; \
 sudo iptables -P INPUT DROP; \
@@ -933,6 +937,7 @@ sudo ip6tables -A OUTPUT -o lo -j ACCEPT; \
 sudo ip6tables -A INPUT -i lo -j ACCEPT; \
 sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport 4242 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
+sudo ip6tables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports 80,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT; \
 sudo ip6tables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT; \
 sudo ip6tables -t filter -A INPUT -i eth0 -p ipv6-icmp -j ACCEPT; \
 sudo ip6tables -P INPUT DROP; \
