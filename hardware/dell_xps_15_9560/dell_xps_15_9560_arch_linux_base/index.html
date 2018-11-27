@@ -1672,10 +1672,10 @@ To <a href="#Install_Arch">install</a> packages and other groups such as <a href
 </pre></div>
 </td></tr></table>
 Check the resulting file in <code>/mnt/etc/fstab</code> afterwards, and edit it in case of errors.</p>
-<p>Add the following at the end of the <code>/mnt/etc/fstab</code> configuration.<br />
+<p>Add the following at the end of the <code>/mnt/etc/fstab</code> configuration Adjust the 30G to the size of your /tmp partition.<br />
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>/dev/mapper/tmp     /tmp        tmpfs   defaults        0   0
-/dev/mapper/swap    none        swap    sw              0   0
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>/dev/mapper/tmp     /tmp        tmpfs   defaults,size=30G       0   0
+/dev/mapper/swap    none        swap    sw                      0   0
 </pre></div>
 </td></tr></table></p>
 <h4 id="modify-mntetccrypttab">Modify <code>/mnt/etc/crypttab</code><a class="headerlink" href="#modify-mntetccrypttab" title="Permanent link">&para;</a></h4>

@@ -2590,7 +2590,10 @@ e/n/d/r/c/s/q&gt; q
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># Allow loopback</span>
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># Allow loopback</span>
 iptables -A OUTPUT -o lo -j ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
 
@@ -2599,6 +2602,9 @@ iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">22</span> -m 
 
 <span class="c1"># Allow quassel incoming</span>
 iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">4242</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+<span class="c1"># Allow http/https incoming for certificate renewal</span>
+iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports <span class="m">80</span>,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 
 <span class="c1"># Allow ESTABLISHED and RELATED connection (important for outgoing connections!)</span>
 iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -2620,10 +2626,12 @@ iptables -P OUTPUT ACCEPT
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo iptables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo iptables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo iptables -A INPUT -i lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo iptables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">4242</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo iptables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports <span class="m">80</span>,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo iptables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo iptables -t filter -A INPUT -i eth0 -p icmp -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo iptables -P INPUT DROP<span class="p">;</span> <span class="se">\</span>
@@ -2638,10 +2646,12 @@ Set up needed ip6tables rules:<br />
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo ip6tables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo ip6tables -A OUTPUT -o lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo ip6tables -A INPUT -i lo -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">22</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo ip6tables -t filter -A INPUT -i eth0 -p tcp --dport <span class="m">4242</span> -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
+sudo ip6tables -t filter -A INPUT -i eth0 -p tcp -m multiport --dports <span class="m">80</span>,443 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo ip6tables -t filter -A INPUT -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo ip6tables -t filter -A INPUT -i eth0 -p ipv6-icmp -j ACCEPT<span class="p">;</span> <span class="se">\</span>
 sudo ip6tables -P INPUT DROP<span class="p">;</span> <span class="se">\</span>
