@@ -702,6 +702,33 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tlp-powermanagement" title="tlp (powermanagement)" class="md-nav__link">
+    tlp (powermanagement)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlp-service" title="tlp service" class="md-nav__link">
+    tlp service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlp-configuration" title="tlp configuration" class="md-nav__link">
+    tlp configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#powertop" title="Powertop" class="md-nav__link">
     Powertop
   </a>
@@ -1401,6 +1428,33 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tlp-powermanagement" title="tlp (powermanagement)" class="md-nav__link">
+    tlp (powermanagement)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlp-service" title="tlp service" class="md-nav__link">
+    tlp service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlp-configuration" title="tlp configuration" class="md-nav__link">
+    tlp configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#powertop" title="Powertop" class="md-nav__link">
     Powertop
   </a>
@@ -1706,7 +1760,7 @@ Include = /etc/pacman.d/mirrorlist
 <h4 id="install-packages">Install Packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h4>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pacman -Sy
-pacman -S grub efibootmgr networkmanager network-manager-applet wireless_tools zsh w3m vim powertop bc git
+pacman -S grub efibootmgr networkmanager network-manager-applet wireless_tools zsh w3m vim powertop tlp bc git
 </pre></div>
 </td></tr></table>
 
@@ -1895,13 +1949,20 @@ grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span cla
 <h5 id="configuring-the-boot-loader">Configuring the boot loader<a class="headerlink" href="#configuring-the-boot-loader" title="Permanent link">&para;</a></h5>
 <p>In order to unlock the encrypted root partition at boot, the following kernel parameters need to be set by the boot loader (<code>/etc/default/grub</code>):<br />
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet acpi_rev_override=1 pci=nommconf&quot;
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet pcie_aspm=off acpi_rev_override=1 modprobe.blacklist=nouveau nouveau.modeset=0 i915.modeset=1 enable_fbc=1 enable_psr=1 disable_power_well=0 pcie_port_pm=off&quot;
 GRUB_CMDLINE_LINUX=&quot;cryptdevice=/dev/mapper/osvg-root:root root=/dev/mapper/root&quot;
 </pre></div>
 </td></tr></table></p>
 <details class="info"><summary>Command explanation</summary><ul>
+<li><code>pcie_aspm=off</code> Forcibly enable or disable PCIe Active State Power Management.</li>
 <li><code>acpi_rev_override=1</code> is needed to get the NVIDIA graphics card working resp. to disable it.</li>
-<li>The kernel option <code>pci=nommconf</code> disables Memory-Mapped PCI Configuration Space, which is available in Linux since kernel 2.6. Very roughly, all PCI devices have an area that describe this device (which you see with lspci -vv), and the originally method to access this area involves going through I/O ports, while PCIe allows this space to be mapped to memory for simpler access.</li>
+<li><code>modprobe.blacklist=nouveau</code> blacklists nouveau driver (open source NVIDIA driver).</li>
+<li><code>nouveau.modeset=0</code> disables modeset for nouveau (just in case).</li>
+<li><code>i915.modeset=1</code> enables modeset for the i915 module (integrated intel graphics).</li>
+<li><code>enable_fbc=1</code> enables frame buffer compression.</li>
+<li><code>enable_psr=1</code> enables panel self refresh.</li>
+<li><code>disable_power_well=0</code> Try to disable possible power wells. </li>
+<li>The kernel option <code>pci=nommconf</code> disables Memory-Mapped PCI Configuration Space, which is available in Linux since kernel 2.6. Very roughly, all PCI devices have an area that describe this device (which you see with lspci -vv), and the originally method to access this area involves going through I/O ports, while PCIe allows this space to be mapped to memory for simpler access (currently unused, stays in documentation for documentation purposes).</li>
 <li><code>cryptdevice=/dev/mapper/osvg-root:root root=/dev/mapper/root</code> configures the crypt device.</li>
 </ul>
 </details>
@@ -1957,21 +2018,74 @@ systemctl <span class="nb">enable</span> acpid avahi-daemon org.cups.cupsd.servi
 
 <h3 id="get-graphics-card-and-x-working">Get graphics card and X working<a class="headerlink" href="#get-graphics-card-and-x-working" title="Permanent link">&para;</a></h3>
 <h4 id="install-graphic-card-tools">Install graphic card tools<a class="headerlink" href="#install-graphic-card-tools" title="Permanent link">&para;</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">Run graphics accelerated applications</p>
+<details class="info"><summary>Steam launch command explanation</summary><ul>
+<li><code>vblank_mode=0</code> - This let's render your graphics card faster then your screen refresh rate.</li>
+<li><code>primusrun</code> - Use primusrun to run the program on the second graphics card.</li>
+<li><code>%command%</code> - Runs the start command which steam uses to launch the game.</li>
+</ul>
+</details>
+<p><strong>Steam:</strong><br />
+1. Right click on <code>$GAME</code> in your Steam library.<br />
+2. <code>SET LAUNCH OPTIONS...</code><br />
+3. Add the following command.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">vblank_mode</span><span class="o">=</span><span class="m">0</span> primusrun %command%
+</pre></div>
+</td></tr></table></p>
+<p><strong>Other programs:</strong><br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">vblank_mode</span><span class="o">=</span><span class="m">0</span> primusrun &lt;program&gt;
+</pre></div>
+</td></tr></table></p>
+</div>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S bbswitch bumblebee primus lib32-primus
 </pre></div>
 </td></tr></table>
 Use <code>libglvnd</code> as libgl provider.</p>
+<p>Replace (or comment) the <code>Bridge=auto</code> option with:<br />
+<code>/etc/bumblebee/bumblebee.conf</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">Bridge</span><span class="o">=</span>primus
+</pre></div>
+</td></tr></table></p>
 <p>Enable the bumblebee service.<br />
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl <span class="nb">enable</span> bumblebeed.service
+</pre></div>
+</td></tr></table></p>
+<p>Add user to bumblebee group.<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo usermod -aG bumblebee phg
 </pre></div>
 </td></tr></table></p>
 <h4 id="graphics-card-driversutils">Graphics card drivers/utils<a class="headerlink" href="#graphics-card-driversutils" title="Permanent link">&para;</a></h4>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>yay -Sy
-yay -S nvidia nvidia-utils lib32-nvidia-utils
+yay -S nvidia nvidia-utils nvidia-xrun lib32-nvidia-utils
 </pre></div>
 </td></tr></table>
 
+<p>nvidia-xrun config:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Section <span class="s2">&quot;Device&quot;</span>
+    Identifier <span class="s2">&quot;nvidia&quot;</span>
+    Driver <span class="s2">&quot;nvidia&quot;</span>
+    BusID <span class="s2">&quot;PCI:1:0:0&quot;</span>
+EndSection
+Section <span class="s2">&quot;Screen&quot;</span>
+    Identifier <span class="s2">&quot;nvidia&quot;</span>
+    Device <span class="s2">&quot;nvidia&quot;</span>
+    <span class="c1">#  Option &quot;AllowEmptyInitialConfiguration&quot; &quot;Yes&quot;</span>
+    <span class="c1">#  Option &quot;UseDisplayDevice&quot; &quot;none&quot;</span>
+EndSection
+</pre></div>
+</td></tr></table></p>
 <h3 id="get-my-dot-files">Get my dot files<a class="headerlink" href="#get-my-dot-files" title="Permanent link">&para;</a></h3>
 <p>Clone my dotfiles.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -1997,6 +2111,28 @@ pip install --user -r dotdrop/requirements.txt
 <span class="nb">alias</span> <span class="nv">dotdrop</span><span class="o">=</span><span class="s1">&#39;eval $(grep -v &quot;^#&quot; ~/.files/.env.public) ~/.files/dotdrop.sh&#39;</span>
 dotdrop install
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+</pre></div>
+</td></tr></table></p>
+<h3 id="tlp-powermanagement">tlp (powermanagement)<a class="headerlink" href="#tlp-powermanagement" title="Permanent link">&para;</a></h3>
+<h4 id="tlp-service">tlp service<a class="headerlink" href="#tlp-service" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>systemctl <span class="nb">enable</span> tlp.service
+</pre></div>
+</td></tr></table>
+
+<h4 id="tlp-configuration">tlp configuration<a class="headerlink" href="#tlp-configuration" title="Permanent link">&para;</a></h4>
+<p>Uncomment these options and set the variable to these ones:<br />
+<code>/etc/default/tlp</code>:<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">[</span>...<span class="o">]</span>
+<span class="nv">TLP_DEFAULT_MODE</span><span class="o">=</span>BAT
+<span class="o">[</span>...<span class="o">]</span>
+<span class="nv">RUNTIME_PM_BLACKLIST</span><span class="o">=</span><span class="s2">&quot;01:00.0&quot;</span>
+<span class="o">[</span>...<span class="o">]</span>
+<span class="nv">RUNTIME_PM_ON_AC</span><span class="o">=</span>auto
 </pre></div>
 </td></tr></table></p>
 <h3 id="powertop">Powertop<a class="headerlink" href="#powertop" title="Permanent link">&para;</a></h3>
@@ -2035,11 +2171,17 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 <span class="s">EOF</span>
 </pre></div>
 </td></tr></table></p>
+<div class="admonition warning">
+<p class="admonition-title">Don't start/enable powertop for now</p>
+<p>Powertop is breaking bumblebee from Kernel 4.16.13. -- And tlp should also do a good job for saving power.
+See here for more details:<br />
+<a href="https://bbs.archlinux.org/viewtopic.php?id=238131">https://bbs.archlinux.org/viewtopic.php?id=238131</a></p>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo systemctl daemon-reload
-sudo systemctl start powertop.service
-sudo systemctl <span class="nb">enable</span> powertop.service
+<span class="c1">#sudo systemctl start powertop.service</span>
+<span class="c1">#sudo systemctl enable powertop.service</span>
 </pre></div>
 </td></tr></table>
 
@@ -2068,7 +2210,8 @@ alsa-oss
 12
 13
 14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S <span class="se">\</span>
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -S <span class="se">\</span>
 exfat-utils <span class="se">\</span>
 openssh <span class="se">\</span>
 net-tools <span class="se">\</span>
@@ -2080,12 +2223,17 @@ htop <span class="se">\</span>
 linux-headers <span class="se">\</span>
 wireguard-dkms <span class="se">\</span>
 wireguard-tools <span class="se">\</span>
-rsync
+rsync <span class="se">\</span>
+blueman
 
 yay -S tldr
 </pre></div>
 </td></tr></table>
 
+<p>Enable bluetooth service: 
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>systemctl <span class="nb">enable</span> bluetooth.service
+</pre></div>
+</td></tr></table></p>
 <h3 id="enable-ssh-agent-serive">Enable SSH-Agent Serive<a class="headerlink" href="#enable-ssh-agent-serive" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2

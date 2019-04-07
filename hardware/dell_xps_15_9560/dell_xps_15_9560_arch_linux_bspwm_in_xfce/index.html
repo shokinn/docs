@@ -952,13 +952,15 @@
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -Syu
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo pacman -Syu
 sudo pacman -S xorg-server xorg-xinit
 lspci <span class="p">|</span>grep VGA
 sudo pacman -S xf86-video-intel
 sudo localectl set-x11-keymap de pc105 nodeadkeys
 sudo pacman -S xfce4 xfce4-goodies human-icon-theme
 yay -S xfce4-volumed-pulse
+sudo pacman -S pavucontrol
 </pre></div>
 </td></tr></table>
 
@@ -1488,7 +1490,6 @@ caffeine
 <ul>
 <li>Audio (Mic)<ul>
 <li>Get external Microphones working!</li>
-<li>Fix audio controls in xfce</li>
 </ul>
 </li>
 </ul>
