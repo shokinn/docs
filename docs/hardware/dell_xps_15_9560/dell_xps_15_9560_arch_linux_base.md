@@ -410,17 +410,16 @@ GRUB_CMDLINE_LINUX="cryptdevice=/dev/mapper/osvg-root:root root=/dev/mapper/root
 ```
 
 ??? info "Command explanation"
-	* `pcie_aspm=off` Forcibly enable or disable PCIe Active State Power Management.
-  * `acpi_rev_override=1` is needed to get the NVIDIA graphics card working resp. to disable it.
-  * `modprobe.blacklist=nouveau` blacklists nouveau driver (open source NVIDIA driver).
-  * `nouveau.modeset=0` disables modeset for nouveau (just in case).
-  * `i915.modeset=1` enables modeset for the i915 module (integrated intel graphics).
-  * `enable_fbc=1` enables frame buffer compression.
-  * `enable_psr=1` enables panel self refresh.
-  * `disable_power_well=0` Try to disable possible power wells. 
-	* The kernel option `pci=nommconf` disables Memory-Mapped PCI Configuration Space, which is available in Linux since kernel 2.6. Very roughly, all PCI devices have an area that describe this device (which you see with lspci -vv), and the originally method to access this area involves going through I/O ports, while PCIe allows this space to be mapped to memory for simpler access.
-
-	* `cryptdevice=/dev/mapper/osvg-root:root root=/dev/mapper/root` configures the crypt device.
+    * `pcie_aspm=off` Forcibly enable or disable PCIe Active State Power Management.
+    * `acpi_rev_override=1` is needed to get the NVIDIA graphics card working resp. to disable it.
+    * `modprobe.blacklist=nouveau` blacklists nouveau driver (open source NVIDIA driver).
+    * `nouveau.modeset=0` disables modeset for nouveau (just in case).
+    * `i915.modeset=1` enables modeset for the i915 module (integrated intel graphics).
+    * `enable_fbc=1` enables frame buffer compression.
+    * `enable_psr=1` enables panel self refresh.
+    * `disable_power_well=0` Try to disable possible power wells. 
+    * The kernel option `pci=nommconf` disables Memory-Mapped PCI Configuration Space, which is available in Linux since kernel 2.6. Very roughly, all PCI devices have an area that describe this device (which you see with lspci -vv), and the originally method to access this area involves going through I/O ports, while PCIe allows this space to be mapped to memory for simpler access (currently unused, stays in documentation for documentation purposes).
+    * `cryptdevice=/dev/mapper/osvg-root:root root=/dev/mapper/root` configures the crypt device.
 
 ##### Generate GRUB config
 
@@ -606,7 +605,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-!!! Info "Don't start/enable powertop for now"
+!!! Warning "Don't start/enable powertop for now"
     Powertop is breaking bumblebee from Kernel 4.16.13. -- And tlp should also do a good job for saving power.
     See here for more details:  
     <https://bbs.archlinux.org/viewtopic.php?id=238131>
