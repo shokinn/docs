@@ -12,6 +12,7 @@ sudo pacman -S xf86-video-intel
 sudo localectl set-x11-keymap de pc105 nodeadkeys
 sudo pacman -S xfce4 xfce4-goodies human-icon-theme
 yay -S xfce4-volumed-pulse
+sudo pacman -S pavucontrol
 ```
 
 Start xfce with:  
@@ -398,4 +399,3 @@ caffeine
 # TODO
 * Audio (Mic)
 	* Get external Microphones working!
-	* Fix audio controls in xfce
