@@ -1,3 +1,7 @@
+# IMPORTANT - DO NOT PULISH, SINCE IT'S USING GOOGLE FONTS BY NOW!
+
+See: <https://www.heise.de/news/DSGVO-Abmahnwelle-wegen-Google-Fonts-7206364.html>
+
 # Philip's Docs
 
 These are my docs about any stuff which I find interesting and I think it#s worth to document.  
